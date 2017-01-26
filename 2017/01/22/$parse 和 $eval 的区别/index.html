@@ -9,7 +9,8 @@
 $parse典型的使用是放在设置字符串表达式映射在真实对象上的值。也可以从$parse上直接获取到表达式对应的值。
 
 var getter = $parse(&amp;apos;user.name&amp;apos;); 
-var setter = getter.assi">
+
+$eval 即scope.$eval，是执行当">
 <meta property="og:type" content="article">
 <meta property="og:title" content="$parse 和  $eval  区别">
 <meta property="og:url" content="http://yoursite.com/2017/01/22/$parse 和 $eval 的区别/index.html">
@@ -18,15 +19,17 @@ var setter = getter.assi">
 $parse典型的使用是放在设置字符串表达式映射在真实对象上的值。也可以从$parse上直接获取到表达式对应的值。
 
 var getter = $parse(&amp;apos;user.name&amp;apos;); 
-var setter = getter.assi">
-<meta property="og:updated_time" content="2017-01-26T15:13:12.399Z">
+
+$eval 即scope.$eval，是执行当">
+<meta property="og:updated_time" content="2017-01-26T15:54:59.365Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="$parse 和  $eval  区别">
 <meta name="twitter:description" content="首先，$parse跟$eval都是用来解析表达式的， 但是$parse是作为一个单独的服务存在的。$eval是作为scope的方法来使用的。
 $parse典型的使用是放在设置字符串表达式映射在真实对象上的值。也可以从$parse上直接获取到表达式对应的值。
 
 var getter = $parse(&amp;apos;user.name&amp;apos;); 
-var setter = getter.assi">
+
+$eval 即scope.$eval，是执行当">
   
     <link rel="alternate" href="/atom.xml" title="welcome to Nancy blog" type="application/atom+xml">
   
@@ -64,9 +67,9 @@ var setter = getter.assi">
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -102,23 +105,18 @@ var setter = getter.assi">
 <li>$parse典型的使用是放在设置字符串表达式映射在真实对象上的值。也可以从$parse上直接获取到表达式对应的值。</li>
 </ul>
 <pre><code>var getter = $parse(&apos;user.name&apos;); 
-var setter = getter.assign; 
-setter(scope, &apos;new name&apos;);
-getter(context, locals) // 传入作用域，返回值
-setter(scope,&apos;new name&apos;) // 修改映射在scope上的属性的值为‘new value’
 </code></pre><ul>
-<li><p>$eval 即scope.$eval，是执行当前作用域下的表达式，如：scope.$eval(‘a+b’); 而这个里的a,b是来自 scope = {a: 2, b:3};<br>看看源码它的实现是</p>
-<p>  $eval: function(expr, locals) {</p>
-<pre><code>return $parse(expr)(this, locals);
-</code></pre><p>  }</p>
-</li>
+<li>$eval 即scope.$eval，是执行当前作用域下的表达式，如：scope.$eval(‘a+b’); 而这个里的a,b是来自 scope = {a: 2, b:3};<br>看看源码它的实现是</li>
 </ul>
-<pre><code>可以找到它也是基于$parse，不过它的参数已经被固定为this，就是当前的scope，所以$eval只是在$parse基础上的封装而已，是一种$parse快捷的API。
-</code></pre>
+<pre><code>$eval: function(expr, locals) {
+        return $parse(expr)(this, locals);
+    }
+</code></pre><p>  可以找到它也是基于$parse，不过它的参数已经被固定为this，就是当前的scope，所以$eval只是在$parse基础上的封装而已，是一种$parse快捷的API。  </p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/22/$parse 和 $eval 的区别/" data-id="ciyek5q8u0000isfs4rlvfmf1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/22/$parse 和 $eval 的区别/" data-id="ciyek9bgm0000s4fsbhzvieqv" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -152,7 +150,7 @@ setter(scope,&apos;new name&apos;) // 修改映射在scope上的属性的值为�
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -173,7 +171,7 @@ setter(scope,&apos;new name&apos;) // 修改映射在scope上的属性的值为�
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
