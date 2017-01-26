@@ -3,14 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>welcome to Nancy blog</title>
+  <title>$parse 和  $eval  区别 | welcome to Nancy blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="welcome to Nancy blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="首先，$parse跟$eval都是用来解析表达式的， 但是$parse是作为一个单独的服务存在的。$eval是作为scope的方法来使用的。
+$parse典型的使用是放在设置字符串表达式映射在真实对象上的值。也可以从$parse上直接获取到表达式对应的值。
+
+var getter = $parse(&amp;apos;user.name&amp;apos;); 
+var setter = getter.assi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="$parse 和  $eval  区别">
+<meta property="og:url" content="http://yoursite.com/2017/01/22/$parse 和 $eval 的区别/index.html">
 <meta property="og:site_name" content="welcome to Nancy blog">
+<meta property="og:description" content="首先，$parse跟$eval都是用来解析表达式的， 但是$parse是作为一个单独的服务存在的。$eval是作为scope的方法来使用的。
+$parse典型的使用是放在设置字符串表达式映射在真实对象上的值。也可以从$parse上直接获取到表达式对应的值。
+
+var getter = $parse(&amp;apos;user.name&amp;apos;); 
+var setter = getter.assi">
+<meta property="og:updated_time" content="2017-01-26T15:13:12.399Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="welcome to Nancy blog">
+<meta name="twitter:title" content="$parse 和  $eval  区别">
+<meta name="twitter:description" content="首先，$parse跟$eval都是用来解析表达式的， 但是$parse是作为一个单独的服务存在的。$eval是作为scope的方法来使用的。
+$parse典型的使用是放在设置字符串表达式映射在真实对象上的值。也可以从$parse上直接获取到表达式对应的值。
+
+var getter = $parse(&amp;apos;user.name&amp;apos;); 
+var setter = getter.assi">
   
     <link rel="alternate" href="/atom.xml" title="welcome to Nancy blog" type="application/atom+xml">
   
@@ -59,9 +75,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-$parse 和 $eval 的区别" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-$parse 和 $eval 的区别" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/01/22/$parse 和 $eval 的区别/" class="article-date">
   <time datetime="2017-01-22T03:27:29.613Z" itemprop="datePublished">2017-01-22</time>
@@ -74,8 +88,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/22/$parse 和 $eval 的区别/">$parse 和  $eval  区别</a>
+    <h1 class="article-title" itemprop="name">
+      $parse 和  $eval  区别
     </h1>
   
 
@@ -110,10 +124,9 @@ setter(scope,&apos;new name&apos;) // 修改映射在scope上的属性的值为�
     </footer>
   </div>
   
-</article>
-
-
+    
   
+</article>
 
 </section>
         
