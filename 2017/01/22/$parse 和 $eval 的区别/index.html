@@ -94,14 +94,14 @@ $parse典型的使用是放在设置字符串表达式映射在真实对象上�
 $eval 即scope.$eval，是执行当前作用域下的表达式，如">
 <meta property="og:type" content="article">
 <meta property="og:title" content="$parse 和  $eval  区别">
-<meta property="og:url" content="http://yoursite.com/2017/01/22/$parse 和 $eval 的区别/index.html">
+<meta property="og:url" content="http://wupengli.cn/2017/01/22/$parse 和 $eval 的区别/index.html">
 <meta property="og:site_name" content="Welcome To Nancy Blog">
 <meta property="og:description" content="首先，$parse跟$eval都是用来解析表达式的， 但是$parse是作为一个单独的服务存在的。$eval是作为scope的方法来使用的。
 $parse典型的使用是放在设置字符串表达式映射在真实对象上的值。也可以从$parse上直接获取到表达式对应的值。
 1var getter = $parse(&apos;user.name&apos;);
 
 $eval 即scope.$eval，是执行当前作用域下的表达式，如">
-<meta property="og:updated_time" content="2017-02-10T15:03:27.049Z">
+<meta property="og:updated_time" content="2017-02-10T15:12:53.482Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="$parse 和  $eval  区别">
 <meta name="twitter:description" content="首先，$parse跟$eval都是用来解析表达式的， 但是$parse是作为一个单独的服务存在的。$eval是作为scope的方法来使用的。
@@ -136,7 +136,7 @@ $eval 即scope.$eval，是执行当前作用域下的表达式，如">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/22/$parse 和 $eval 的区别/"/>
+  <link rel="canonical" href="http://wupengli.cn/2017/01/22/$parse 和 $eval 的区别/"/>
 
 
 
@@ -182,7 +182,7 @@ $eval 即scope.$eval，是执行当前作用域下的表达式，如">
     </a>
   </div>
     
-      <p class="site-subtitle"></p>
+      <p class="site-subtitle">I am a FD</p>
     
 </div>
 
@@ -289,10 +289,10 @@ $eval 即scope.$eval，是执行当前作用域下的表达式，如">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/22/$parse 和 $eval 的区别/">
+  <link itemprop="mainEntityOfPage" href="http://wupengli.cn/2017/01/22/$parse 和 $eval 的区别/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="John Doe">
+    <meta itemprop="name" content="吴鹏丽">
     <meta itemprop="description" content="">
     <meta itemprop="image" content="/uploads/avatar.jpg">
   </span>
@@ -370,7 +370,9 @@ $eval 即scope.$eval，是执行当前作用域下的表达式，如">
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> getter = $parse(<span class="string">'user.name'</span>);</div></pre></td></tr></table></figure>
 </li>
 <li><p>$eval 即scope.$eval，是执行当前作用域下的表达式，如：scope.$eval(‘a+b’); 而这个里的a,b是来自 scope = {a: 2, b:3};<br>看看源码它的实现是</p>
-<pre><code class="javascript"><span class="keyword">var</span> getter = $parse(<span class="string">'user.name'</span>);
+<pre><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">$eval</span>(<span class="params">expr, locals</span>) </span>{
+       <span class="keyword">return</span> $parse(expr)(<span class="keyword">this</span>, locals);
+  }
 </code></pre>
 <p>可以找到它也是基于$parse，不过它的参数已经被固定为this，就是当前的scope，所以$eval只是在$parse基础上的封装而已，是一种$parse快捷的API。  </p>
 </li>
@@ -449,9 +451,9 @@ $eval 即scope.$eval，是执行当前作用域下的表达式，如">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
-               alt="John Doe" />
-          <p class="site-author-name" itemprop="name">John Doe</p>
-          <p class="site-description motion-element" itemprop="description"></p>
+               alt="吴鹏丽" />
+          <p class="site-author-name" itemprop="name">吴鹏丽</p>
+          <p class="site-description motion-element" itemprop="description">一枚前端小虾</p>
         </div>
         <nav class="site-state motion-element">
         
@@ -506,7 +508,7 @@ $eval 即scope.$eval，是执行当前作用域下的表达式，如">
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">吴鹏丽</span>
 </div>
 
 
