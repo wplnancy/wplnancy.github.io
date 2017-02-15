@@ -137,7 +137,7 @@ ng-app=&amp;quot;myApp&amp;quot;
 启动angular项目的，myApp表示通过模块来启动项目，会产生一个根作用域（全局作用域）一切从模块开始
 
 创建模块 1angular.module(name, [requires], [confi">
-<meta property="og:updated_time" content="2017-02-14T15:49:41.260Z">
+<meta property="og:updated_time" content="2017-02-15T01:45:17.254Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="angular知识点扫盲">
 <meta name="twitter:description" content="模块的概念angular是典型的MVVM的框架
@@ -413,9 +413,9 @@ ng-app=&amp;quot;myApp&amp;quot;
 </ul>
 <h3 id="启动多个模块"><a href="#启动多个模块" class="headerlink" title="启动多个模块"></a>启动多个模块</h3><p>将不同的模块应用到不同的div上，达到启动多个ng-app的效果</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-controller=&quot;appCtrl&quot; id=&quot;div1&quot;&gt;&#123;&#123;name&#125;&#125;&lt;/div&gt;</div><div class="line">&lt;div ng-controller=&quot;appCtrl&quot; id=&quot;div2&quot;&gt;&#123;&#123;name&#125;&#125;&lt;/div&gt;</div><div class="line">var app1 = angular.module(&apos;appModule2&apos;,[]);</div><div class="line">app1.controller(&apos;appCtrl&apos;, function ($scope,$interval) &#123;</div><div class="line">    $scope.name = &apos;hello&apos;;</div><div class="line">&#125;);</div><div class="line">var app = angular.module(&apos;appModule1&apos;,[]);</div><div class="line">app.controller(&apos;appCtrl&apos;, function ($scope,$interval) &#123;</div><div class="line">    $scope.name = &apos;angular&apos;;</div><div class="line">&#125;);</div><div class="line">angular.bootstrap(div1,[&apos;appModule1&apos;]);</div><div class="line">angular.bootstrap(div2,[&apos;appModule2&apos;]);</div></pre></td></tr></table></figure>
-<h2 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h2><h3 id="创建控制器"><a href="#创建控制器" class="headerlink" title="创建控制器"></a>创建控制器</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'appModule'</span>).controller(<span class="string">'appCtrl'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</div></pre></td></tr></table></figure>
+<h2 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h2><h3 id="创建控制器"><a href="#创建控制器" class="headerlink" title="创建控制器"></a>创建控制器</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'app'</span>).controller(<span class="string">'appCtrl'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</div></pre></td></tr></table></figure>
 <h3 id="使用控制器"><a href="#使用控制器" class="headerlink" title="使用控制器"></a>使用控制器</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-controller=<span class="string">"ctrl"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
-<h3 id="控制器中的-scope"><a href="#控制器中的-scope" class="headerlink" title="控制器中的$scope"></a>控制器中的$scope</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'appModule'</span>).controller(<span class="string">'appCtrl'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;&#125;);</div></pre></td></tr></table></figure>
+<h3 id="控制器中的-scope"><a href="#控制器中的-scope" class="headerlink" title="控制器中的$scope"></a>控制器中的$scope</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'app'</span>).controller(<span class="string">'appCtrl'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;&#125;);</div></pre></td></tr></table></figure>
 <p>当前作用域$scope,$scope就是viewModel</p>
 <h3 id="控制器的特点"><a href="#控制器的特点" class="headerlink" title="控制器的特点"></a>控制器的特点</h3><ul>
 <li>controller和DOM平行，确定控制器管辖的范围</li>
@@ -561,6 +561,10 @@ ng-app=&amp;quot;myApp&amp;quot;
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/02/15/服务/" rel="prev" title="服务">
+                服务 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -636,7 +640,7 @@ ng-app=&amp;quot;myApp&amp;quot;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
