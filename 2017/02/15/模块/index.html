@@ -117,7 +117,7 @@ js没有模块系统，不支持封闭作用域或依赖管理
 没有包管理系统，不能自动加载和安装依赖
 
 什么是Common.jsCommonJS 是javascript模块化编程的一种规范，主要是在服务器端模块化的规范，一个单独的文件就是一个模块。每一个模块都是一个单独的作用域，也就是说，在该模块内部定义的变量，无法被其他模块读取，除非定义为global对象的属性。
-##">
+模块">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模块">
 <meta property="og:url" content="http://yoursite.com/2017/02/15/模块/index.html">
@@ -128,8 +128,8 @@ js没有模块系统，不支持封闭作用域或依赖管理
 没有包管理系统，不能自动加载和安装依赖
 
 什么是Common.jsCommonJS 是javascript模块化编程的一种规范，主要是在服务器端模块化的规范，一个单独的文件就是一个模块。每一个模块都是一个单独的作用域，也就是说，在该模块内部定义的变量，无法被其他模块读取，除非定义为global对象的属性。
-##">
-<meta property="og:updated_time" content="2017-02-15T08:06:35.610Z">
+模块">
+<meta property="og:updated_time" content="2017-02-16T00:21:41.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模块">
 <meta name="twitter:description" content="js不足
@@ -138,7 +138,7 @@ js没有模块系统，不支持封闭作用域或依赖管理
 没有包管理系统，不能自动加载和安装依赖
 
 什么是Common.jsCommonJS 是javascript模块化编程的一种规范，主要是在服务器端模块化的规范，一个单独的文件就是一个模块。每一个模块都是一个单独的作用域，也就是说，在该模块内部定义的变量，无法被其他模块读取，除非定义为global对象的属性。
-##">
+模块">
 
 
 
@@ -386,7 +386,34 @@ js没有模块系统，不支持封闭作用域或依赖管理
 <li>没有包管理系统，不能自动加载和安装依赖</li>
 </ul>
 <h2 id="什么是Common-js"><a href="#什么是Common-js" class="headerlink" title="什么是Common.js"></a>什么是Common.js</h2><p>CommonJS 是javascript模块化编程的一种规范，主要是在服务器端模块化的规范，一个单独的文件就是一个模块。每一个模块都是一个单独的作用域，也就是说，在该模块内部定义的变量，无法被其他模块读取，除非定义为global对象的属性。</p>
-<p>## </p>
+<h2 id="模块的使用"><a href="#模块的使用" class="headerlink" title="模块的使用"></a>模块的使用</h2><h3 id="模块化的概念"><a href="#模块化的概念" class="headerlink" title="模块化的概念"></a>模块化的概念</h3><p>定义模块 一个单独的文件就是一个模块。每一个模块都是一个单独的作用域</p>
+<p>导出模块 使用<code>module.exports</code>或者<code>exports</code></p>
+<p>在node中实际导出的模块是<code>module.exports</code></p>
+<p>内部实现是：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports=exports=&#123;&#125;;</div><div class="line"><span class="comment">//stu.js文件中</span></div><div class="line">obj=&#123;<span class="attr">name</span>:<span class="string">"wpl"</span>,<span class="attr">age</span>:<span class="number">22</span>&#125;;</div><div class="line"><span class="built_in">module</span>.exports=obj;</div></pre></td></tr></table></figure></p>
+<p>调用：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s=<span class="built_in">require</span>(<span class="string">"./stu"</span>);</div><div class="line"><span class="built_in">console</span>.log(s.name);</div></pre></td></tr></table></figure></p>
+<p>如果方式为：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exports.stu=obj</div></pre></td></tr></table></figure></p>
+<p>//实际上是给<code>module.exports</code>和<code>exports</code>添加了一个stu的属性，这两个变量还是指向的同一个内存地址<br>调用：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s=<span class="built_in">require</span>(<span class="string">"./stu"</span>);</div><div class="line"><span class="built_in">console</span>.log(s.stu.name);</div></pre></td></tr></table></figure></p>
+<p>切记:<br><code>exports=obj;</code>//这个时候<code>module.exports</code>和<code>exports</code>的内存地址就不是一个了，然而最终导出的是<code>module.exports={}</code>,所以这种做法是错误的</p>
+<p>使用模块 通过require使用模块</p>
+<h3 id="文件的作用域"><a href="#文件的作用域" class="headerlink" title="文件的作用域"></a>文件的作用域</h3><p>每个模块都是一个单独的作用域,通过闭包的形式产生独立作用域</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">exports,require,module,__filename,__dirname</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">module</span>.exports;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>我们新建一个js文件，代码都是作用在这个闭包里面，所以<code>exports,require,module,__filename,__dirname</code>这5个形参是可以直接拿来使用的</p>
+<h3 id="文件加载缓存"><a href="#文件加载缓存" class="headerlink" title="文件加载缓存"></a>文件加载缓存</h3><p>加载模块会缓存，加载多次会得到同一个对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>(<span class="string">'./test.js'</span>);</div></pre></td></tr></table></figure>
+<p>查看模块的缓存<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">require</span>.cache);</div></pre></td></tr></table></figure></p>
+<p>查看模块的绝对路径</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.resolve(<span class="string">'./test.js'</span>);</div></pre></td></tr></table></figure>
+<p>查看单个的模块缓存</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.cache[<span class="built_in">require</span>.resolve(<span class="string">'./test.js'</span>)]</div></pre></td></tr></table></figure>
+<p>删除模块缓存</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> <span class="built_in">require</span>.cache[<span class="string">'G:\\work\\Node\\cache.js'</span>];</div></pre></td></tr></table></figure>
+<p>导出类和对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">exports,require,module,__filename,__dirname</span>)</span>&#123;</div><div class="line">    exports = <span class="built_in">module</span>.exports = &#123;&#125;;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">module</span>.exports;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="包和npm"><a href="#包和npm" class="headerlink" title="包和npm"></a>包和npm</h3><ul>
+<li>多个模块(多个文件)可以封装成一个包</li>
+<li>npm是node.js默认的模块管理器,用来安装和管理node模块</li>
+<li>可以用包的方式通过npm安装、卸载、发布包</li>
+</ul>
 
       
     </div>
@@ -432,6 +459,10 @@ js没有模块系统，不支持封闭作用域或依赖管理
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/16/ES6常用语法总结/" rel="prev" title="ES6常用语法总结">
+                ES6常用语法总结 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -508,7 +539,7 @@ js没有模块系统，不支持封闭作用域或依赖管理
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -519,7 +550,7 @@ js没有模块系统，不支持封闭作用域或依赖管理
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -554,7 +585,7 @@ js没有模块系统，不支持封闭作用域或依赖管理
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#js不足"><span class="nav-number">1.</span> <span class="nav-text">js不足</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Common-js"><span class="nav-number">2.</span> <span class="nav-text">什么是Common.js</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#js不足"><span class="nav-number">1.</span> <span class="nav-text">js不足</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Common-js"><span class="nav-number">2.</span> <span class="nav-text">什么是Common.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块的使用"><span class="nav-number">3.</span> <span class="nav-text">模块的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模块化的概念"><span class="nav-number">3.1.</span> <span class="nav-text">模块化的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件的作用域"><span class="nav-number">3.2.</span> <span class="nav-text">文件的作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件加载缓存"><span class="nav-number">3.3.</span> <span class="nav-text">文件加载缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包和npm"><span class="nav-number">3.4.</span> <span class="nav-text">包和npm</span></a></li></ol></li></ol></div>
             
 
           </div>
