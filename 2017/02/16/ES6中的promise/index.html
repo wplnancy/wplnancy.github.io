@@ -122,7 +122,7 @@ Promise对象有以下两个特点。
 Promise对象有以下两个特点。
 （1）对象的状态不受外界影响。Promise对象代表一个异步操作，有三种状态：等待态（Pending）、执行态（Fulfilled）和拒绝态（Rejecte">
 <meta property="og:image" content="http://yoursite.com/img/promise.png">
-<meta property="og:updated_time" content="2017-02-16T15:40:50.997Z">
+<meta property="og:updated_time" content="2017-02-24T11:34:00.229Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6中的promise">
 <meta name="twitter:description" content="什么是PromisePromise是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。它由社区最早提出和实现，ES6将其写进了语言标准，统一了用法，原生提供了Promise对象。
@@ -413,7 +413,7 @@ Promise对象有以下两个特点。
 <p>在then里面的回调开始执行时，runAsync2()和runAsync3()并没有停止，仍旧再执行。于是再过1秒后，输出了他们结束的标志。</p>
 <p>这个race有什么用呢？使用场景还是很多的，比如我们可以用race给某个异步请求设置超时时间，并且在超时后执行相应的操作，代码如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//请求某个图片资源  </span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">requestImg</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">    <span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;  </div><div class="line">        <span class="keyword">var</span> img = <span class="keyword">new</span> Image();  </div><div class="line">        img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">            resolve(img);  </div><div class="line">        &#125;  </div><div class="line">        img.src = <span class="string">'xxxxxx'</span>;  </div><div class="line">    &#125;);  </div><div class="line">    <span class="keyword">return</span> p;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="comment">//延时函数，用于给请求计时  </span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">timeout</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">    <span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;  </div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">            reject(<span class="string">'图片请求超时'</span>);  </div><div class="line">        &#125;, <span class="number">5000</span>);  </div><div class="line">    &#125;);  </div><div class="line">    <span class="keyword">return</span> p;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="built_in">Promise</span>  </div><div class="line">.race([requestImg(), timeout()])  </div><div class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">results</span>)</span>&#123;  </div><div class="line">    <span class="built_in">console</span>.log(results);  </div><div class="line">&#125;)  </div><div class="line">.catch(<span class="function"><span class="keyword">function</span>(<span class="params">reason</span>)</span>&#123;  </div><div class="line">    <span class="built_in">console</span>.log(reason);  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>requestImg函数会异步请求一张图片，我把地址写为”xxxxxx”，所以肯定是无法成功请求到的。timeout函数是一个延时5秒的异步操作。我们把这两个返回Promise对象的函数放进race，于是他俩就会赛跑，如果5秒之内图片请求成功了，那么遍进入then方法，执行正常的流程。如果5秒钟图片还未成功返回，那么timeout就跑赢了，则进入catch，报出“图片请求超时”的信息。</p>
+<p>requestImg函数会异步请求一张图片，我把地址写为”xxxxxx”，所以肯定是无法成功请求到的。timeout函数是一个延时5秒的异步操作。我们把这两个返回Promise对象的函数放进race，于是他俩就会赛跑，如果5秒之内图片请求成功了，那么遍进入then方法行正常的流程。如果5秒钟图片还未成功返回，那么timeout就跑赢了，则进入catch，报出“图片请求超时”的信息。</p>
 
       
     </div>
@@ -539,7 +539,7 @@ Promise对象有以下两个特点。
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -550,7 +550,7 @@ Promise对象有以下两个特点。
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
