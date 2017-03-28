@@ -95,7 +95,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="node," />
+  <meta name="keywords" content="vue," />
 
 
 
@@ -113,19 +113,31 @@
 
 
 
-<meta name="description" content="准备工作123$ mkdir wplpackage$ cd wplpackage$ npm init -y
-生成文件：123456789101112&amp;#123;  &amp;quot;name&amp;quot;: &amp;quot;wplpackage&amp;quot;,  &amp;quot;version&amp;quot;: &amp;quot;1.0.0&amp;quot;,  &amp;quot;description&amp;quot;: &amp;quot;&amp;qu">
+<meta name="description" content="定义全局组件所谓的全局组件是在项目中的任何一个地方都是可以使用的
+1Vue.use(myButton);
+在html代码中使用自定义的全局组件
+12&amp;lt;myButton&amp;gt;点我&amp;lt;/myButton&amp;gt;&amp;lt;myButton&amp;gt;哈哈&amp;lt;/myButton&amp;gt;
+index.js文件
+1234567import  Vue from  &quot;vue&quot;;import Button">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何发布自己的包到npm">
-<meta property="og:url" content="http://yoursite.com/2017/02/11/如何发布自己的包到npm/index.html">
+<meta property="og:title" content="vue基础入门">
+<meta property="og:url" content="http://yoursite.com/2017/03/28/vue基础入门/index.html">
 <meta property="og:site_name" content="wupengli Blog">
-<meta property="og:description" content="准备工作123$ mkdir wplpackage$ cd wplpackage$ npm init -y
-生成文件：123456789101112&amp;#123;  &amp;quot;name&amp;quot;: &amp;quot;wplpackage&amp;quot;,  &amp;quot;version&amp;quot;: &amp;quot;1.0.0&amp;quot;,  &amp;quot;description&amp;quot;: &amp;quot;&amp;qu">
-<meta property="og:updated_time" content="2017-02-16T00:18:48.086Z">
+<meta property="og:description" content="定义全局组件所谓的全局组件是在项目中的任何一个地方都是可以使用的
+1Vue.use(myButton);
+在html代码中使用自定义的全局组件
+12&amp;lt;myButton&amp;gt;点我&amp;lt;/myButton&amp;gt;&amp;lt;myButton&amp;gt;哈哈&amp;lt;/myButton&amp;gt;
+index.js文件
+1234567import  Vue from  &quot;vue&quot;;import Button">
+<meta property="og:updated_time" content="2017-03-28T11:29:53.263Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何发布自己的包到npm">
-<meta name="twitter:description" content="准备工作123$ mkdir wplpackage$ cd wplpackage$ npm init -y
-生成文件：123456789101112&amp;#123;  &amp;quot;name&amp;quot;: &amp;quot;wplpackage&amp;quot;,  &amp;quot;version&amp;quot;: &amp;quot;1.0.0&amp;quot;,  &amp;quot;description&amp;quot;: &amp;quot;&amp;qu">
+<meta name="twitter:title" content="vue基础入门">
+<meta name="twitter:description" content="定义全局组件所谓的全局组件是在项目中的任何一个地方都是可以使用的
+1Vue.use(myButton);
+在html代码中使用自定义的全局组件
+12&amp;lt;myButton&amp;gt;点我&amp;lt;/myButton&amp;gt;&amp;lt;myButton&amp;gt;哈哈&amp;lt;/myButton&amp;gt;
+index.js文件
+1234567import  Vue from  &quot;vue&quot;;import Button">
 
 
 
@@ -153,13 +165,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/11/如何发布自己的包到npm/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/28/vue基础入门/"/>
 
 
 
 
 
-  <title> 如何发布自己的包到npm | wupengli Blog </title>
+  <title> vue基础入门 | wupengli Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -282,7 +294,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/11/如何发布自己的包到npm/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/28/vue基础入门/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="吴鹏丽">
@@ -306,7 +318,7 @@
             
             
               
-                如何发布自己的包到npm
+                vue基础入门
               
             
           </h1>
@@ -321,8 +333,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-11T11:38:16+08:00">
-                2017-02-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-28T17:55:18+08:00">
+                2017-03-28
               </time>
             
 
@@ -340,8 +352,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/11/如何发布自己的包到npm/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/11/如何发布自己的包到npm/" itemprop="commentCount"></span>
+                <a href="/2017/03/28/vue基础入门/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/28/vue基础入门/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -367,28 +379,14 @@
       
 
       
-        <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir wplpackage</div><div class="line">$ cd wplpackage</div><div class="line">$ npm init -y</div></pre></td></tr></table></figure>
-<p>生成文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;name&quot;: &quot;wplpackage&quot;,</div><div class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</div><div class="line">  &quot;description&quot;: &quot;&quot;,</div><div class="line">  &quot;main&quot;: &quot;index.js&quot;,//这是一个入口文件</div><div class="line">  &quot;scripts&quot;: &#123;</div><div class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;keywords&quot;: [],</div><div class="line">  &quot;author&quot;: &quot;&quot;,</div><div class="line">  &quot;license&quot;: &quot;ISC&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="管理包"><a href="#管理包" class="headerlink" title="管理包"></a>管理包</h2><p>在wplpackage目录下生成新建一个<code>index.js</code>入口文件，例如<br>示例代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str=&quot;welcome to download my package&quot;;</div><div class="line">module.exports=str;</div></pre></td></tr></table></figure>
-<p>发布自己的包：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm publish</div></pre></td></tr></table></figure></p>
-<p>如果出现<code>+ wplpackage@1.0.0</code>表示发布成功</p>
-<p>如何修改发布：注意-不能发布比以前版本更低的包,第二次发布需要修改版本号才能成功<br>将<code>package.js</code>文件修改版本号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&quot;version&quot;: &quot;1.0.1&quot;</div></pre></td></tr></table></figure></p>
-<p>再次发布   <code>npm publish</code></p>
-<h2 id="如何引入第三方包"><a href="#如何引入第三方包" class="headerlink" title="如何引入第三方包"></a>如何引入第三方包</h2><p>模块分类：</p>
-<ul>
-<li>第三方模块： 引入：<code>require(模块名)</code></li>
-<li>文件模块：   引入：<code>require(./模块名)</code></li>
-<li>核心模块：   不需要下载，node自带,例如：util模块</li>
-</ul>
-<p>查看包的发布信息  <code>npm info wplpackage</code></p>
-<p><code>node_modules</code>文件夹下的模块称之为第三方模块</p>
-<p>下载包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install wplpackage -S</div></pre></td></tr></table></figure></p>
-<p>引入模块，引入第三方模块不需要使用(<code>./</code>引用),当没有以’/‘或者’./‘来指向一个文件时，这个模块要么是核心模块,要么就是从node_modules文件夹加载的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str=require(&apos;wplpackage&apos;);</div><div class="line">console.log(str);</div></pre></td></tr></table></figure>
-<p>打印第三方包查找的路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(mudule.paths);</div></pre></td></tr></table></figure></p>
-<p>显示结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[ &apos;G:\\work\\Node\\course\\week1\\demo\\node_modules&apos;,</div><div class="line">  &apos;G:\\work\\Node\\course\\week1\\node_modules&apos;,</div><div class="line">  &apos;G:\\work\\Node\\course\\node_modules&apos;,</div><div class="line">  &apos;G:\\work\\Node\\node_modules&apos;,</div><div class="line">  &apos;G:\\work\\node_modules&apos;,</div><div class="line">  &apos;G:\\node_modules&apos; ]</div></pre></td></tr></table></figure></p>
-
+        <h1 id="定义全局组件"><a href="#定义全局组件" class="headerlink" title="定义全局组件"></a>定义全局组件</h1><p>所谓的全局组件是在项目中的任何一个地方都是可以使用的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vue.use(myButton);</div></pre></td></tr></table></figure>
+<p>在html代码中使用自定义的全局组件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">myButton</span>&gt;</span>点我<span class="tag">&lt;/<span class="name">myButton</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">myButton</span>&gt;</span>哈哈<span class="tag">&lt;/<span class="name">myButton</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>index.js文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span>  Vue <span class="keyword">from</span>  <span class="string">"vue"</span>;</div><div class="line"><span class="keyword">import</span> Button <span class="keyword">from</span> <span class="string">"./Button.vue"</span>;</div><div class="line"><span class="keyword">export</span>  <span class="keyword">default</span> &#123;</div><div class="line">    install()&#123;</div><div class="line">        Vue.component(<span class="string">"myButton"</span>, Button);<span class="comment">//注册全局组件</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Button.vue的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">    &lt;button @click=&quot;fn()&quot;&gt;</div><div class="line">        &lt;slot&gt;&lt;/slot&gt;</div><div class="line">    &lt;/button&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script type=&quot;text/ecmascript-6&quot;&gt;</div><div class="line">    export default &#123;</div><div class="line">        methods: &#123;</div><div class="line">            fn()&#123;</div><div class="line">                alert(1);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;style lang=&quot;stylus&quot; rel=&quot;stylesheet/stylus&quot;&gt;</div><div class="line">    button</div><div class="line">        width: 100px</div><div class="line">        height: 30px</div><div class="line">        background: blue</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -411,7 +409,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/node/" rel="tag"># node</a>
+            <a href="/tags/vue/" rel="tag"># vue</a>
           
         </div>
       
@@ -424,8 +422,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/11/$parse 和 $eval 的区别/" rel="next" title="$parse 和  $eval  区别">
-                <i class="fa fa-chevron-left"></i> $parse 和  $eval  区别
+              <a href="/2017/03/01/webpack配置详解/" rel="next" title="webpack配置详解">
+                <i class="fa fa-chevron-left"></i> webpack配置详解
               </a>
             
           </div>
@@ -433,10 +431,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/11/轻松掌握js继承/" rel="prev" title="轻松掌握js继承">
-                轻松掌握js继承 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -451,10 +445,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/02/11/如何发布自己的包到npm/"
-     data-title="如何发布自己的包到npm"
+        <div class="ds-share flat" data-thread-key="2017/03/28/vue基础入门/"
+     data-title="vue基础入门"
      data-content=""
-     data-url="http://yoursite.com/2017/02/11/如何发布自己的包到npm/">
+     data-url="http://yoursite.com/2017/03/28/vue基础入门/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -484,8 +478,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/11/如何发布自己的包到npm/"
-           data-title="如何发布自己的包到npm" data-url="http://yoursite.com/2017/02/11/如何发布自己的包到npm/">
+      <div class="ds-thread" data-thread-key="2017/03/28/vue基础入门/"
+           data-title="vue基础入门" data-url="http://yoursite.com/2017/03/28/vue基础入门/">
       </div>
     
   </div>
@@ -585,7 +579,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理包"><span class="nav-number">2.</span> <span class="nav-text">管理包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何引入第三方包"><span class="nav-number">3.</span> <span class="nav-text">如何引入第三方包</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#定义全局组件"><span class="nav-number">1.</span> <span class="nav-text">定义全局组件</span></a></li></ol></div>
             
 
           </div>
