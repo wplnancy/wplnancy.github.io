@@ -95,7 +95,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="sublime," />
 
 
 
@@ -119,7 +119,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/02/sublime的配置相关知多少/index.html">
 <meta property="og:site_name" content="wupengli Blog">
 <meta property="og:description" content="sublime text 3  的常规配置123456789101112131415161718192021&amp;#123;	&amp;quot;ensure_newline_at_eof_on_save&amp;quot;: true,	&amp;quot;font_face&amp;quot;: &amp;quot;Monaco&amp;quot;,	&amp;quot;font_size&amp;quot;: 16,	&amp;quot;highlight_line">
-<meta property="og:updated_time" content="2017-04-02T06:24:20.132Z">
+<meta property="og:updated_time" content="2017-04-07T14:30:35.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sublime的配置相关知多少">
 <meta name="twitter:description" content="sublime text 3  的常规配置123456789101112131415161718192021&amp;#123;	&amp;quot;ensure_newline_at_eof_on_save&amp;quot;: true,	&amp;quot;font_face&amp;quot;: &amp;quot;Monaco&amp;quot;,	&amp;quot;font_size&amp;quot;: 16,	&amp;quot;highlight_line">
@@ -370,6 +370,10 @@
 <p>输入  ip  即   打开  Install Packages  这个面板</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">alignment</div><div class="line">autoFileName</div><div class="line">better coffeescript</div><div class="line">bracketHighlighter</div><div class="line">docBlockr</div><div class="line">editorConfig</div><div class="line">gitGutter</div><div class="line">html-css-js prettify</div><div class="line">markdown preview</div><div class="line">pug</div><div class="line">shellScript</div><div class="line">stylus</div><div class="line">stylus-Snippets</div><div class="line">vue syntax highlight</div></pre></td></tr></table></figure>
 <p>具体的插件根据需求自主进行选择性的下载，上述主要是vue+coffeeScript+pug 的开发环境比较适用一点</p>
+<h2 id="sublime激活相关细节"><a href="#sublime激活相关细节" class="headerlink" title="sublime激活相关细节"></a>sublime激活相关细节</h2><p>sublime 免安装版本的下载：链接：[<a href="http://pan.baidu.com/s/1qXUYYG8">http://pan.baidu.com/s/1qXUYYG8</a>] 密码：ixs4</p>
+<p>下载之后可以下载最新版本的sublime版本，然后激活最新版本的sublime [<a href="http://www.jianshu.com/p/04e1b65dd2c0">http://www.jianshu.com/p/04e1b65dd2c0</a>]</p>
+<p>优雅使用Sublime Text，插件则是不可缺少的存在；而插件的备份就显得非常的重要（譬如：各平台同步；更换系统/电脑，迅速使用已安装的插件）。这事儿也很简单，只需将Packages（Preferences &gt; Browse Packages）中内容拷贝一份，同步云端即可；至于存储何处，云盘，Github，皆无不可；譬如先前有存一份于sublime_packages，每有所需只要 Down 下来，替换掉原Packages下内容就好。</p>
+<p><code>ctrl+</code>/`调出控制台<br>执行以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">import urllib.request,os; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), &apos;wb&apos;).write(urllib.request.urlopen( &apos;http://sublime.wbond.net/&apos; + pf.replace(&apos; &apos;,&apos;%20&apos;)).read())</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -391,6 +395,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/sublime/" rel="tag"># sublime</a>
+          
+        </div>
+      
 
       
         
@@ -409,6 +419,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/14/git工作中常见操作详解/" rel="prev" title="git工作中常见操作详解">
+                git工作中常见操作详解 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -504,7 +518,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -515,7 +529,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -557,7 +571,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sublime-text-3-的常规配置"><span class="nav-number">1.</span> <span class="nav-text">sublime text 3  的常规配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sublime常用的插件"><span class="nav-number">2.</span> <span class="nav-text">sublime常用的插件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sublime-text-3-的常规配置"><span class="nav-number">1.</span> <span class="nav-text">sublime text 3  的常规配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sublime常用的插件"><span class="nav-number">2.</span> <span class="nav-text">sublime常用的插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sublime激活相关细节"><span class="nav-number">3.</span> <span class="nav-text">sublime激活相关细节</span></a></li></ol></div>
             
 
           </div>

@@ -1,0 +1,841 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=微软雅黑:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic|微软雅黑:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="git," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="wupengli Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="修改上一次提交的信息1git commit --amend -m&amp;apos;commit message&amp;apos;
+合并commit在不适用id号的情况下
+1git rebase -i HEAD^^
+用户设置设置全局的用户信息12git config --global user.name &apos;wplnancy&apos;git config --global user.email &apos;1138617421@q">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git工作中常见操作详解">
+<meta property="og:url" content="http://yoursite.com/2017/04/14/git工作中常见操作详解/index.html">
+<meta property="og:site_name" content="wupengli Blog">
+<meta property="og:description" content="修改上一次提交的信息1git commit --amend -m&amp;apos;commit message&amp;apos;
+合并commit在不适用id号的情况下
+1git rebase -i HEAD^^
+用户设置设置全局的用户信息12git config --global user.name &apos;wplnancy&apos;git config --global user.email &apos;1138617421@q">
+<meta property="og:image" content="http://yoursite.com/img/git.png">
+<meta property="og:image" content="http://yoursite.com/img/image2.png">
+<meta property="og:updated_time" content="2017-04-23T14:48:53.903Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git工作中常见操作详解">
+<meta name="twitter:description" content="修改上一次提交的信息1git commit --amend -m&amp;apos;commit message&amp;apos;
+合并commit在不适用id号的情况下
+1git rebase -i HEAD^^
+用户设置设置全局的用户信息12git config --global user.name &apos;wplnancy&apos;git config --global user.email &apos;1138617421@q">
+<meta name="twitter:image" content="http://yoursite.com/img/git.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/14/git工作中常见操作详解/"/>
+
+
+
+
+
+  <title> git工作中常见操作详解 | wupengli Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wupengli Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">我分享，我快乐</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+
+
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/14/git工作中常见操作详解/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="吴鹏丽">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="wupengli Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="wupengli Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                git工作中常见操作详解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-14T23:02:56+08:00">
+                2017-04-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/14/git工作中常见操作详解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/14/git工作中常见操作详解/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="修改上一次提交的信息"><a href="#修改上一次提交的信息" class="headerlink" title="修改上一次提交的信息"></a>修改上一次提交的信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit --amend -m&apos;commit message&apos;</div></pre></td></tr></table></figure>
+<h3 id="合并commit"><a href="#合并commit" class="headerlink" title="合并commit"></a>合并commit</h3><p>在不适用id号的情况下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rebase -i HEAD^^</div></pre></td></tr></table></figure>
+<h3 id="用户设置"><a href="#用户设置" class="headerlink" title="用户设置"></a>用户设置</h3><p>设置全局的用户信息<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user<span class="selector-class">.name</span> <span class="string">'wplnancy'</span></div><div class="line">git config --global user<span class="selector-class">.email</span> <span class="string">'1138617421@qq.com'</span></div></pre></td></tr></table></figure></p>
+<p>查看用户设置</p>
+<p><code>git config --list</code><br><code>git config user.name</code><br><code>git config user.email</code></p>
+<p>状态简览表</p>
+<p><code>git status -s</code></p>
+<p>跳过暂存区提交<br><code>git commit -a -m update some file&#39;</code></p>
+<p>关于 -a 参数，Git 的文档是这么描述的：</p>
+<blockquote>
+<p>通知命令自动索引那些被修改或者被删除的文件，但是新添加的文件不会受到影响（即新添加的文件要通过 git add 来显式添加）。</p>
+</blockquote>
+<h3 id="移除文件"><a href="#移除文件" class="headerlink" title="移除文件"></a>移除文件</h3><p>把文件删除 git不再跟踪</p>
+<p><code>get rm &lt;some file&gt;</code></p>
+<p>从git中移除但是文件本身不删除</p>
+<p><code>git rm --cache &lt;some file&gt;</code></p>
+<p>如果是删除文件夹，则需要加上 <code>-r</code>  的参数</p>
+<p><code>git rm --cache -r &lt;some folder&gt;</code></p>
+<h3 id="查看修改"><a href="#查看修改" class="headerlink" title="查看修改"></a>查看修改</h3><p><code>git log</code> 查看日志<br><code>git log -p</code> 查看内容差异<br><code>git log --stat</code> 查看统计信息<br><code>git log --author= &#39;Tony Wu&#39;</code> 查看用户的提交</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">-<span class="ruby">p	按补丁格式显示每个更新之间的差异。</div><div class="line"></span>-<span class="ruby">-word-diff	按 word diff 格式显示差异。</div><div class="line"></span>-<span class="ruby">-stat	显示每次更新的文件修改统计信息。</div><div class="line"></span>-<span class="ruby">-shortstat	只显示 --stat 中最后的行数修改添加移除统计。</div><div class="line"></span>-<span class="ruby">-name-only	仅在提交信息后显示已修改的文件清单。</div><div class="line"></span>-<span class="ruby">-name-status	显示新增、修改、删除的文件清单。</div><div class="line"></span>-<span class="ruby">-abbrev-commit	仅显示 SHA-<span class="number">1</span> 的前几个字符，而非所有的 <span class="number">40</span> 个字符。</div><div class="line"></span>-<span class="ruby">-relative-date	使用较短的相对时间显示（比如，“<span class="number">2</span> weeks ago”）。</div><div class="line"></span>-<span class="ruby">-graph	显示 ASCII 图形表示的分支合并历史。</div><div class="line"></span>-<span class="ruby">-pretty 使用其他格式显示历史提交信息。可用的选项包括 oneline，short，</div><div class="line"></span>full，fuller 和 format（后跟指定格式）。 </div><div class="line">例如： git log --pretty=oneline</div></pre></td></tr></table></figure>
+<p>下面是 <code>git log --pretty=oneline</code> 的显示效果如下所示：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">log</span> <span class="comment">--pretty=oneline</span></div><div class="line">ca82a6dff817ec66f44342063949 changed <span class="keyword">the</span> <span class="built_in">version</span> <span class="built_in">number</span></div><div class="line"><span class="number">085</span>bb3bcb608e1e8451d4b2e6306e7e7 removed unnecessary test code</div><div class="line">a11bef06a3f659402fe75630de2209e6 <span class="keyword">first</span> commit</div></pre></td></tr></table></figure>
+<p>限制输出长度</p>
+<p>除了定制输出格式的选项之外，git log 还有许多非常实用的限制输出长度的选项，也就是只输出部分提交信息。之前我们已经看到过 -2 了，它只显示最近的两条提交，实际上，这是 -<n> 选项的写法，其中的 n 可以是任何自然数，表示仅显示最近的若干条提交。不过实践中我们是不太用这个选项的，Git 在输出所有提交时会自动调用分页程序（less），要看更早的更新只需翻到下页即可。<br>另外还有按照时间作限制的选项，比如 –since 和 –until。下面的命令列出所有最近两周内的提交：</p>
+<p>$ git log –since=2.weeks<br>你可以给出各种时间格式，比如说具体的某一天（“2008-01-15”），或者是多久以前（“2 years 1 day 3 minutes ago”）。</p>
+<p>还可以给出若干搜索条件，列出符合的提交。用 –author 选项显示指定作者的提交，用 –grep 选项搜索提交说明中的关键字。（请注意，如果要得到同时满足这两个选项搜索条件的提交，就必须用 –all-match 选项。否则，满足任意一个条件的提交都会被匹配出来）</p>
+<p>另一个真正实用的git log选项是路径(path)，如果只关心某些文件或者目录的历史提交，可以在 git log 选项的最后指定它们的路径。因为是放在最后位置上的选项，所以用两个短划线（–）隔开之前的选项和后面限定的路径名。</p>
+<p>表 2-3 还列出了其他常用的类似选项。</p>
+<p>选项    说明<br>-(n)    仅显示最近的 n 条提交<br>–since, –after    仅显示指定时间之后的提交。<br>–until, –before    仅显示指定时间之前的提交。<br>–author    仅显示指定作者相关的提交。<br>–committer    仅显示指定提交者相关的提交。<br>来看一个实际的例子，如果要查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试脚本（位于项目的 t/ 目录下的文件），可以用下面的查询命令：</p>
+<p>$ git log –pretty=”%h - %s” –author=gitster –since=”2008-10-01” \<br>   –before=”2008-11-01” –no-merges – t/<br>5610e3b - Fix testcase failure when extended attribute<br>acd3b9e - Enhance hold_lock_file<em>for</em>{update,append}()<br>f563754 - demonstrate breakage of detached checkout wi<br>d1a43f2 - reset –hard/read-tree –reset -u: remove un<br>51a94af - Fix “checkout –track -b newbranch” on detac<br>b0ad11e - pull: allow “git pull origin $something:$cur<br>Git 项目有 20,000 多条提交，但我们给出搜索选项后，仅列出了其中满足条件的 6 条。</p>
+<h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><p>取消上一次的提交<br><code>git reset HEAD^</code><br>同理，如果是取消上两次的提交就是<code>HEAD^^</code></p>
+<p>修改上一次的提交</p>
+<p><code>git commit --amend</code></p>
+<p>撤销文件在暂存区的修改（回到工作区）</p>
+<p><code>git reset HEAD &lt;some file&gt;</code></p>
+<p>撤销所有文件的修改</p>
+<p><code>git checkout -- .</code></p>
+<p>从暂存区撤销添加的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm --cached [filename]</div></pre></td></tr></table></figure>
+<h3 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h3><p>git remote show origin # 显示 origin 远程库的详情<br>git remote rm origin把 origin 重新命名为 default<br>git remote rm origin 移除连接</p>
+<h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><p>git branch -r 查看远程分支<br>git branch -a 查看所有的分支</p>
+<h3 id="合并请求"><a href="#合并请求" class="headerlink" title="合并请求"></a>合并请求</h3><p><code>git rebase -i --root</code></p>
+<h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><p>不是万不得已的情况下，尽量不要使用 –hard 这个参数，因为这个是不可逆的操作。</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">$</span> git reset --hard HEAD^    <span class="comment">//回退到上一个提交版本</span></div><div class="line"><span class="symbol">$</span> git reset --hard HEAD^^    <span class="comment">//回退到上两个提交版本</span></div><div class="line"><span class="symbol">$</span> git reset --hard HEAD~<span class="number">100</span>    <span class="comment">//回退到上100个提交版本</span></div><div class="line"><span class="symbol">$</span> git reset --hard <span class="number">123456.</span>..    <span class="comment">//回退到提交id为123456...的版本</span></div></pre></td></tr></table></figure>
+<h3 id="git-diff-的用法"><a href="#git-diff-的用法" class="headerlink" title="git diff 的用法"></a>git diff 的用法</h3><ul>
+<li><p>git diff<br>表示的是目前尚无任何提交，显示的是工作区和最后一个commit的区别</p>
+</li>
+<li><p>git diff –cached<br>表示的是已经做了<code>git add fileName</code>的操作了，但是还没有commit，比较的是最后同最后一次commit的差异。</p>
+</li>
+</ul>
+<h3 id="zsh下git-alias"><a href="#zsh下git-alias" class="headerlink" title="zsh下git alias"></a>zsh下git alias</h3><p>gst = git status<br>gcm = git commit -m<br>gps = git push<br>glg = git log –graph<br>gb = git branch<br>g = git<br>gbr = git branch -r<br>gbnm = git branch –no-merged</p>
+<p>查看别名<br><figure class="highlight monkey"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alias</span> <span class="title">gcm</span></div><div class="line"><span class="title">gcm</span> = git checkoout master</div></pre></td></tr></table></figure></p>
+<p>原来配置成了其他命令。<br>但是奇怪的是，在 .zshrc 文件中并没有找到相关配置。经过仔细阅读，最终发现了下面这条语句：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd ~/.oh-my-zsh/plugins/git</div><div class="line">ls</div><div class="line">README<span class="selector-class">.md</span>      git<span class="selector-class">.plugin</span><span class="selector-class">.zsh</span></div></pre></td></tr></table></figure>
+<p>可以看到一个 git.plugin.zsh 文件，vi 打开，看到一些 functions 和 N 多的 alias。</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div></pre></td><td class="code"><pre><div class="line">g=git</div><div class="line">ga=<span class="symbol">'git</span> add'</div><div class="line">gaa=<span class="symbol">'git</span> add <span class="comment">--all'</span></div><div class="line">gapa=<span class="symbol">'git</span> add <span class="comment">--patch'</span></div><div class="line">gb=<span class="symbol">'git</span> branch'</div><div class="line">gba=<span class="symbol">'git</span> branch -a'</div><div class="line">gbd=<span class="symbol">'git</span> branch -d'</div><div class="line">gbda=<span class="symbol">'git</span> branch <span class="comment">--no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d'</span></div><div class="line">gbl=<span class="symbol">'git</span> blame -b -w'</div><div class="line">gbnm=<span class="symbol">'git</span> branch <span class="comment">--no-merged'</span></div><div class="line">gbr=<span class="symbol">'git</span> branch <span class="comment">--remote'</span></div><div class="line">gbs=<span class="symbol">'git</span> bisect'</div><div class="line">gbsb=<span class="symbol">'git</span> bisect bad'</div><div class="line">gbsg=<span class="symbol">'git</span> bisect good'</div><div class="line">gbsr=<span class="symbol">'git</span> bisect reset'</div><div class="line">gbss=<span class="symbol">'git</span> bisect start'</div><div class="line">gc=<span class="symbol">'git</span> commit -v'</div><div class="line"><span class="symbol">'gc</span>!<span class="string">'='</span>git commit -v <span class="comment">--amend'</span></div><div class="line">gca=<span class="symbol">'git</span> commit -v -a'</div><div class="line"><span class="symbol">'gca</span>!<span class="string">'='</span>git commit -v -a <span class="comment">--amend'</span></div><div class="line">gcam=<span class="symbol">'git</span> commit -a -m'</div><div class="line"><span class="symbol">'gcan</span>!<span class="string">'='</span>git commit -v -a <span class="comment">--no-edit --amend'</span></div><div class="line"><span class="symbol">'gcans</span>!<span class="string">'='</span>git commit -v -a -s <span class="comment">--no-edit --amend'</span></div><div class="line">gcb=<span class="symbol">'git</span> checkout -b'</div><div class="line">gcd=<span class="symbol">'git</span> checkout develop'</div><div class="line">gcf=<span class="symbol">'git</span> config <span class="comment">--list'</span></div><div class="line">gcl=<span class="symbol">'git</span> clone <span class="comment">--recursive'</span></div><div class="line">gclean=<span class="symbol">'git</span> clean -fd'</div><div class="line">gcm=<span class="symbol">'git</span> checkout master'</div><div class="line">gcmsg=<span class="symbol">'git</span> commit -m'</div><div class="line"><span class="symbol">'gcn</span>!<span class="string">'='</span>git commit -v <span class="comment">--no-edit --amend'</span></div><div class="line">gco=<span class="symbol">'git</span> checkout'</div><div class="line">gcount=<span class="symbol">'git</span> shortlog -sn'</div><div class="line">gcp=<span class="symbol">'git</span> cherry-pick'</div><div class="line">gcpa=<span class="symbol">'git</span> cherry-pick <span class="comment">--abort'</span></div><div class="line">gcpc=<span class="symbol">'git</span> cherry-pick <span class="comment">--continue'</span></div><div class="line">gcs=<span class="symbol">'git</span> commit -S'</div><div class="line">gd=<span class="symbol">'git</span> diff'</div><div class="line">gdca=<span class="symbol">'git</span> diff <span class="comment">--cached'</span></div><div class="line">gdct=<span class="symbol">'git</span> describe <span class="comment">--tags `git rev-list --tags --max-count=1`'</span></div><div class="line">gdt=<span class="symbol">'git</span> diff-tree <span class="comment">--no-commit-id --name-only -r'</span></div><div class="line">gdw=<span class="symbol">'git</span> diff <span class="comment">--word-diff'</span></div><div class="line">gf=<span class="symbol">'git</span> fetch'</div><div class="line">gfa=<span class="symbol">'git</span> fetch <span class="comment">--all --prune'</span></div><div class="line">gfo=<span class="symbol">'git</span> fetch origin'</div><div class="line">gg=<span class="symbol">'git</span> gui citool'</div><div class="line">gga=<span class="symbol">'git</span> gui citool <span class="comment">--amend'</span></div><div class="line">ggpull=<span class="symbol">'git</span> pull origin $(git_current_branch)'</div><div class="line">ggpur=ggu</div><div class="line">ggpush=<span class="symbol">'git</span> push origin $(git_current_branch)'</div><div class="line">ggsup=<span class="symbol">'git</span> branch <span class="comment">--set-upstream-to=origin/$(git_current_branch)'</span></div><div class="line">ghh=<span class="symbol">'git</span> help'</div><div class="line">gignore=<span class="symbol">'git</span> update-index <span class="comment">--assume-unchanged'</span></div><div class="line">gignored=<span class="symbol">'git</span> ls-files -v | grep <span class="string">"^[[:lower:]]"</span>'</div><div class="line">git-svn-dcommit-push=<span class="symbol">'git</span> svn dcommit &amp;&amp; git push github master:svntrunk'</div><div class="line">gk='\gitk <span class="comment">--all --branches'</span></div><div class="line">gke='\gitk <span class="comment">--all $(git log -g --pretty=%h)'</span></div><div class="line">gl=<span class="symbol">'git</span> pull'</div><div class="line">glg=<span class="symbol">'git</span> log <span class="comment">--stat'</span></div><div class="line">glgg=<span class="symbol">'git</span> log <span class="comment">--graph'</span></div><div class="line">glgga=<span class="symbol">'git</span> log <span class="comment">--graph --decorate --all'</span></div><div class="line">glgm=<span class="symbol">'git</span> log <span class="comment">--graph --max-count=10'</span></div><div class="line">glgp=<span class="symbol">'git</span> log <span class="comment">--stat -p'</span></div><div class="line">glo=<span class="symbol">'git</span> log <span class="comment">--oneline --decorate'</span></div><div class="line">globurl=<span class="symbol">'noglob</span> urlglobber '</div><div class="line">glog=<span class="symbol">'git</span> log <span class="comment">--oneline --decorate --graph'</span></div><div class="line">gloga=<span class="symbol">'git</span> log <span class="comment">--oneline --decorate --graph --all'</span></div><div class="line">glol=<span class="symbol">'git</span> log <span class="comment">--graph --pretty</span></div><div class="line">glp=_git_log_prettily</div><div class="line">glum=<span class="symbol">'git</span> pull upstream master'</div><div class="line">gm=<span class="symbol">'git</span> merge'</div><div class="line">gmom=<span class="symbol">'git</span> merge origin/master'</div><div class="line">gmt=<span class="symbol">'git</span> mergetool <span class="comment">--no-prompt'</span></div><div class="line">gmtvim=<span class="symbol">'git</span> mergetool <span class="comment">--no-prompt --tool=vimdiff'</span></div><div class="line">gmum=<span class="symbol">'git</span> merge upstream/master'</div><div class="line">gp=<span class="symbol">'git</span> push'</div><div class="line">gpd=<span class="symbol">'git</span> push <span class="comment">--dry-run'</span></div><div class="line">gpoat=<span class="symbol">'git</span> push origin <span class="comment">--all &amp;&amp; git push origin --tags'</span></div><div class="line">gpristine=<span class="symbol">'git</span> reset <span class="comment">--hard &amp;&amp; git clean -dfx'</span></div><div class="line">gpsup=<span class="symbol">'git</span> push <span class="comment">--set-upstream origin $(git_current_branch)'</span></div><div class="line">gpu=<span class="symbol">'git</span> push upstream'</div><div class="line">gpv=<span class="symbol">'git</span> push -v'</div><div class="line">gr=<span class="symbol">'git</span> remote'</div><div class="line">gra=<span class="symbol">'git</span> remote add'</div><div class="line">grb=<span class="symbol">'git</span> rebase'</div><div class="line">grba=<span class="symbol">'git</span> rebase <span class="comment">--abort'</span></div><div class="line">grbc=<span class="symbol">'git</span> rebase <span class="comment">--continue'</span></div><div class="line">grbi=<span class="symbol">'git</span> rebase -i'</div><div class="line">grbm=<span class="symbol">'git</span> rebase master'</div><div class="line">grbs=<span class="symbol">'git</span> rebase <span class="comment">--skip'</span></div><div class="line">grep=<span class="symbol">'grep</span>  <span class="comment">--color=auto --exclude-dir=&#123;.bzr,CVS,.git,.hg,.svn&#125;'</span></div><div class="line">grh=<span class="symbol">'git</span> reset HEAD'</div><div class="line">grhh=<span class="symbol">'git</span> reset HEAD <span class="comment">--hard'</span></div><div class="line">grmv=<span class="symbol">'git</span> remote rename'</div><div class="line">grrm=<span class="symbol">'git</span> remote remove'</div><div class="line">grset=<span class="symbol">'git</span> remote set-url'</div><div class="line">grt=<span class="symbol">'cd</span> $(git rev-parse <span class="comment">--show-toplevel || echo ".")'</span></div><div class="line">gru=<span class="symbol">'git</span> reset <span class="comment">--'</span></div><div class="line">grup=<span class="symbol">'git</span> remote update'</div><div class="line">grv=<span class="symbol">'git</span> remote -v'</div><div class="line">gsb=<span class="symbol">'git</span> status -sb'</div><div class="line">gsd=<span class="symbol">'git</span> svn dcommit'</div><div class="line">gsi=<span class="symbol">'git</span> submodule init'</div><div class="line">gsps=<span class="symbol">'git</span> show <span class="comment">--pretty=short --show-signature'</span></div><div class="line">gsr=<span class="symbol">'git</span> svn rebase'</div><div class="line">gss=<span class="symbol">'git</span> status -s'</div><div class="line">gst=<span class="symbol">'git</span> status'</div><div class="line">gsta=<span class="symbol">'git</span> stash save'</div><div class="line">gstaa=<span class="symbol">'git</span> stash apply'</div><div class="line">gstc=<span class="symbol">'git</span> stash clear'</div><div class="line">gstd=<span class="symbol">'git</span> stash drop'</div><div class="line">gstl=<span class="symbol">'git</span> stash list'</div><div class="line">gstp=<span class="symbol">'git</span> stash pop'</div><div class="line">gsts=<span class="symbol">'git</span> stash show <span class="comment">--text'</span></div><div class="line">gsu=<span class="symbol">'git</span> submodule update'</div><div class="line">gts=<span class="symbol">'git</span> tag -s'</div><div class="line">gtv=<span class="symbol">'git</span> tag | sort -V'</div><div class="line">gunignore=<span class="symbol">'git</span> update-index <span class="comment">--no-assume-unchanged'</span></div><div class="line">gup=<span class="symbol">'git</span> pull <span class="comment">--rebase'</span></div><div class="line">gupv=<span class="symbol">'git</span> pull <span class="comment">--rebase -v'</span></div><div class="line">gwch=<span class="symbol">'git</span> whatchanged -p <span class="comment">--abbrev-commit --pretty=medium'</span></div><div class="line">history=<span class="symbol">'fc</span> -l <span class="number">1</span>'</div><div class="line">l=<span class="symbol">'ls</span> -lah'</div></pre></td></tr></table></figure>
+<h3 id="git-stash"><a href="#git-stash" class="headerlink" title="git stash"></a>git stash</h3><p>git stash 命令可以将在当前分支修改的内容放到缓存区中，并且会建立一个缓存的list集合，方便管理。<br>如果想将修改的内容重新释放出来， git stash  apply 和 git stash poop 都可以达到这个目的</p>
+<p>这两者的区别是：</p>
+<p><code>git stash list</code> 查看list的集合<br><code>git stash apply @{x}</code> 可以将编号为X的缓存释放出来，但是缓存还存在于list中</p>
+<p><code>git stash apply</code> 会将当前的分支的最后一次缓存的内容释放出来，但是刚才的内容还在list中</p>
+<p><code>git stash pop</code> 也会将当前分支的最后一次缓存的内容释放出来，但是刚才的记录不存在list中。</p>
+<h3 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h3><p>在rebase 之前一定要保证本地的仓库是干净的</p>
+<p><code>git pull --rebase origin branch-name</code></p>
+<p>然后解决完冲突之后再执行： <code>git add</code>用来标明冲突已经解决了</p>
+<p><code>git rebase --continue</code></p>
+<h3 id="变基"><a href="#变基" class="headerlink" title="变基"></a>变基</h3><p>如下，在issue1分支执行指令git rebase -i HEAD^^，会进入编辑模式:</p>
+<p><img src="/img/git.png" alt="rebase"></p>
+<p>如图列出了HEAD~~指向的提交对象之后的所有提交对象，每一行之前默认是pick标志，表示该提交对象正在使用，我们可以修改该标记值，随后Git根据标记值执行不同操作，标记值与操作对应关系如下：</p>
+<p><img src="/img/image2.png" alt=""></p>
+<ul>
+<li>pick(p)，表明正在使用；</li>
+<li>reword(r)，表明仍然使用该提交对象，但是需修改提交信息；</li>
+<li>edit(e)，使用该提交对象，但是不合并提交对象；</li>
+<li>squash(s)，使用该提交对象，但是将此提交与上一次提交对象合并；</li>
+<li>fixup(f)，同squash值，但是丢失此次提交的日志信息；</li>
+<li>exec(x)，后接特定脚本，保存后将执行该脚本；</li>
+<li>drop(d)，移除该提交对象</li>
+</ul>
+<h3 id="选择变基还是合并"><a href="#选择变基还是合并" class="headerlink" title="选择变基还是合并"></a>选择变基还是合并</h3><blockquote>
+<p>变基会修整历史，然后将分支历史并入主线，可以理解成美化过的历史，而合并则可以不修改历史，让分支历史依然独立存在，可以看作原始的历史。</p>
+</blockquote>
+<p>指的注意的是：</p>
+<blockquote>
+<p>永远不要对已经推到主干分支服务器或者团队其他成员的提交进行变基，我们选择变基还是合并的范围应该在自己当前工作范围内。</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/02/sublime的配置相关知多少/" rel="next" title="sublime的配置相关知多少">
+                <i class="fa fa-chevron-left"></i> sublime的配置相关知多少
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/16/element_ui常用组件/" rel="prev" title="element.ui 常用组件">
+                element.ui 常用组件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/04/14/git工作中常见操作详解/"
+     data-title="git工作中常见操作详解"
+     data-content=""
+     data-url="http://yoursite.com/2017/04/14/git工作中常见操作详解/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/14/git工作中常见操作详解/"
+           data-title="git工作中常见操作详解" data-url="http://yoursite.com/2017/04/14/git工作中常见操作详解/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="吴鹏丽" />
+          <p class="site-author-name" itemprop="name">吴鹏丽</p>
+          <p class="site-description motion-element" itemprop="description">分享技术文章</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改上一次提交的信息"><span class="nav-number">1.</span> <span class="nav-text">修改上一次提交的信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并commit"><span class="nav-number">2.</span> <span class="nav-text">合并commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户设置"><span class="nav-number">3.</span> <span class="nav-text">用户设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移除文件"><span class="nav-number">4.</span> <span class="nav-text">移除文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看修改"><span class="nav-number">5.</span> <span class="nav-text">查看修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤销修改"><span class="nav-number">6.</span> <span class="nav-text">撤销修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程仓库"><span class="nav-number">7.</span> <span class="nav-text">远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支"><span class="nav-number">8.</span> <span class="nav-text">分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并请求"><span class="nav-number">9.</span> <span class="nav-text">合并请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本回退"><span class="nav-number">10.</span> <span class="nav-text">版本回退</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-diff-的用法"><span class="nav-number">11.</span> <span class="nav-text">git diff 的用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh下git-alias"><span class="nav-number">12.</span> <span class="nav-text">zsh下git alias</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-stash"><span class="nav-number">13.</span> <span class="nav-text">git stash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决冲突"><span class="nav-number">14.</span> <span class="nav-text">解决冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变基"><span class="nav-number">15.</span> <span class="nav-text">变基</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择变基还是合并"><span class="nav-number">16.</span> <span class="nav-text">选择变基还是合并</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴鹏丽</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wupengli"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
