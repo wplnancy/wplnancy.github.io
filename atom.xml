@@ -45,7 +45,7 @@
     <link href="http://yoursite.com/2017/04/14/git%E5%B7%A5%E4%BD%9C%E4%B8%AD%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C%E8%AF%A6%E8%A7%A3/"/>
     <id>http://yoursite.com/2017/04/14/git工作中常见操作详解/</id>
     <published>2017-04-14T15:02:56.000Z</published>
-    <updated>2017-04-23T14:57:23.185Z</updated>
+    <updated>2017-04-23T14:59:56.465Z</updated>
     
     <content type="html"><![CDATA[<h1 id="修改上一次提交的信息"><a href="#修改上一次提交的信息" class="headerlink" title="修改上一次提交的信息"></a>修改上一次提交的信息</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit --amend -m&apos;commit message&apos;</div></pre></td></tr></table></figure>
 <h1 id="合并commit"><a href="#合并commit" class="headerlink" title="合并commit"></a>合并commit</h1><p>在不适用id号的情况下</p>
@@ -113,7 +113,7 @@
 <p><code>git pull --rebase origin branch-name</code></p>
 <p>然后解决完冲突之后再执行： <code>git add</code>用来标明冲突已经解决了</p>
 <p><code>git rebase --continue</code></p>
-<h3 id="变基"><a href="#变基" class="headerlink" title="变基"></a>变基</h3><p>如下，在issue1分支执行指令git rebase -i HEAD^^，会进入编辑模式:</p>
+<h1 id="变基"><a href="#变基" class="headerlink" title="变基"></a>变基</h1><p>如下，在issue1分支执行指令git rebase -i HEAD^^，会进入编辑模式:</p>
 <p><img src="/img/git.png" alt="rebase"></p>
 <p>如图列出了HEAD~~指向的提交对象之后的所有提交对象，每一行之前默认是pick标志，表示该提交对象正在使用，我们可以修改该标记值，随后Git根据标记值执行不同操作，标记值与操作对应关系如下：</p>
 <p><img src="/img/image2.png" alt=""></p>
