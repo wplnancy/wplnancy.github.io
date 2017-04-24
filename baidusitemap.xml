@@ -3,6 +3,23 @@
 
 
     
+  <url>
+    <loc>http://yoursite.com/2017/02/10/hexo%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2017-04-24T03:16:13.910Z</lastmod>
+    <data>
+        <display>
+        <title>hexo入门教程</title>
+        <pubTime>2017-02-10T15:29:11.246Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://yoursite.com/2017/04/14/git%E5%B7%A5%E4%BD%9C%E4%B8%AD%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C%E8%AF%A6%E8%A7%A3/</loc>
@@ -64,23 +81,6 @@
         <pubTime>2017-03-28T09:55:18.000Z</pubTime>
         
         <tag>vue</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/02/10/hexo%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2017-03-28T11:34:13.636Z</lastmod>
-    <data>
-        <display>
-        <title>hexo入门教程</title>
-        <pubTime>2017-02-10T15:29:11.246Z</pubTime>
-        
-        <tag>hexo</tag>
          
          
            
