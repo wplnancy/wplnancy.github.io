@@ -126,7 +126,7 @@
 建站123$ hexo init &amp;lt;folder&amp;gt;$ cd &amp;lt;folder&amp;gt;$ npm install
 安装完成后12345678.├── _config.yml├── pac">
 <meta property="og:image" content="http://theme-next.iissnan.com/uploads/five-minutes-setup/validation-default-scheme-mac.png">
-<meta property="og:updated_time" content="2017-04-24T03:16:13.910Z">
+<meta property="og:updated_time" content="2017-04-24T09:42:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo入门教程">
 <meta name="twitter:description" content="什么是 Hexo？简单的理解，它可以帮我们快速的生成博客，方便程序员做技术总结和技术分享的一个工具而已，那么，就让我们开始hexo的快乐之旅吧…
@@ -502,7 +502,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-sitemap --save</div></pre></td></tr></table></figure>
 <h4 id="Markdown-语法速查表"><a href="#Markdown-语法速查表" class="headerlink" title="Markdown 语法速查表"></a>Markdown 语法速查表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">1 标题与文字格式  </div><div class="line">标题  </div><div class="line"># 这是 H1 &lt;一级标题&gt;  </div><div class="line">## 这是 H2 &lt;二级标题&gt;  </div><div class="line">###### 这是 H6 &lt;六级标题&gt;  </div><div class="line">文字格式  </div><div class="line">**这是文字粗体格式**  </div><div class="line">*这是文字斜体格式*  </div><div class="line">~~在文字上添加删除线~~  </div><div class="line">2 列表  </div><div class="line">无序列表  </div><div class="line">* 项目1  </div><div class="line">* 项目2  </div><div class="line">* 项目3  </div><div class="line">有序列表  </div><div class="line">1. 项目1  </div><div class="line">2. 项目2  </div><div class="line">3. 项目3  </div><div class="line">   * 项目1  </div><div class="line">   * 项目2  </div><div class="line">3 其它  </div><div class="line">图片  </div><div class="line">![图片名称](http://gitcafe.com/image.png)  </div><div class="line">链接  </div><div class="line">[链接名称](http://gitcafe.com)  </div><div class="line">引用  </div><div class="line">&gt; 第一行引用文字  </div><div class="line">&gt; 第二行引用文字  </div><div class="line">水平线  </div><div class="line">***  </div><div class="line">代码  </div><div class="line">`&lt;hello world&gt;`</div></pre></td></tr></table></figure>
 <h4 id="完成hexo自动备份"><a href="#完成hexo自动备份" class="headerlink" title="完成hexo自动备份"></a>完成hexo自动备份</h4><p>我曾经给出过通过Git备份Hexo博客源文件的方式，这种方式虽然能够备份Hexo博客的源文件，但是对于博主这种懒人，每次更新博文都需要输入两三行重复的Git命令真是一件麻烦的事情。况且指不定哪天就搞忘push到github上了。</p>
-<p>###实现</p>
 <p>####将Hexo目录加入Git仓库</p>
 <p>本脚本需要提前将Hexo加入Git仓库并与Github或者Gitcafe远程仓库绑定之后，才能正常工作。如果你不知道怎么操作，请参考这篇博文：</p>
 <p>(备份Hexo博客源文件)[<a href="https://notes.wanghao.work/2015-04-06-%E5%A4%87%E4%BB%BDHexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6.html">https://notes.wanghao.work/2015-04-06-%E5%A4%87%E4%BB%BDHexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6.html</a>]</p>
@@ -520,6 +519,10 @@
 <p>保存脚本并退出，然后执行<code>hexo deploy</code>命令，将会得到类似以下结果:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">INFO  Deploying: git&gt;</div><div class="line">INFO  Clearing .deploy folder...</div><div class="line">INFO  Copying files from public folder...</div><div class="line">[master 3020788] Site updated: 2015-07-06 15:08:06</div><div class="line"> 5 files changed, 160 insertions(+), 58 deletions(-)</div><div class="line">Branch master set up to track remote branch gh-pages from git@github.com:smilexi</div><div class="line">amo/notes.git.</div><div class="line">To git@github.com:smilexiamo/notes.git</div><div class="line">   02adbe4..3020788  master -&gt; gh-pages</div><div class="line">On branch master</div><div class="line">nothing to commit, working directory clean</div><div class="line">Branch master set up to track remote branch gitcafe-pages from git@gitcafe.com:s</div><div class="line">milexiamo/smilexiamo.git.</div><div class="line">To git@gitcafe.com:smilexiamo/smilexiamo.git</div><div class="line">   02adbe4..3020788  master -&gt; gitcafe-pages</div><div class="line">INFO  Deploy done: git</div><div class="line">======================Auto Backup Begin===========================</div><div class="line">[master f044360] Form auto backup script&apos;s commit</div><div class="line"> 2 files changed, 35 insertions(+), 2 deletions(-)</div><div class="line"> rewrite db.json (100%)</div><div class="line">To git@github.com:smilexiamo/hexo.git</div><div class="line">   8f2b4b4..f044360  master -&gt; master</div><div class="line">==================Auto Backup Complete============================</div></pre></td></tr></table></figure>
 <p>这样子，每次更新博文并deploy到服务器上之后，备份就自动启动并完成备份啦~是不是很方便呢？</p>
+<h3 id="完成站点搜索的功能"><a href="#完成站点搜索的功能" class="headerlink" title="完成站点搜索的功能"></a>完成站点搜索的功能</h3><p>请访问链接[<a href="http://blog.csdn.net/luzheqi/article/details/52798557">http://blog.csdn.net/luzheqi/article/details/52798557</a><br>]见详细说明</p>
+<p>在配置完之后，能够搜索，但是点击搜索结果却会出现<code>Cannot GET /undefined/</code></p>
+<p>按照5.1.0使用algolia搜索问题这里进行的处理，在这里总结一下：</p>
+<p>因为<code>hexo-aloglia</code>的作者没有把<code>post.path</code> 加入<code>index</code>，所以<code>data.path</code> 是<code>undefined</code>。<br>遇到这个问题，首先运行<code>npm uninstall hexo-algolia</code> 卸载之前的版本，再运行<code>npm install hexo-algolia@0.2.0 --save</code>,最后运行<code>hexo algolia</code>命令重新<code>index</code> 就可以了。</p>
 
       
     </div>
@@ -660,7 +663,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -690,6 +693,17 @@
 
         <div class="links-of-author motion-element">
           
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wplnancy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
         </div>
 
         
@@ -713,7 +727,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-Hexo？"><span class="nav-number">1.</span> <span class="nav-text">什么是 Hexo？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建站"><span class="nav-number">3.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运用NexT主题搭建自己的博客"><span class="nav-number">4.</span> <span class="nav-text">运用NexT主题搭建自己的博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何灵活的运用hexo主题"><span class="nav-number">5.</span> <span class="nav-text">如何灵活的运用hexo主题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">5.0.1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新建一个页面"><span class="nav-number">5.0.2.</span> <span class="nav-text">新建一个页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置分类列表"><span class="nav-number">5.0.3.</span> <span class="nav-text">设置分类列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置标签"><span class="nav-number">5.0.4.</span> <span class="nav-text">设置标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插件的使用"><span class="nav-number">5.0.5.</span> <span class="nav-text">插件的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#分页插件"><span class="nav-number">5.0.5.1.</span> <span class="nav-text">分页插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#推荐插件"><span class="nav-number">5.0.5.2.</span> <span class="nav-text">推荐插件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Markdown-语法速查表"><span class="nav-number">5.0.6.</span> <span class="nav-text">Markdown 语法速查表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完成hexo自动备份"><span class="nav-number">5.0.7.</span> <span class="nav-text">完成hexo自动备份</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-Hexo？"><span class="nav-number">1.</span> <span class="nav-text">什么是 Hexo？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建站"><span class="nav-number">3.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运用NexT主题搭建自己的博客"><span class="nav-number">4.</span> <span class="nav-text">运用NexT主题搭建自己的博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何灵活的运用hexo主题"><span class="nav-number">5.</span> <span class="nav-text">如何灵活的运用hexo主题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">5.0.1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新建一个页面"><span class="nav-number">5.0.2.</span> <span class="nav-text">新建一个页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置分类列表"><span class="nav-number">5.0.3.</span> <span class="nav-text">设置分类列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置标签"><span class="nav-number">5.0.4.</span> <span class="nav-text">设置标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插件的使用"><span class="nav-number">5.0.5.</span> <span class="nav-text">插件的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#分页插件"><span class="nav-number">5.0.5.1.</span> <span class="nav-text">分页插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#推荐插件"><span class="nav-number">5.0.5.2.</span> <span class="nav-text">推荐插件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Markdown-语法速查表"><span class="nav-number">5.0.6.</span> <span class="nav-text">Markdown 语法速查表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完成hexo自动备份"><span class="nav-number">5.0.7.</span> <span class="nav-text">完成hexo自动备份</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完成站点搜索的功能"><span class="nav-number">5.1.</span> <span class="nav-text">完成站点搜索的功能</span></a></li></ol></li></ol></div>
             
 
           </div>

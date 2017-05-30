@@ -95,7 +95,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="angular," />
+  <meta name="keywords" content="vue," />
 
 
 
@@ -113,19 +113,25 @@
 
 
 
-<meta name="description" content="首先，$parse跟$eval都是用来解析表达式的， 但是$parse是作为一个单独的服务存在的。$eval是作为scope的方法来使用的。$parse典型的使用是放在设置字符串表达式映射在真实对象上的值。也可以从$parse上直接获取到表达式对应的值。1var getter = $parse(&apos;user.name&apos;);
-$eval 即scope.$eval，是执行当前作用域下的表达式，如：sco">
+<meta name="description" content="vue的特点模板渲染、模块化、扩展功能（路由、ajax）
+登录验证123456789首先获取用户是否完成了登录computed: mapGetters  userProfile: &apos;userProfile&apos;如果没有登录然后进行登录操作unless @userProfile.uuidreturn @$router.push name: &apos;login&apos;
+vue关于路由方面router-link
+ 组件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="$parse 和  $eval  区别">
-<meta property="og:url" content="http://yoursite.com/2017/02/11/$parse 和 $eval 的区别/index.html">
+<meta property="og:title" content="vue2.0知识点总结">
+<meta property="og:url" content="http://yoursite.com/2017/04/30/vue2.0知识点总结/index.html">
 <meta property="og:site_name" content="wupengli Blog">
-<meta property="og:description" content="首先，$parse跟$eval都是用来解析表达式的， 但是$parse是作为一个单独的服务存在的。$eval是作为scope的方法来使用的。$parse典型的使用是放在设置字符串表达式映射在真实对象上的值。也可以从$parse上直接获取到表达式对应的值。1var getter = $parse(&apos;user.name&apos;);
-$eval 即scope.$eval，是执行当前作用域下的表达式，如：sco">
-<meta property="og:updated_time" content="2017-02-12T15:04:09.426Z">
+<meta property="og:description" content="vue的特点模板渲染、模块化、扩展功能（路由、ajax）
+登录验证123456789首先获取用户是否完成了登录computed: mapGetters  userProfile: &apos;userProfile&apos;如果没有登录然后进行登录操作unless @userProfile.uuidreturn @$router.push name: &apos;login&apos;
+vue关于路由方面router-link
+ 组件">
+<meta property="og:updated_time" content="2017-05-07T16:49:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="$parse 和  $eval  区别">
-<meta name="twitter:description" content="首先，$parse跟$eval都是用来解析表达式的， 但是$parse是作为一个单独的服务存在的。$eval是作为scope的方法来使用的。$parse典型的使用是放在设置字符串表达式映射在真实对象上的值。也可以从$parse上直接获取到表达式对应的值。1var getter = $parse(&apos;user.name&apos;);
-$eval 即scope.$eval，是执行当前作用域下的表达式，如：sco">
+<meta name="twitter:title" content="vue2.0知识点总结">
+<meta name="twitter:description" content="vue的特点模板渲染、模块化、扩展功能（路由、ajax）
+登录验证123456789首先获取用户是否完成了登录computed: mapGetters  userProfile: &apos;userProfile&apos;如果没有登录然后进行登录操作unless @userProfile.uuidreturn @$router.push name: &apos;login&apos;
+vue关于路由方面router-link
+ 组件">
 
 
 
@@ -160,13 +166,13 @@ $eval 即scope.$eval，是执行当前作用域下的表达式，如：sco">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/11/$parse 和 $eval 的区别/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/30/vue2.0知识点总结/"/>
 
 
 
 
 
-  <title> $parse 和  $eval  区别 | wupengli Blog </title>
+  <title> vue2.0知识点总结 | wupengli Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -354,7 +360,7 @@ $eval 即scope.$eval，是执行当前作用域下的表达式，如：sco">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/11/$parse 和 $eval 的区别/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/30/vue2.0知识点总结/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="吴鹏丽">
@@ -378,7 +384,7 @@ $eval 即scope.$eval，是执行当前作用域下的表达式，如：sco">
             
             
               
-                $parse 和  $eval  区别
+                vue2.0知识点总结
               
             
           </h1>
@@ -393,8 +399,8 @@ $eval 即scope.$eval，是执行当前作用域下的表达式，如：sco">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-11T00:49:29+08:00">
-                2017-02-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-30T23:06:49+08:00">
+                2017-04-30
               </time>
             
 
@@ -412,8 +418,8 @@ $eval 即scope.$eval，是执行当前作用域下的表达式，如：sco">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/11/$parse 和 $eval 的区别/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/11/$parse 和 $eval 的区别/" itemprop="commentCount"></span>
+                <a href="/2017/04/30/vue2.0知识点总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/30/vue2.0知识点总结/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -421,7 +427,7 @@ $eval 即scope.$eval，是执行当前作用域下的表达式，如：sco">
 
           
           
-             <span id="/2017/02/11/$parse 和 $eval 的区别/" class="leancloud_visitors" data-flag-title="$parse 和  $eval  区别">
+             <span id="/2017/04/30/vue2.0知识点总结/" class="leancloud_visitors" data-flag-title="vue2.0知识点总结">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -455,13 +461,30 @@ $eval 即scope.$eval，是执行当前作用域下的表达式，如：sco">
       
 
       
-        <p>首先，$parse跟$eval都是用来解析表达式的， 但是$parse是作为一个单独的服务存在的。$eval是作为scope的方法来使用的。<br>$parse典型的使用是放在设置字符串表达式映射在真实对象上的值。也可以从$parse上直接获取到表达式对应的值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> getter = $parse(<span class="string">'user.name'</span>);</div></pre></td></tr></table></figure></p>
-<p>$eval 即scope.$eval，是执行当前作用域下的表达式，如：<code>scope.$eval(&#39;a+b&#39;);</code>而这个里的a,b是来自<code>scope = {a: 2, b:3}</code>;<br>看看源码它的实现是</p>
-<pre><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">$eval</span>(<span class="params">expr, locals</span>) </span>{
-            <span class="keyword">return</span> $parse(expr)(<span class="keyword">this</span>, locals);
-        }
-</code></pre>
-<p>  可以找到它也是基于$parse，不过它的参数已经被固定为this，就是当前的scope，所以$eval只是在$parse基础上的封装而已，是一种$parse快捷的API。 </p>
+        <h1 id="vue的特点"><a href="#vue的特点" class="headerlink" title="vue的特点"></a>vue的特点</h1><p>模板渲染、模块化、扩展功能（路由、ajax）</p>
+<h1 id="登录验证"><a href="#登录验证" class="headerlink" title="登录验证"></a>登录验证</h1><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">首先获取用户是否完成了登录</div><div class="line"></div><div class="line">computed: mapGetters</div><div class="line">  userProfile: <span class="string">'userProfile'</span></div><div class="line"></div><div class="line">如果没有登录然后进行登录操作</div><div class="line"></div><div class="line"><span class="keyword">unless</span> @userProfile.uuid</div><div class="line"><span class="keyword">return</span> @$router.push name: <span class="string">'login'</span></div></pre></td></tr></table></figure>
+<h1 id="vue关于路由方面"><a href="#vue关于路由方面" class="headerlink" title="vue关于路由方面"></a>vue关于路由方面</h1><h2 id="router-link"><a href="#router-link" class="headerlink" title="router-link"></a>router-link</h2><p><router-link></p>
+<p><router-link> 组件支持用户在具有路由功能的应用中（点击）导航。 通过 to 属性指定目标地址，默认渲染成带有正确链接的 <a> 标签，可以通过配置 tag 属性生成别的标签.。另外，当目标路由成功激活时，链接元素自动设置一个表示激活的 CSS 类名。</p>
+<p><router-link> 比起写死的 <a href="..."> 会好一些，理由如下：</p>
+<ul>
+<li>无论是 HTML5 history 模式还是 hash 模式，它的表现行为一致，所以，当你要切换路由模式，或者在 IE9 降级使用 hash 模式，无须作任何变动。</li>
+<li>在 HTML5 history 模式下，router-link 会拦截点击事件，让浏览器不在重新加载页面。</li>
+<li>当你在 HTML5 history 模式下使用 base 选项之后，所有的 to 属性都不需要写（基路径）了。</li>
+</ul>
+<h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><p>to<br>类型: string | Location<br>required<br>表示目标路由的链接。当被点击后，内部会立刻把 to 的值传到 router.push()，所以这个值可以是一个字符串或者是描述目标位置的对象。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 字符串 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"home"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 渲染结果 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"home"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 使用 v-bind 的 JS 表达式 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">v-bind:to</span>=<span class="string">"'home'"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 不写 v-bind 也可以，就像绑定别的属性一样 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"'home'"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 同上 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123; path: 'home' &#125;"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 命名的路由 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123; name: 'user', params: &#123; userId: 123 &#125;&#125;"</span>&gt;</span>User<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 带查询参数，下面的结果为 /register?plan=private --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123; path: 'register', query: &#123; plan: 'private' &#125;&#125;"</span>&gt;</span>Register<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h2><p>replace<br>类型: boolean<br>默认值: false<br>设置 replace 属性的话，当点击时，会调用 router.replace() 而不是 router.push()，于是导航后不会留下 history 记录。</p>
+<p><router-link :to="{ path: '/abc'}" replace></router-link></p>
+<p>##　append<br>类型: boolean<br>默认值: false<br>设置 append 属性后，则在当前（相对）路径前添加基路径。例如，我们从 /a 导航到一个相对路径 b，如果没有配置 append，则路径为 /b，如果配了，则为 /a/b<br>  <router-link :to="{ path: 'relative/path'}" append></router-link></p>
+<h2 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h2><p>类型: string<br>默认值: “a”<br>有时候想要 <router-link> 渲染成某种标签，例如 <li>。 于是我们使用 tag prop 类指定何种标签，同样它还是会监听点击，触发导航。</p>
+<p><router-link to="/foo" tag="li">foo</router-link></p>
+<!-- 渲染结果 -->
+<li>foo</li>
+
+<h2 id="active-class"><a href="#active-class" class="headerlink" title="active-class"></a>active-class</h2><p>类型: string<br>默认值: “router-link-active”<br>设置 链接激活时使用的 CSS 类名。默认值可以通过路由的构造选项 linkActiveClass 来全局配置。</p>
+<h2 id="exact"><a href="#exact" class="headerlink" title="exact"></a>exact</h2><p>类型: boolean<br>默认值: false<br>“是否激活” 默认类名的依据是 inclusive match （全包含匹配）。 举个例子，如果当前的路径是 /a 开头的，那么 <router-link to="/a"> 也会被设置 CSS 类名。<br>按照这个规则，<router-link to="/"> 将会点亮各个路由！想要链接使用 “exact 匹配模式”，则使用 exact 属性：<br>  <!-- 这个链接只会在地址为 / 的时候被激活 --><br>  <router-link to="/" exact></p>
+<p>查看更多关于激活链接类名的例子 可运行.<br>将”激活时的CSS类名”应用在外层元素<br>有时候我们要让 “激活时的CSS类名” 应用在外层元素，而不是 <a> 标签本身，那么可以用 <router-link> 渲染外层元素，包裹着内层的原生 <a> 标签：</p>
+<p><router-link tag="li" to="/foo"><br>  <a>/foo</a><br></router-link><br>在这种情况下，<a> 将作为真实的链接（它会获得正确的 href 的），而 “激活时的CSS类名” 则设置到外层的 <li>。</p>
 
       
     </div>
@@ -485,7 +508,7 @@ $eval 即scope.$eval，是执行当前作用域下的表达式，如：sco">
       
         <div class="post-tags">
           
-            <a href="/tags/angular/" rel="tag"># angular</a>
+            <a href="/tags/vue/" rel="tag"># vue</a>
           
         </div>
       
@@ -498,8 +521,8 @@ $eval 即scope.$eval，是执行当前作用域下的表达式，如：sco">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/10/hexo入门教程/" rel="next" title="hexo入门教程">
-                <i class="fa fa-chevron-left"></i> hexo入门教程
+              <a href="/2017/04/16/element_ui常用组件/" rel="next" title="element.ui 常用组件">
+                <i class="fa fa-chevron-left"></i> element.ui 常用组件
               </a>
             
           </div>
@@ -508,8 +531,8 @@ $eval 即scope.$eval，是执行当前作用域下的表达式，如：sco">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/11/如何发布自己的包到npm/" rel="prev" title="如何发布自己的包到npm">
-                如何发布自己的包到npm <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/29/ES6基础语法/" rel="prev" title="ES6基础语法">
+                ES6基础语法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -525,10 +548,10 @@ $eval 即scope.$eval，是执行当前作用域下的表达式，如：sco">
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/02/11/$parse 和 $eval 的区别/"
-     data-title="$parse 和  $eval  区别"
+        <div class="ds-share flat" data-thread-key="2017/04/30/vue2.0知识点总结/"
+     data-title="vue2.0知识点总结"
      data-content=""
-     data-url="http://yoursite.com/2017/02/11/$parse 和 $eval 的区别/">
+     data-url="http://yoursite.com/2017/04/30/vue2.0知识点总结/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -558,8 +581,8 @@ $eval 即scope.$eval，是执行当前作用域下的表达式，如：sco">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/11/$parse 和 $eval 的区别/"
-           data-title="$parse 和  $eval  区别" data-url="http://yoursite.com/2017/02/11/$parse 和 $eval 的区别/">
+      <div class="ds-thread" data-thread-key="2017/04/30/vue2.0知识点总结/"
+           data-title="vue2.0知识点总结" data-url="http://yoursite.com/2017/04/30/vue2.0知识点总结/">
       </div>
     
   </div>
@@ -583,8 +606,17 @@ $eval 即scope.$eval，是执行当前作用域下的表达式，如：sco">
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -651,6 +683,22 @@ $eval 即scope.$eval，是执行当前作用域下的表达式，如：sco">
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue的特点"><span class="nav-number">1.</span> <span class="nav-text">vue的特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#登录验证"><span class="nav-number">2.</span> <span class="nav-text">登录验证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue关于路由方面"><span class="nav-number">3.</span> <span class="nav-text">vue关于路由方面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#router-link"><span class="nav-number">3.1.</span> <span class="nav-text">router-link</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Props"><span class="nav-number">3.2.</span> <span class="nav-text">Props</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#replace"><span class="nav-number">3.3.</span> <span class="nav-text">replace</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tag"><span class="nav-number">3.4.</span> <span class="nav-text">tag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#active-class"><span class="nav-number">3.5.</span> <span class="nav-text">active-class</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#exact"><span class="nav-number">3.6.</span> <span class="nav-text">exact</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
