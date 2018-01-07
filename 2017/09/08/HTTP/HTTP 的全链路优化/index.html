@@ -1,0 +1,1103 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=微软雅黑:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic|微软雅黑:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="nginx," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="wupengli Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="写作背景在日常的开发中可能按时完成工作上的业务需求，写出优雅的前端代码这大概是每一个前端工程师每天的日常工作的大部分。但是技术积累也是一个很重要的方面，对于一个前端刚入坑的新人来说，我对 HTTP 的理解停留的层面算是比较浅层次了，因为有时候一些概会比较抽象，因此关于 HTTP 相关的文章都不敢提笔写，这次写之前也是硬着头皮看了大部分《HTPP 权威指南》,顿时间觉得自己以前错过了一个更加精彩的世">
+<meta name="keywords" content="nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP 的全链路优化 - 缓存篇">
+<meta property="og:url" content="http://yoursite.com/2017/09/08/HTTP/HTTP 的全链路优化/index.html">
+<meta property="og:site_name" content="wupengli Blog">
+<meta property="og:description" content="写作背景在日常的开发中可能按时完成工作上的业务需求，写出优雅的前端代码这大概是每一个前端工程师每天的日常工作的大部分。但是技术积累也是一个很重要的方面，对于一个前端刚入坑的新人来说，我对 HTTP 的理解停留的层面算是比较浅层次了，因为有时候一些概会比较抽象，因此关于 HTTP 相关的文章都不敢提笔写，这次写之前也是硬着头皮看了大部分《HTPP 权威指南》,顿时间觉得自己以前错过了一个更加精彩的世">
+<meta property="og:image" content="http://yoursite.com/img/http.png">
+<meta property="og:image" content="http://yoursite.com/img/expires.jpeg">
+<meta property="og:image" content="http://yoursite.com/img/cache.png">
+<meta property="og:image" content="http://yoursite.com/img/operate.jpeg">
+<meta property="og:image" content="http://yoursite.com/img/browser_01.png">
+<meta property="og:image" content="http://yoursite.com/img/browser_02.png">
+<meta property="og:updated_time" content="2017-11-27T13:52:31.962Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTTP 的全链路优化 - 缓存篇">
+<meta name="twitter:description" content="写作背景在日常的开发中可能按时完成工作上的业务需求，写出优雅的前端代码这大概是每一个前端工程师每天的日常工作的大部分。但是技术积累也是一个很重要的方面，对于一个前端刚入坑的新人来说，我对 HTTP 的理解停留的层面算是比较浅层次了，因为有时候一些概会比较抽象，因此关于 HTTP 相关的文章都不敢提笔写，这次写之前也是硬着头皮看了大部分《HTPP 权威指南》,顿时间觉得自己以前错过了一个更加精彩的世">
+<meta name="twitter:image" content="http://yoursite.com/img/http.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    algolia: {
+              applicationID: '0C1U6R7LV2',
+              apiKey: 'a96c1e0b0a38ddfac493e982f14a7c42',
+              indexName: 'index',
+              hits: {"per_page":10},
+              labels: {"input_placeholder":"搜索...","hits_empty":"未发现与 「${query}」相关的内容","hits_stats":"${hits} 条相关条目，使用了 ${time} 毫秒"}
+            },
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/08/HTTP/HTTP 的全链路优化/"/>
+
+
+
+
+
+  <title> HTTP 的全链路优化 - 缓存篇 | wupengli Blog </title>
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+ 
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+    
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script type="text/javascript" src="/js/src/algolia.js?v=5.1.0"></script>
+
+
+  
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-112036999-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?28cdf6187b4e5c231d9ec7da41817719";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <a href="https://github.com/wplnancy" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wupengli Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">我分享，我快乐</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+
+
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/08/HTTP/HTTP 的全链路优化/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="吴鹏丽">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="wupengli Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="wupengli Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HTTP 的全链路优化 - 缓存篇
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-08T12:27:15+08:00">
+                2017-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/09/08/HTTP/HTTP 的全链路优化/" class="leancloud_visitors" data-flag-title="HTTP 的全链路优化 - 缓存篇">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="写作背景"><a href="#写作背景" class="headerlink" title="写作背景"></a>写作背景</h3><p>在日常的开发中可能按时完成工作上的业务需求，写出优雅的前端代码这大概是每一个前端工程师每天的日常工作的大部分。但是技术积累也是一个很重要的方面，对于一个前端刚入坑的新人来说，我对 HTTP 的理解停留的层面算是比较浅层次了，因为有时候一些概会比较抽象，因此关于 HTTP 相关的文章都不敢提笔写，这次写之前也是硬着头皮看了大部分《HTPP 权威指南》,顿时间觉得自己以前错过了一个更加精彩的世界，读书解惑这句话一点也不错。但是看完之后也只能是有一个概念上的大概印象： 比如： HTTP结构， TCP/IP 协议，网关，代理，缓存等，以为看完了就可以明白 HTTP 的细枝末节的知识，看完才知道并不是这样的，还是不敢写代理，网关的内容，于是选择了比较常用的缓存，也是经常打开 network 经常能够看到的，在开始之前：<br>建议阅读 HTTP 基础相关的经典的书籍，如：</p>
+<ul>
+<li>《HTPP 权威指南》</li>
+<li>《HTPP图解》</li>
+<li>《图解TCP/IP》</li>
+</ul>
+<p>以上资源附百度云下载链接：<br>链接:[<a href="http://pan.baidu.com/s/1hrRygvi">http://pan.baidu.com/s/1hrRygvi</a>]  密码:xlub</p>
+<h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><p>客户端输入一个网址，中间可能会经历下面比较全的一个过程：<br>从浏览器输入URL-&gt;浏览器代理-&gt;七层网络协议-&gt;网关-&gt;反向代理服务器-&gt;应用服务器-&gt;服务程序-&gt;数据库-&gt;浏览器渲染响应, 这是我找的一张比较全面的图，看完一定印象深刻(建议：在新标签页打开图片)</p>
+<p><img src="/img/http.png" alt=""></p>
+<p>针对上述这张图重点介绍今天的主角： 缓存</p>
+<blockquote>
+<p>什么是 Web 缓存</p>
+</blockquote>
+<p>Web缓存是指一个Web资源（如html页面，图片，js，数据等）存在于Web服务器和客户端（浏览器）之间的副本。缓存会根据进来的请求保存输出内容的副本；当下一个请求来到的时候，如果是相同的URL，缓存会根据缓存机制决定是直接使用副本响应访问请求，还是向源服务器再次发送请求。</p>
+<blockquote>
+<p>Web 缓存的作用</p>
+</blockquote>
+<p>给网络资源设定有效期之后，用户可以重复使用本地的缓存，减少对源服务器的请求，间接降低服务器的压力。同时，搜索引擎的爬虫机器人也能根据过期机制降低爬取的频率，也能有效降低服务器的压力，由于HTPP每次连接都会有时间的消耗，在加上 HTTP 的慢启动等，提供 web缓存能有效的减少网络延迟，缓存的使用能够明显加快页面打开速度，达到更好的体验。</p>
+<blockquote>
+<p>常见的缓存策略</p>
+</blockquote>
+<p>一、 浏览器缓存<br>对于浏览器端的缓存来讲，这些规则是在HTTP协议头和HTML页面的Meta标签中定义的。他们分别从<strong>新鲜度</strong>和<strong>校验值</strong>两个维度来规定浏览器是否可以直接使用缓存中的副本，还是需要去源服务器获取更新的版本。</p>
+<p><strong>新鲜度</strong>（过期机制）：也就是缓存副本有效期。一个缓存副本必须满足以下条件，浏览器会认为它是有效的，足够新的：<br>含有完整的过期时间控制头信息（HTTP协议报头），并且仍在有效期内；<br>浏览器已经使用过这个缓存副本，并且在一个会话中已经检查过新鲜度；<br>满足以上两个情况的一种，浏览器会直接从缓存中获取副本并渲染。</p>
+<p><strong>校验值</strong>（验证机制）：服务器返回资源的时候有时在控制头信息带上这个资源的实体标签Etag（Entity Tag），它可以用来作为浏览器再次请求过程的校验标识。如过发现校验标识不匹配，说明资源已经被修改或过期，浏览器需求重新获取资源内容。</p>
+<ol>
+<li>非 HTTP 协议定义的缓存</li>
+</ol>
+<p>浏览器缓存机制，其实主要就是基于 HTTP 协议定义的缓存机制（如： Expires； Cache-control 等）,但是也有非 HTTP 协议定义的缓存机制，如使用HTML Meta 标签，Web开发者可以在HTML页面的<head>节点中加入<meta>标签，代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">META</span> <span class="attr">HTTP-EQUIV</span>=<span class="string">"Pragma"</span> <span class="attr">CONTENT</span>=<span class="string">"no-cache"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>上述代码的作用是告诉浏览器当前页面不被缓存，每次访问都需要去服务器拉取。使用上很简单，但只有部分浏览器可以支持，而且所有缓存代理服务器都不支持，因为<font color="red">代理不解析HTML内容本身</font>。</p>
+<ol>
+<li>基于 HTTP 协议定义的缓存</li>
+</ol>
+<ul>
+<li>Expires 策略</li>
+</ul>
+<p>Expires Web 服务器响应消息头字段，在响应http请求时告诉浏览器在过期时间前浏览器可以直接从浏览器缓存取数据，而无需再次请求。下面是一个例子：<br><img src="/img/expires.jpeg" alt=""></p>
+<p>Web服务器告诉浏览器在2012-11-28 03:30:01这个时间点之前，可以使用缓存文件。发送请求的时间是2012-11-28 03:25:01，即缓存5分钟。<br><strong>注意</strong>： 由于 Expires 是 HTTP 1.0  版本的东西，现在浏览器默认都是使用 HTTP 1.1 版本，所以他的作用可以忽略。</p>
+<ul>
+<li>Cache-control 策略</li>
+</ul>
+<p>Cache-Control与Expires的作用一致，都是指明当前资源的有效期，控制浏览器是否直接从浏览器缓存取数据还是重新发请求到服务器取数据。只不过Cache-Control的选择更多，设置更细致，如果同时设置的话，其优先级高于Expires。</p>
+<p>相应头字段: Cache-Control 可选的字段有如下：<br><img src="/img/cache.png" alt=""></p>
+<p>比如上面 expires 实现 5 分钟缓存，可以设置web服务器返回的<code>Cache-Control</code>头的值为<code>max-age=300</code>。</p>
+<p><strong>Last-Modified/If-Modified-Since</strong></p>
+<p>Last-Modified/If-Modified-Since要配合Cache-Control使用。</p>
+<p>Last-Modified：标示这个响应资源的最后修改时间。web服务器在响应请求时，告诉浏览器资源的最后修改时间。<br>If-Modified-Since：当资源过期时（使用Cache-Control标识的max-age），发现资源具有Last-Modified声明，则再次向web服务器请求时带上头 If-Modified-Since，表示请求时间。web服务器收到请求后发现有头If-Modified-Since 则与被请求资源的最后修改时间进行比对。若最后修改时间较新，说明资源又被改动过，则响应整片资源内容（写在响应消息包体内），HTTP状态码： 200；若最后修改时间较旧，说明资源无新修改，则响应HTTP 304，告知浏览器继续使用所保存的 cache。</p>
+<p><strong>Etag/If-None-Match</strong></p>
+<p>Etag/If-None-Match也要配合Cache-Control使用。</p>
+<p>Etag：web服务器响应请求时，告诉浏览器当前资源在服务器的唯一标识（生成规则由服务器决定）。Apache中，ETag的值，默认是对文件的索引节（INode），大小（Size）和最后修改时间（MTime）进行Hash后得到的。<br>If-None-Match：当资源过期时（使用Cache-Control标识的max-age），发现资源具有Etage声明，则再次向web服务器请求时带上头If-None-Match （Etag的值）。web服务器收到请求后发现有头If-None-Match 则与被请求资源的相应校验串进行比对，决定返回200或304。</p>
+<p><strong>Last-Modified和Etag区别？</strong></p>
+<p>你可能会觉得使用Last-Modified已经足以让浏览器知道本地的缓存副本是否足够新，为什么还需要Etag（实体标识）呢？HTTP1.1中Etag的出现主要是为了解决几个Last-Modified比较难解决的问题：</p>
+<ul>
+<li>Last-Modified标注的最后修改只能精确到秒级，如果某些文件在1秒钟以内，被修改多次的话，它将不能准确标注文件的修改时间</li>
+<li>如果某些文件会被定期生成，但有时内容并没有任何变化，但Last-Modified却改变了，导致文件没法使用缓存</li>
+<li>有可能存在服务器没有准确获取文件修改时间，或者与代理服务器时间不一致等情形</li>
+</ul>
+<p>Etag是服务器自动生成或者由开发者生成的对应资源在服务器端的唯一标识符，能够更加准确的控制缓存。Last-Modified与ETag是可以一起使用的，服务器会优先验证ETag，一致的情况下，才会继续比对Last-Modified，最后才决定是否返回304。</p>
+<p><strong>用户行为与缓存</strong><br>值得注意的是，用户行为还和缓存有关：<br><img src="/img/operate.jpeg" alt=""></p>
+<p>总结：浏览器访问页面关于换缓存处理的大概流程</p>
+<ul>
+<li>浏览器第一次请求：<br><img src="/img/browser_01.png" alt=""></li>
+<li>浏览器第二次请<br><img src="/img/browser_02.png" alt=""></li>
+</ul>
+<p>二、服务器端缓存</p>
+<p><strong>代理服务器缓存</strong></p>
+<p>代理服务器是浏览器和源服务器之间的中间服务器(充当的角色既可以是客户端也可以是服务器)，浏览器先向这个中间服务器发起Web请求，经过处理后（比如权限验证，缓存匹配等），再将请求转发到源服务器。代理服务器缓存的运作原理跟浏览器的运作原理差不多，只是规模更大。可以把它理解为一个共享缓存，不只为一个用户服务，一般为大量用户提供服务，因此在减少相应时间和带宽使用方面很有效，同一个副本会被重用多次。常见代理服务器缓存解决方案有Squid等。</p>
+<p><strong>CDN缓存</strong></p>
+<p>CDN（Content delivery networks）缓存，也叫网关缓存、反向代理缓存。CDN缓存一般是由网站管理员自己部署，为了让他们的网站更容易扩展并获得更好的性能。浏览器先向CDN网关发起Web请求，网关服务器后面对应着一台或多台负载均衡源服务器，会根据它们的负载请求，动态将请求转发到合适的源服务器上。虽然这种架构负载均衡源服务器之间的缓存没法共享，但却拥有更好的处扩展性。从浏览器角度来看，整个CDN就是一个源服务器，从这个层面来说，本文讨论浏览器和服务器之间的缓存机制，在这种架构下同样适用。</p>
+<p>三、数据库数据缓存<br>Web应用，特别是SNS类型的应用，往往关系比较复杂，数据库表繁多，如果频繁进行数据库查询，很容易导致数据库不堪重荷。为了提供查询的性能，会将查询后的数据放到内存中进行缓存，下次查询时，直接从内存缓存直接返回，提供响应效率。比如常用的缓存方案有* <a href="https://www.mysql.com/why-mysql/memcached/">memcached</a>等。</p>
+<p>四、Web应用层缓存<br>应用层缓存指的是从代码层面上，通过代码逻辑和缓存策略，实现对数据，页面，图片等资源的缓存，可以根据实际情况选择将数据存在文件系统或者内存中，减少数据库查询或者读写瓶颈，提高响应效率。</p>
+<h3 id="缓存运用"><a href="#缓存运用" class="headerlink" title="缓存运用"></a>缓存运用</h3><p>前面了解了Web缓存的运行机制极其重要性之后，我们可以从以下这些方面去努力改善我们的站点，保证缓存被最有效的利用，达到最佳的性能。</p>
+<blockquote>
+<p>同一个资源保证 URL 稳定</p>
+</blockquote>
+<p>URL是浏览器缓存机制的基础，所以如果一个资源需要在多个地方被引用，尽量保证URL是固定的。同时，比较推荐使用公共类库，比如Google Ajax Library等，有利于最大限度使用缓存</p>
+<blockquote>
+<p>给Css、js、图片等资源增加HTTP缓存头，并强制入口Html不被缓存</p>
+</blockquote>
+<p>对于不经常修改的静态资源，比如Css，js，图片等，可以设置一个较长的过期的时间，或者至少加上Last-Modified/Etag，而对于html页面这种入口文件，不建议设置缓存。这样既能保证在静态资源不变了情况下，可以不重发请求或直接通过304避免重复下载，又能保证在资源有更新的，只要通过给资源增加时间戳或者更换路径，就能让用户访问最新的资源</p>
+<blockquote>
+<p>减少对Cookie的依赖</p>
+</blockquote>
+<p>过多的使用Cookie会大大增加HTTP请求的负担，每次GET或POST请求，都会把Cookie都带上，增加网络传输流量，导致增长交互时间；同时Cache是很难被缓存的，应该尽量少使用，或者这在动态页面上使用。</p>
+<blockquote>
+<p>减少对HTTPS加密协议的使用</p>
+</blockquote>
+<p>通过HTTPS请求的资源，默认是不会被缓存的，必须通过特殊的配置，才能让资源得到缓存。建议只对涉及敏感信息的请求使用HTTPS传输，其他类似Css，Js，图片这些静态资源，尽量避免使用。</p>
+<blockquote>
+<p>多用Get方式请求动态Cgi</p>
+</blockquote>
+<p>虽然POST的请求方式比Get更安全，可以避免类似密码这种敏感信息在网络传输，被代理或其他人截获，但是Get请求方式更快，效率更高，而且能被缓存，建议对于那些不涉及敏感信息提交的请求尽量使用Get方式请求</p>
+<blockquote>
+<p>动态CGI也是可以被缓存</p>
+</blockquote>
+<p>如果动态脚本或CGI输入的内容在一定的时间范围内是固定的，或者根据GET参数相同，输入的内容相同，我们也认为请求是可以被缓存的，有以下几种方式，可以达到这个效果：<br>让动态脚本定期将内容改变时导出成静态文件，Web直接访问带有Last-Modified/Etag的静态文件<br>开发者可以通过代码给动态脚本的响应头中添加Cache-Control: max-age，告诉浏览器在过期前可以直接使用副本<br>通过代码给动态脚本的响应头添加Last-Modified/Etag信息，浏览器再次请求的时候，可以通过解析If-Modified-Since/If-None-Match得知浏览器是否存在缓存，由代码逻辑控制是否返回304</p>
+<h3 id="离线存储"><a href="#离线存储" class="headerlink" title="离线存储"></a>离线存储</h3><blockquote>
+<p>HTML5 离线应用</p>
+</blockquote>
+<p>即使对站点的资源都实施了比较好的缓存策略，但是在断网的情况下，是无法访问的。因为入口的HTML页面出于运维的考虑，不会对其进行缓存。 HTML5的 Cache Manifest 离线应该特性就能够帮我们构建离线也能使用的站点，所有的资源都是使用浏览器本地缓存，当然前提是要求在连接网络的前提下，使用过一次网络。</p>
+<p><strong>实现离线访问特性步骤</strong></p>
+<ol>
+<li>在服务器上添加 MIME TYPE ,让服务器能够识别manifest后缀的文件</li>
+</ol>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AddType <span class="built_in">text</span>/cache-manifest manifest</div></pre></td></tr></table></figure>
+<ol>
+<li>创建一个后缀名为 .manifest 的文件，把需要的文件按照格式写在里面，并用注释标注版本</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CACHE</span> MANIFEST</div><div class="line"># 直接缓存的文件</div><div class="line"><span class="keyword">CACHE</span>:</div><div class="line"><span class="keyword">Path</span>/<span class="keyword">to</span>/cache.js</div><div class="line"># <span class="keyword">version</span>：<span class="number">2012</span><span class="number">-03</span><span class="number">-20</span></div></pre></td></tr></table></figure>
+<ol>
+<li>给 <html> 标签加  manifest 属性， 并引用 manifest 文件</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">manifest</span>=<span class="string">"path/to/name-of.manifest"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><strong>离线应用访问及更新流程</strong></p>
+<ol>
+<li><p>第一次访问离线应用的入口页HTML（引用了manifest文件），正常发送请求，获取manifest文件并在本地缓存，陆续拉取manifest中的需要缓存的文件</p>
+</li>
+<li><p>再次访问时，无论在线离线与否，都会直接从缓存中获取入口页HTML和其他缓存的文件进行展示。如果此时在线，浏览器会发送请求到服务器请求manifest文件，并与第一次访问的副本进行比对，如果发现版本不一致，会陆续发送请求重新拉取入口文件HTML和需要缓存的文件并更新本地缓存副本。如果处于离线，则会从缓存文件中读取，但是不能保证当前展示缓存的页面是最新的</p>
+</li>
+<li><p>之后的访问重复第2步的行为</p>
+</li>
+</ol>
+<p><strong>离线机制的缓存用途</strong></p>
+<p>从Manifest的机制来看，即使我们不是为了创建离线应用，也同样可以使用这种机制用于缓存文件，可以说是给Web缓存提供多一种可以选择的途径。</p>
+<p><strong>存在的问题：缓存文件更新控制不灵活</strong></p>
+<p>就目前HTML5提供的manifest机制来讲，一个页面只能引用一个manifest页面，而且一旦发现这个manifest改变了，就会把里面所有定义的缓存文件全部重新拉取一遍，不管实际上有没有更新，控制比较不灵活。针对这个问题，也有的同学提出了一些建议，比如把需要缓存的文件分模块切分到不同 manifest中，并分开用HTML引用，再使用强大的iframe嵌入到入口页面，这样就当某一个模式需要有更新，不会导致其他模块的文件也重新拉取一遍。</p>
+<h3 id="本地存储"><a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h3><p>然而在离线的情况下，基本也是只有页面框架，大量的页面空白和 ajax 请求超时，基本也相当于不可用。那么，花了这么大力气定制的本地化机制就仅仅保证打开的时候可看不可用吗？有什么办法可以改善吗？</p>
+<p>答案是有的，这时 Web Storage 和 Web Database 就可以派上用场了<br>一些典型的离线场景及处理方案：<br>离线写操作：将 Ajax 请求以及相关参数保存到 localStorage 队列中，网络上线后，触发执行队列中的操作<br>离线读操作：页面上有需要通过 Ajax 获取动态的数据或远程图片进行渲染的块，可以通过前端 hardcode 一些默认数据，并且将最近一次 ajax 结果存储到 localStorage 中，图片可以转为 base64 字符串才用同样的方式处理</p>
+<p>HTML5给我们提供本地存储localstorage特性，严格来讲，其实已经不算传统Web缓存的范畴。因为它存储的地方是跟Web缓存分开的，是浏览器重新开辟的一个地方。</p>
+<p><strong>Localstorage的缓存用途</strong></p>
+<p>Localstorage设计的本意可能是用来存储一些用户操作的个性化设置的文本类型的信息和数据，当我们其实也可能拿来当Web缓存区使用，比如我们可以将Base64格式编码的图片信息，存在localstorage中，再次访问时，直接本地获取后，使用Css3的Data:image的方式直接展现出来。</p>
+<p><strong>存在的问题：大小限制</strong><br>按照目前标准，目前浏览器只给每个独立的域名提供5M的存储空间，当存储超过5M，浏览器就会弹出警告框。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"><i class="fa fa-tag"></i> nginx</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/15/CSS/简单实用的css代码片段/" rel="next" title="简单实用的css代码片段">
+                <i class="fa fa-chevron-left"></i> 简单实用的css代码片段
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/08/Nginx/HTTP 的全链路优化/" rel="prev" title="HTTP 的全链路优化">
+                HTTP 的全链路优化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="吴鹏丽" />
+          <p class="site-author-name" itemprop="name">吴鹏丽</p>
+          <p class="site-description motion-element" itemprop="description">分享技术文章</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wplnancy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写作背景"><span class="nav-number">1.</span> <span class="nav-text">写作背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存"><span class="nav-number">2.</span> <span class="nav-text">缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存运用"><span class="nav-number">3.</span> <span class="nav-text">缓存运用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#离线存储"><span class="nav-number">4.</span> <span class="nav-text">离线存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地存储"><span class="nav-number">5.</span> <span class="nav-text">本地存储</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴鹏丽</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("kVQS72YAARanOhfIvaizJsHt-gzGzoHsz", "lHVjxBcTRxAxHuLCu4RBJdNr");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

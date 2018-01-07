@@ -145,11 +145,11 @@
       author: '博主'
     },
     algolia: {
-      applicationID: '0C1U6R7LV2',
-      apiKey: 'a96c1e0b0a38ddfac493e982f14a7c42',
-      indexName: 'index',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
     }
   };
 </script>
@@ -163,6 +163,10 @@
 
 
   <title> wupengli Blog </title>
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+ 
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -188,6 +192,15 @@
 
 
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-112036999-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
   <script type="text/javascript">
@@ -218,7 +231,7 @@
    page-home 
  ">
     <div class="headband"></div>
-
+    <a href="https://github.com/wplnancy" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
@@ -262,6 +275,30 @@
 
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+
+
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -280,6 +317,18 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
           </a>
         </li>
 
@@ -304,7 +353,6 @@
   
     <div class="site-search">
       
-  
   <div class="algolia-popup popup">
     <div class="algolia-search">
       <div class="algolia-search-input-icon">
@@ -312,18 +360,15 @@
       </div>
       <div class="algolia-search-input" id="algolia-search-input"></div>
     </div>
-
     <div class="algolia-results">
       <div id="algolia-stats"></div>
       <div id="algolia-hits"></div>
       <div id="algolia-pagination" class="algolia-pagination"></div>
     </div>
-
     <span class="popup-btn-close">
       <i class="fa fa-times-circle"></i>
     </span>
   </div>
-
 
 
 
@@ -352,7 +397,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/29/ES6基础语法/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/25/Node/Js读写 xlsx 文件/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="吴鹏丽">
@@ -377,8 +422,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/05/29/ES6基础语法/" itemprop="url">
-                  ES6基础语法
+                <a class="post-title-link" href="/2017/11/25/Node/Js读写 xlsx 文件/" itemprop="url">
+                  Js读写 xlsx 文件
                 </a>
               
             
@@ -394,8 +439,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-29T14:51:35+08:00">
-                2017-05-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-25T23:56:03+08:00">
+                2017-11-25
               </time>
             
 
@@ -408,21 +453,11 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/29/ES6基础语法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/29/ES6基础语法/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
           
-             <span id="/2017/05/29/ES6基础语法/" class="leancloud_visitors" data-flag-title="ES6基础语法">
+             <span id="/2017/11/25/Node/Js读写 xlsx 文件/" class="leancloud_visitors" data-flag-title="Js读写 xlsx 文件">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -453,22 +488,12 @@
       
         
           
-          ES6更加的高效写代码,更加的简洁，提高开发的效率
+          https://segmentfault.com/q/1010000002996909
 
-默认参数- 增加代码的安全性
-研究源码  Element Vue 等都有用到ES6
-面试 ES6 是很重要的
-
-
-模块化概念
-工程构建  文件之间的位置 上线 
-编程经验  
-
-解构赋值变量的交换：1234let a = 1;let b = 2;
-          ...
+          
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/05/29/ES6基础语法/#more" rel="contents">
+            <a class="btn" href="/2017/11/25/Node/Js读写 xlsx 文件/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -511,7 +536,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/30/vue2.0知识点总结/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/09/ES6/Promise 必知必会的面试题/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="吴鹏丽">
@@ -536,8 +561,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/30/vue2.0知识点总结/" itemprop="url">
-                  vue2.0知识点总结
+                <a class="post-title-link" href="/2017/11/09/ES6/Promise 必知必会的面试题/" itemprop="url">
+                  Promise 必知必会的面试题
                 </a>
               
             
@@ -553,8 +578,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-30T23:06:49+08:00">
-                2017-04-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-09T13:50:00+08:00">
+                2017-11-09
               </time>
             
 
@@ -567,21 +592,11 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/30/vue2.0知识点总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/30/vue2.0知识点总结/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
           
-             <span id="/2017/04/30/vue2.0知识点总结/" class="leancloud_visitors" data-flag-title="vue2.0知识点总结">
+             <span id="/2017/11/09/ES6/Promise 必知必会的面试题/" class="leancloud_visitors" data-flag-title="Promise 必知必会的面试题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -612,12 +627,13 @@
       
         
           
-          vue的特点模板渲染、模块化、扩展功能（路由、ajax）
-登录验证123456789首先获取用户是否完成了登录computed: mapGetters  userProfile: 'userProfile'如果没有登录然后进行登录操作unless @userProfile.uuidreturn @$
+          Promise 想必大家都十分熟悉，想想就那么几个 api，可是你真的了解 Promise 吗？本文根据 Promise 的一些知识点总结了十道题，看看你能做对几道。
+以下 promise 均指代 Promise 实例，环境是 Node.js。
+题目一123456789const promise =
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/30/vue2.0知识点总结/#more" rel="contents">
+            <a class="btn" href="/2017/11/09/ES6/Promise 必知必会的面试题/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -660,7 +676,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/16/element_ui常用组件/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/07/Tools/gitlab的使用/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="吴鹏丽">
@@ -685,8 +701,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/16/element_ui常用组件/" itemprop="url">
-                  element.ui 常用组件
+                <a class="post-title-link" href="/2017/11/07/Tools/gitlab的使用/" itemprop="url">
+                  gitlab使用
                 </a>
               
             
@@ -702,8 +718,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-16T20:42:15+08:00">
-                2017-04-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-07T14:01:16+08:00">
+                2017-11-07
               </time>
             
 
@@ -716,21 +732,11 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/16/element_ui常用组件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/16/element_ui常用组件/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
           
-             <span id="/2017/04/16/element_ui常用组件/" class="leancloud_visitors" data-flag-title="element.ui 常用组件">
+             <span id="/2017/11/07/Tools/gitlab的使用/" class="leancloud_visitors" data-flag-title="gitlab使用">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -761,11 +767,12 @@
       
         
           
-          在v-for中动态的绑定多次1234567891011el-form-item(     v-for=&quot;(domain, index) in form.domains&quot;,     :label=&quot;&apos;域名&apos; + index&quot;,     :ke
+          gitlab push 如何自动关闭 issues在Github中,我们可以通过git push的提交日志信息,自动关闭相关的issue, 比如 git push -m ‘closed #123’, 将自动关闭Issue #123.
+其实Gitlab中也存在类似的功能, 在Gitlab默认的配置文件
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/16/element_ui常用组件/#more" rel="contents">
+            <a class="btn" href="/2017/11/07/Tools/gitlab的使用/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -808,7 +815,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/14/git工作中常见操作详解/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/11/Hexo/hexo入门教程/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="吴鹏丽">
@@ -833,8 +840,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/14/git工作中常见操作详解/" itemprop="url">
-                  git工作中常见操作详解
+                <a class="post-title-link" href="/2017/09/11/Hexo/hexo入门教程/" itemprop="url">
+                  hexo入门教程
                 </a>
               
             
@@ -850,8 +857,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-14T23:02:56+08:00">
-                2017-04-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-11T00:42:35+08:00">
+                2017-09-11
               </time>
             
 
@@ -864,21 +871,11 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/14/git工作中常见操作详解/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/14/git工作中常见操作详解/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
           
-             <span id="/2017/04/14/git工作中常见操作详解/" class="leancloud_visitors" data-flag-title="git工作中常见操作详解">
+             <span id="/2017/09/11/Hexo/hexo入门教程/" class="leancloud_visitors" data-flag-title="hexo入门教程">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -909,14 +906,13 @@
       
         
           
-          git命令速查表[https://segmentfault.com/a/1190000008535266]
-修改上一次提交的信息1git commit --amend -m&apos;commit message&apos;
-合并commit在不适用id号的情况下
-1git rebase -i HE
+          什么是 Hexo？简单的理解，它可以帮我们快速的生成博客，方便程序员做技术总结和技术分享的一个工具而已，那么，就让我们开始hexo的快乐之旅吧…
+安装1npm install -g hexo-cli
+建站123$ hexo init &lt;folder&gt;$ cd &lt;folder&gt;
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/14/git工作中常见操作详解/#more" rel="contents">
+            <a class="btn" href="/2017/09/11/Hexo/hexo入门教程/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -959,7 +955,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/02/sublime的配置相关知多少/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/08/Nginx/项目如何发布上线/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="吴鹏丽">
@@ -984,8 +980,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/02/sublime的配置相关知多少/" itemprop="url">
-                  sublime的配置相关知多少
+                <a class="post-title-link" href="/2017/09/08/Nginx/项目如何发布上线/" itemprop="url">
+                  项目如何发布上线
                 </a>
               
             
@@ -1001,8 +997,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-02T14:16:28+08:00">
-                2017-04-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-08T12:27:15+08:00">
+                2017-09-08
               </time>
             
 
@@ -1015,21 +1011,11 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/02/sublime的配置相关知多少/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/02/sublime的配置相关知多少/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
           
-             <span id="/2017/04/02/sublime的配置相关知多少/" class="leancloud_visitors" data-flag-title="sublime的配置相关知多少">
+             <span id="/2017/09/08/Nginx/项目如何发布上线/" class="leancloud_visitors" data-flag-title="项目如何发布上线">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1060,11 +1046,13 @@
       
         
           
-          sublime text 3  的常规配置123456789101112131415161718192021&#123;	&quot;ensure_newline_at_eof_on_save&quot;: true,	&quot;font_face&quot;: &quot;Monaco&quot
+          如何发布?第一步, 配置nginx
+先根据项目里的 /src/config/nginx.conf.example 文件, 修改其中的配置, 然后将文件复制到你的服务器上 nginx 所在目录的 /etc/nginx/conf.d 目录下, 命名为 xxx.conf 的文件. 然后重启 nginx.
+
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/02/sublime的配置相关知多少/#more" rel="contents">
+            <a class="btn" href="/2017/09/08/Nginx/项目如何发布上线/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1107,7 +1095,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/28/vue基础入门/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/08/Nginx/HTTP 的全链路优化/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="吴鹏丽">
@@ -1132,8 +1120,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/28/vue基础入门/" itemprop="url">
-                  vue基础入门
+                <a class="post-title-link" href="/2017/09/08/Nginx/HTTP 的全链路优化/" itemprop="url">
+                  HTTP 的全链路优化
                 </a>
               
             
@@ -1149,8 +1137,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-28T17:55:18+08:00">
-                2017-03-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-08T12:27:15+08:00">
+                2017-09-08
               </time>
             
 
@@ -1163,21 +1151,11 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/28/vue基础入门/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/28/vue基础入门/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
           
-             <span id="/2017/03/28/vue基础入门/" class="leancloud_visitors" data-flag-title="vue基础入门">
+             <span id="/2017/09/08/Nginx/HTTP 的全链路优化/" class="leancloud_visitors" data-flag-title="HTTP 的全链路优化">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1208,15 +1186,11 @@
       
         
           
-          定义全局组件所谓的全局组件是在项目中的任何一个地方都是可以使用的
-1Vue.use(myButton);
-在html代码中使用自定义的全局组件
-12&lt;myButton&gt;点我&lt;/myButton&gt;&lt;myButton&gt;哈哈&lt;/myButton&gt;
-index
+          写作背景在日常的开发中可能按时完成工作上的业务需求，写出优雅的前端代码这大概是每一个前端工程师每天的日常工作的大部分。然而有小部分时间是属于我们的，就拿我自己来说： 10AM-18PM 的工作日常（重点是不加班），除去上下班的两小时的日常，我的空余时间是比较多的，所以这里的 小部分 相对于我自己是大
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/03/28/vue基础入门/#more" rel="contents">
+            <a class="btn" href="/2017/09/08/Nginx/HTTP 的全链路优化/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1254,7 +1228,7 @@ index
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1297,7 +1271,7 @@ index
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1308,7 +1282,7 @@ index
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1366,7 +1340,7 @@ index
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1483,43 +1457,32 @@ index
 
   
 
-  
-    
-  
 
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"wupengli"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
 
   
-    
-      
-      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+
+
+
+
+	
+
+
+
+
+
   
 
 
 
 
 
+  
 
 
 
 
 
+  
 
 
 
@@ -1640,19 +1603,6 @@ index
   
 
   
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
-
 
 
 </body>

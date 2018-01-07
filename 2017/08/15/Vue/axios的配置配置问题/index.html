@@ -1,0 +1,1011 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=微软雅黑:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic|微软雅黑:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="vue," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="wupengli Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="以前写Vue项目的时候都是使用vue-resource做为项目ajax库，在11月份的某一天尤大微博的更新表示ajax的库应该是通用的，放弃了对vue-resource的技术支持，推荐使用axios。  看下官方的版本， vue resource官方已经停止了对它的更新 安装1npm install axios 使用1234567axios.get(&apos;/user?ID=12345&apos;).then(">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="axios的配置配置问题">
+<meta property="og:url" content="http://yoursite.com/2017/08/15/Vue/axios的配置配置问题/index.html">
+<meta property="og:site_name" content="wupengli Blog">
+<meta property="og:description" content="以前写Vue项目的时候都是使用vue-resource做为项目ajax库，在11月份的某一天尤大微博的更新表示ajax的库应该是通用的，放弃了对vue-resource的技术支持，推荐使用axios。  看下官方的版本， vue resource官方已经停止了对它的更新 安装1npm install axios 使用1234567axios.get(&apos;/user?ID=12345&apos;).then(">
+<meta property="og:updated_time" content="2017-09-10T16:42:35.714Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="axios的配置配置问题">
+<meta name="twitter:description" content="以前写Vue项目的时候都是使用vue-resource做为项目ajax库，在11月份的某一天尤大微博的更新表示ajax的库应该是通用的，放弃了对vue-resource的技术支持，推荐使用axios。  看下官方的版本， vue resource官方已经停止了对它的更新 安装1npm install axios 使用1234567axios.get(&apos;/user?ID=12345&apos;).then(">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    algolia: {
+              applicationID: '0C1U6R7LV2',
+              apiKey: 'a96c1e0b0a38ddfac493e982f14a7c42',
+              indexName: 'index',
+              hits: {"per_page":10},
+              labels: {"input_placeholder":"搜索...","hits_empty":"未发现与 「${query}」相关的内容","hits_stats":"${hits} 条相关条目，使用了 ${time} 毫秒"}
+            },
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/15/Vue/axios的配置配置问题/"/>
+
+
+
+
+
+  <title> axios的配置配置问题 | wupengli Blog </title>
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+ 
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+    
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script type="text/javascript" src="/js/src/algolia.js?v=5.1.0"></script>
+
+
+  
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-112036999-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?28cdf6187b4e5c231d9ec7da41817719";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <a href="https://github.com/wplnancy" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wupengli Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">我分享，我快乐</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+
+
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/15/Vue/axios的配置配置问题/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="吴鹏丽">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="wupengli Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="wupengli Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                axios的配置配置问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-15T15:22:59+08:00">
+                2017-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/08/15/Vue/axios的配置配置问题/" class="leancloud_visitors" data-flag-title="axios的配置配置问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>以前写Vue项目的时候都是使用vue-resource做为项目ajax库，在11月份的某一天尤大微博的更新表示ajax的库应该是通用的，放弃了对vue-resource的技术支持，推荐使用axios。</p>
+</blockquote>
+<p>看下官方的版本， <code>vue resource</code>官方已经停止了对它的更新</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> axios</div></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">axios.get(<span class="string">'/user?ID=12345'</span>)</div><div class="line">.then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(response);</div><div class="line">&#125;)</div><div class="line">.catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="参数的配置"><a href="#参数的配置" class="headerlink" title="参数的配置"></a>参数的配置</h2><ul>
+<li>Axios的参数配置有很多，下面详细列举了一下：</li>
+<li>url —— 用来向服务器发送请求的url</li>
+<li>method —- — 请求方法，默认是GET方法</li>
+<li>baseURL —— 基础URL路径，假如url不是绝对路径，如<a href="https://some-domain.com/api/v1/login?name=jack,那么向服务器发送请求的URL将会是baseURL">https://some-domain.com/api/v1/login?name=jack,那么向服务器发送请求的URL将会是baseURL</a> + url。</li>
+<li>transformRequest —— transformRequest方法允许在请求发送到服务器之前修改该请求，此方法只适用于PUT、POST和PATCH方法中。而且，此方法最后必须返回一个string、ArrayBuffer或者Stream。</li>
+<li>transformResponse —— transformResponse方法允许在数据传递到then/catch之前修改response数据。此方法最后也要返回数据。</li>
+<li>headers —— 发送自定义Headers头文件，头文件中包含了http请求的各种信息。</li>
+<li>params —— params是发送请求的查询参数对象，对象中的数据会被拼接成url?param1=value1&amp;param2=value2。</li>
+<li>paramsSerializer —— params参数序列化器。</li>
+<li>data —— data是在发送POST、PUT或者PATCH请求的数据对象。</li>
+<li>timeout —— 请求超时设置，单位为毫秒</li>
+<li>withCredentials —— 表明是否有跨域请求需要用到证书</li>
+<li>adapter —— adapter允许用户处理更易于测试的请求。返回一个Promise和一个有效的response</li>
+<li>auth —— auth表明提供凭证用于完成http的身份验证。这将会在headers中设置一个Authorization授权信息。自定义Authorization授权要设置在headers中。</li>
+<li>responseType —— 表示服务器将返回响应的数据类型，有arraybuffer、blob、document、json、text、stream这6个类型，默认是json类似数据。</li>
+<li>xsrfCookieName —— 用作 xsrf token 值的 cookie 名称</li>
+<li>xsrfHeaderName —— 带有 xsrf token 值 http head 名称</li>
+<li>onUploadProgress —— 允许在上传过程中的做一些操作</li>
+<li>onDownloadProgress —— 允许在下载过程中的做一些操作</li>
+<li>maxContentLength —— 定义了接收到的response响应数据的最大长度。</li>
+<li>validateStatus —— validateStatus定义了根据HTTP响应状态码决定是否接收或拒绝获取到的promise。如果 validateStatus 返回 true (或设置为 null 或 undefined ),promise将被接收;否则,promise将被拒绝。</li>
+<li>maxRedirects —— maxRedirects定义了在node.js中redirect的最大值，如果设置为0，则没有redirect。</li>
+<li>httpAgent —— 定义在使用http请求时的代理</li>
+<li>httpsAgent —— 定义在使用https请求时的代理</li>
+<li>proxy —— proxy定义代理服务器的主机名和端口，auth</li>
+<li>cancelToken —— cancelToken定义一个 cancel token 用于取消请求</li>
+</ul>
+<p>详细的配置文件如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  /* `url`是将用于请求的服务器URL*/</div><div class="line">  url: &apos;/user&apos;,</div><div class="line">  /* `method`是发出请求时使用的请求方法 */</div><div class="line">  method: &apos;get&apos;, /* 默认*/</div><div class="line">  /* `baseURL`将被添加到`url`前面，除非`url`是绝对的。*/</div><div class="line">  /* 可以方便地为 axios 的实例设置`baseURL`，以便将相对 URL 传递给该实例的方法。*/</div><div class="line">  baseURL: &apos;https:/*some-domain.com/api/&apos;,</div><div class="line">  /* `transformRequest`允许在请求数据发送到服务器之前对其进行更改*/</div><div class="line">  /* 这只适用于请求方法&apos;PUT&apos;，&apos;POST&apos;和&apos;PATCH&apos;*/</div><div class="line">  /* 数组中的最后一个函数必须返回一个字符串，一个 ArrayBuffer或一个 Stream*/</div><div class="line">  transformRequest: [function (data) &#123;</div><div class="line">    /* 做任何你想要的数据转换*/</div><div class="line">    return data;</div><div class="line">  &#125;],</div><div class="line">  /* `transformResponse`允许在 then / catch之前对响应数据进行更改*/</div><div class="line">  transformResponse: [function (data) &#123;</div><div class="line">    /* Do whatever you want to transform the data*/</div><div class="line">    return data;</div><div class="line">  &#125;],</div><div class="line">  /* `headers`是要发送的自定义 headers*/</div><div class="line">  headers: &#123;&apos;X-Requested-With&apos;: &apos;XMLHttpRequest&apos;&#125;,</div><div class="line">  /* `params`是要与请求一起发送的URL参数*/</div><div class="line">  /* 必须是纯对象或URLSearchParams对象*/</div><div class="line">  params: &#123;</div><div class="line">    ID: 12345</div><div class="line">  &#125;,</div><div class="line">  /* `paramsSerializer`是一个可选的函数，负责序列化`params`*/</div><div class="line">  /* (e.g. https:/*www.npmjs.com/package/qs, http:/*api.jquery.com/jquery.param/)*/</div><div class="line">  paramsSerializer: function(params) &#123;</div><div class="line">    return Qs.stringify(params, &#123;arrayFormat: &apos;brackets&apos;&#125;)</div><div class="line">  &#125;,</div><div class="line">  /* `data`是要作为请求主体发送的数据*/</div><div class="line">  /* 仅适用于请求方法“PUT”，“POST”和“PATCH”*/</div><div class="line">  /* 当没有设置`transformRequest`时，必须是以下类型之一：*/</div><div class="line">  /* - string, plain object, ArrayBuffer, ArrayBufferView, URLSearchParams*/</div><div class="line">  /* - Browser only: FormData, File, Blob*/</div><div class="line">  /* - Node only: Stream*/</div><div class="line">  data: &#123;</div><div class="line">    firstName: &apos;Fred&apos;</div><div class="line">  &#125;,</div><div class="line">  /* `timeout`指定请求超时之前的毫秒数。*/</div><div class="line">  /* 如果请求的时间超过&apos;timeout&apos;，请求将被中止。*/</div><div class="line">  timeout: 1000,</div><div class="line">  /* `withCredentials`指示是否跨站点访问控制请求*/</div><div class="line">  /* should be made using credentials*/</div><div class="line">  withCredentials: false, /* default*/</div><div class="line">  /* `adapter&apos;允许自定义处理请求，这使得测试更容易。*/</div><div class="line">  /* 返回一个promise并提供一个有效的响应(参见[response docs](＃response-api))*/</div><div class="line">  adapter: function (config) &#123;</div><div class="line">    /* ... */</div><div class="line">  &#125;,</div><div class="line">  /* `auth&apos;表示应该使用 HTTP 基本认证，并提供凭据。*/</div><div class="line">  /* 这将设置一个`Authorization&apos;头，覆盖任何现有的`Authorization&apos;自定义头，使用`headers`设置。*/</div><div class="line">  auth: &#123;</div><div class="line">    username: &apos;janedoe&apos;,</div><div class="line">    password: &apos;s00pers3cret&apos;</div><div class="line">  &#125;,</div><div class="line">  /* “responseType”表示服务器将响应的数据类型*/</div><div class="line">  /* 包括 &apos;arraybuffer&apos;, &apos;blob&apos;, &apos;document&apos;, &apos;json&apos;, &apos;text&apos;, &apos;stream&apos;</div><div class="line">  responseType: &apos;json&apos;, /* default*/</div><div class="line">  /*`xsrfCookieName`是要用作 xsrf 令牌的值的cookie的名称*/</div><div class="line">  xsrfCookieName: &apos;XSRF-TOKEN&apos;, /* default*/</div><div class="line">  /* `xsrfHeaderName`是携带xsrf令牌值的http头的名称*/</div><div class="line">  xsrfHeaderName: &apos;X-XSRF-TOKEN&apos;, /* default*/</div><div class="line">  /* `onUploadProgress`允许处理上传的进度事件*/</div><div class="line">  onUploadProgress: function (progressEvent) &#123;</div><div class="line">    /* 使用本地 progress 事件做任何你想要做的*/</div><div class="line">  &#125;,</div><div class="line">  /* `onDownloadProgress`允许处理下载的进度事件*/</div><div class="line">  onDownloadProgress: function (progressEvent) &#123;</div><div class="line">    /* Do whatever you want with the native progress event*/</div><div class="line">  &#125;,</div><div class="line">  /* `maxContentLength`定义允许的http响应内容的最大大小*/</div><div class="line">  maxContentLength: 2000,</div><div class="line">  /* `validateStatus`定义是否解析或拒绝给定的promise*/</div><div class="line">  /* HTTP响应状态码。如果`validateStatus`返回`true`(或被设置为`null` promise将被解析;否则，promise将被*/</div><div class="line">  /* 拒绝。*/</div><div class="line">  validateStatus: function (status) &#123;</div><div class="line">    return status &gt;= 200 &amp;&amp; status &lt; 300; /* default</div><div class="line">  &#125;,</div><div class="line">  /* `maxRedirects`定义在node.js中要遵循的重定向的最大数量。*/</div><div class="line">  /* 如果设置为0，则不会遵循重定向。*/</div><div class="line">  maxRedirects: 5, /* 默认*/</div><div class="line">  /* `httpAgent`和`httpsAgent`用于定义在node.js中分别执行http和https请求时使用的自定义代理。*/</div><div class="line">  /* 允许配置类似`keepAlive`的选项，*/</div><div class="line">  /* 默认情况下不启用。*/</div><div class="line">  httpAgent: new http.Agent(&#123; keepAlive: true &#125;),</div><div class="line">  httpsAgent: new https.Agent(&#123; keepAlive: true &#125;),</div><div class="line">  /* &apos;proxy&apos;定义代理服务器的主机名和端口*/</div><div class="line">  /* `auth`表示HTTP Basic auth应该用于连接到代理，并提供credentials。*/</div><div class="line">  /* 这将设置一个`Proxy-Authorization` header，覆盖任何使用`headers`设置的现有的`Proxy-Authorization` 自定义 headers。*/</div><div class="line">  proxy: &#123;</div><div class="line">    host: &apos;127.0.0.1&apos;,</div><div class="line">    port: 9000,</div><div class="line">    auth: : &#123;</div><div class="line">      username: &apos;mikeymike&apos;,</div><div class="line">      password: &apos;rapunz3l&apos;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  /* “cancelToken”指定可用于取消请求的取消令牌*/</div><div class="line">  /* (see Cancellation section below for details)*/</div><div class="line">  cancelToken: new CancelToken(function (cancel) &#123;</div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Response返回"><a href="#Response返回" class="headerlink" title="Response返回"></a>Response返回</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  // 服务器返回的数据</div><div class="line">  data: &#123;&#125;,</div><div class="line">  // HTTP状态吗</div><div class="line">  status: 200,</div><div class="line">  // 服务器返回的消息</div><div class="line">  statusText: &apos;OK&apos;,</div><div class="line">  // 返回头</div><div class="line">  headers: &#123;&#125;,</div><div class="line">  // 再次返回我们的配置</div><div class="line">  config: &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="统一Config的配置"><a href="#统一Config的配置" class="headerlink" title="统一Config的配置"></a>统一Config的配置</h2><p>在接口测试中，我们经常需要切换线上环境和测试环境，这里我们都可以通过Config来配置，这样我们所有的发起的请求都是通过这个基本的URL走了。</p>
+<h2 id="Interceptors拦截器"><a href="#Interceptors拦截器" class="headerlink" title="Interceptors拦截器"></a>Interceptors拦截器</h2><p>这里我必须重点介绍，在我们发起大量的请求时候，需要对请求做统一的处理那就用到它了。笔者在使用了vue-resource和axios之后亲身比较，axios的配置更加人性化。<br>官方的API上这样介绍</p>
+<h3 id="request统一操作"><a href="#request统一操作" class="headerlink" title="request统一操作"></a>request统一操作</h3><p>如果是<code>POST</code>的请求，配置中可不能用params字段了，需要使用data字段。<br>这里有个小地方需要注意，<code>POST</code>的传参需要序列化，不然服务端不会正确的接收哦，会报错。所以这里我们要对request的数据进行一次序列化。这里我用了<code>qs</code>,大家需要<code>install</code>一下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></div><div class="line"><span class="keyword">import</span> qs <span class="keyword">from</span> <span class="string">'qs'</span></div><div class="line">axios.defaults.headers.post[<span class="string">'Content-Type'</span>] = <span class="string">'application/x-www-form-urlencoded;charset=UTF-8'</span>;</div><div class="line"><span class="comment">//POST传参序列化</span></div><div class="line">axios.interceptors.request.use(<span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">if</span>(config.method  === <span class="string">'post'</span>)&#123;</div><div class="line">    config.data = qs.stringify(config.data);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> config;</div><div class="line">&#125;,(error) =&gt;&#123;</div><div class="line">   alert(<span class="string">"错误的传参"</span>);</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="response统一操作"><a href="#response统一操作" class="headerlink" title="response统一操作"></a>response统一操作</h3><p>也就是说我们可以统一的在发起请求前，或者获得数据，对其进行统一的操作。这点非常的高效，在笔者的项目中，接口会返回一个code,就和微信API一样，code为200代表返回请求数据正确为其它时就自动跳出弹窗打印消息即可。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//code状态码200判断</span></div><div class="line">axios.interceptors.response.use(<span class="function">(<span class="params">res</span>) =&gt;</span>&#123;</div><div class="line">  <span class="keyword">if</span>(res.data.code != <span class="string">'200'</span>)&#123;</div><div class="line">    alert(res.data.msg);</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(res);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> res;</div><div class="line">&#125;, (error) =&gt; &#123;</div><div class="line">  alert(<span class="string">"网络异常"</span>);</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error);</div></pre></td></tr></table></figure>
+<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><p>Promise在安卓4.4。3以下的手机还是不支持Promise的，所以会报错。需要引入 <code>npm install babel-polyfill</code><br>和 <code>npm install babel-runtime</code>, 在入口文件上加上即可</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'babel-polyfill'</span></div></pre></td></tr></table></figure>
+<h2 id="取消请求"><a href="#取消请求" class="headerlink" title="取消请求"></a>取消请求</h2><h3 id="你可以通过一个cancel-token来取消一个请求"><a href="#你可以通过一个cancel-token来取消一个请求" class="headerlink" title="你可以通过一个cancel token来取消一个请求"></a>你可以通过一个cancel token来取消一个请求</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> CancelToken = axios.CancelToken;</div><div class="line"><span class="keyword">var</span> source = CancelToken.source();</div><div class="line"></div><div class="line">axios.get(<span class="string">'/user/12345'</span>,&#123;</div><div class="line">  <span class="attr">cancelToken</span>: source.token</div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">thrown</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(axios.isCancel(thrown))&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Request canceled'</span>,thrown.message);</div><div class="line">  &#125;<span class="keyword">else</span> &#123;</div><div class="line">    <span class="comment">//handle error</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="你也可以给cancelToken构造函数传递一个executor-function来创建一个cancel-token"><a href="#你也可以给cancelToken构造函数传递一个executor-function来创建一个cancel-token" class="headerlink" title="你也可以给cancelToken构造函数传递一个executor function来创建一个cancel token:"></a>你也可以给cancelToken构造函数传递一个executor function来创建一个cancel token:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> cancelToken = axios.CancelToken;</div><div class="line"><span class="keyword">var</span> cancel;</div><div class="line">axios.get(<span class="string">'/user/12345'</span>,&#123;</div><div class="line">  <span class="attr">cancelToken</span>: <span class="keyword">new</span> CancelToken(<span class="function"><span class="keyword">function</span>(<span class="params">c</span>)</span>&#123;</div><div class="line">    <span class="comment">//这个executor函数接受一个cancel function作为参数</span></div><div class="line">    cancel = c;</div><div class="line">  &#125;)</div><div class="line">&#125;)</div><div class="line"><span class="comment">//取消请求</span></div><div class="line">cancel();</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/04/Node/什么是commonjs/" rel="next" title="什么是commonjs">
+                <i class="fa fa-chevron-left"></i> 什么是commonjs
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/15/CSS/简单实用的css代码片段/" rel="prev" title="简单实用的css代码片段">
+                简单实用的css代码片段 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="吴鹏丽" />
+          <p class="site-author-name" itemprop="name">吴鹏丽</p>
+          <p class="site-description motion-element" itemprop="description">分享技术文章</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wplnancy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数的配置"><span class="nav-number">3.</span> <span class="nav-text">参数的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Response返回"><span class="nav-number">4.</span> <span class="nav-text">Response返回</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统一Config的配置"><span class="nav-number">5.</span> <span class="nav-text">统一Config的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Interceptors拦截器"><span class="nav-number">6.</span> <span class="nav-text">Interceptors拦截器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#request统一操作"><span class="nav-number">6.1.</span> <span class="nav-text">request统一操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response统一操作"><span class="nav-number">6.2.</span> <span class="nav-text">response统一操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#兼容性"><span class="nav-number">7.</span> <span class="nav-text">兼容性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取消请求"><span class="nav-number">8.</span> <span class="nav-text">取消请求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#你可以通过一个cancel-token来取消一个请求"><span class="nav-number">8.1.</span> <span class="nav-text">你可以通过一个cancel token来取消一个请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#你也可以给cancelToken构造函数传递一个executor-function来创建一个cancel-token"><span class="nav-number">8.2.</span> <span class="nav-text">你也可以给cancelToken构造函数传递一个executor function来创建一个cancel token:</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴鹏丽</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("kVQS72YAARanOhfIvaizJsHt-gzGzoHsz", "lHVjxBcTRxAxHuLCu4RBJdNr");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

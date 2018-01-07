@@ -1,0 +1,1112 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=微软雅黑:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic|微软雅黑:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="yarn," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="wupengli Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="yarn的简单的介绍Yarn是facebook发布的一款取代npm的包管理工具。Yarn的官网是：(Yarn)[https://yarnpkg.com/zh-Hans/]相比于npm有快速、安全、可靠的优势 Yarn的优势速度快先说速度快。网络性能优异：将请求高效队列化，依赖包只要被装过一次，就会被缓存到本机，再次安装时直接从缓存中读取。npm会等一个包完全安装完才跳到下一个包，但yarn会并行执">
+<meta name="keywords" content="yarn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="比npm更加强大的yarn">
+<meta property="og:url" content="http://yoursite.com/2017/07/31/Npm/比npm更加强大的yarn/index.html">
+<meta property="og:site_name" content="wupengli Blog">
+<meta property="og:description" content="yarn的简单的介绍Yarn是facebook发布的一款取代npm的包管理工具。Yarn的官网是：(Yarn)[https://yarnpkg.com/zh-Hans/]相比于npm有快速、安全、可靠的优势 Yarn的优势速度快先说速度快。网络性能优异：将请求高效队列化，依赖包只要被装过一次，就会被缓存到本机，再次安装时直接从缓存中读取。npm会等一个包完全安装完才跳到下一个包，但yarn会并行执">
+<meta property="og:updated_time" content="2017-09-10T16:42:35.710Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="比npm更加强大的yarn">
+<meta name="twitter:description" content="yarn的简单的介绍Yarn是facebook发布的一款取代npm的包管理工具。Yarn的官网是：(Yarn)[https://yarnpkg.com/zh-Hans/]相比于npm有快速、安全、可靠的优势 Yarn的优势速度快先说速度快。网络性能优异：将请求高效队列化，依赖包只要被装过一次，就会被缓存到本机，再次安装时直接从缓存中读取。npm会等一个包完全安装完才跳到下一个包，但yarn会并行执">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    algolia: {
+              applicationID: '0C1U6R7LV2',
+              apiKey: 'a96c1e0b0a38ddfac493e982f14a7c42',
+              indexName: 'index',
+              hits: {"per_page":10},
+              labels: {"input_placeholder":"搜索...","hits_empty":"未发现与 「${query}」相关的内容","hits_stats":"${hits} 条相关条目，使用了 ${time} 毫秒"}
+            },
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/31/Npm/比npm更加强大的yarn/"/>
+
+
+
+
+
+  <title> 比npm更加强大的yarn | wupengli Blog </title>
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+ 
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+    
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script type="text/javascript" src="/js/src/algolia.js?v=5.1.0"></script>
+
+
+  
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-112036999-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?28cdf6187b4e5c231d9ec7da41817719";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <a href="https://github.com/wplnancy" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wupengli Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">我分享，我快乐</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+
+
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/31/Npm/比npm更加强大的yarn/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="吴鹏丽">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="wupengli Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="wupengli Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                比npm更加强大的yarn
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-31T10:14:59+08:00">
+                2017-07-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/31/Npm/比npm更加强大的yarn/" class="leancloud_visitors" data-flag-title="比npm更加强大的yarn">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="yarn的简单的介绍"><a href="#yarn的简单的介绍" class="headerlink" title="yarn的简单的介绍"></a>yarn的简单的介绍</h1><p>Yarn是facebook发布的一款取代npm的包管理工具。Yarn的官网是：(Yarn)[<a href="https://yarnpkg.com/zh-Hans/">https://yarnpkg.com/zh-Hans/</a>]<br>相比于npm有快速、安全、可靠的优势</p>
+<h1 id="Yarn的优势"><a href="#Yarn的优势" class="headerlink" title="Yarn的优势"></a>Yarn的优势</h1><h2 id="速度快"><a href="#速度快" class="headerlink" title="速度快"></a>速度快</h2><p>先说速度快。网络性能优异：将请求高效队列化，依赖包只要被装过一次，就会被缓存到本机，再次安装时直接从缓存中读取。npm会等一个包完全安装完才跳到下一个包，但yarn会并行执行包，因此速度会快很多。网上有不少比较npm和yarn安装同样多依赖的执行速度，yarn在速度方面优势明显。实际项目中体验一下真是飞一样的速度，谁有试过谁知道~</p>
+<h2 id="离线模式"><a href="#离线模式" class="headerlink" title="离线模式"></a>离线模式</h2><p>关于离线模式，本人能力有限，对CI系统的了解比较浅薄，因此对facebook介绍的无法离线使用npm的痛点感受不深。离线的原理比较简单，安装过的包会被保存进缓存目录，以后安装就直接从缓存中复制过来。</p>
+<h2 id="高确定性"><a href="#高确定性" class="headerlink" title="高确定性"></a>高确定性</h2><p>无论安装顺序如何，同样的依赖包都将会以完全一样的方式安装。</p>
+<h2 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h2><p>npm用下来比较强的一个痛点就是：当包 的依赖层次比较深时，版本控制不够精确。会出现相同<code>package.json</code>，但不同人的电脑上安装出不同版本的依赖包，出现类似 “我电脑上是好的，没问题呀”的bug很难查找。你可以使用<code>npm-shrinkwrap</code>来实现版本固化，版本信息会写入<code>npm-shrinkwrap.json</code>文件中，但它毕竟不是npm的标准配置。</p>
+<p>而yarn天生就能实现版本固化。会生成一个类似<code>npm-shrinkwrap.json</code>的<code>yarn.lock</code>文件，文件内会描述包自身的版本号，还会锁定所有它依赖的包的版本号.</p>
+<p><code>yarn.lock</code>存储这你的每个包的确切依赖版本，能确保从本地开发到生产环境，所有机器上都有精确相同的依赖版本。</p>
+<h1 id="Yarn-常用的命令"><a href="#Yarn-常用的命令" class="headerlink" title="Yarn 常用的命令"></a>Yarn 常用的命令</h1><h2 id="安装yarn"><a href="#安装yarn" class="headerlink" title="安装yarn"></a>安装yarn</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> yarn -g</div></pre></td></tr></table></figure>
+<h2 id="查看版本号"><a href="#查看版本号" class="headerlink" title="查看版本号"></a>查看版本号</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yarn <span class="comment">--version</span></div></pre></td></tr></table></figure>
+<h2 id="项目初始化"><a href="#项目初始化" class="headerlink" title="项目初始化"></a>项目初始化</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">yarn init</span></div></pre></td></tr></table></figure>
+<p>同<code>npm init</code>，执行输入信息后，会生成<code>package.json</code>文件</p>
+<h2 id="Yarn-的配置项"><a href="#Yarn-的配置项" class="headerlink" title="Yarn 的配置项"></a>Yarn 的配置项</h2><figure class="highlight q"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">yarn config list                                <span class="comment">//显示所有配置项</span></div><div class="line">yarn config <span class="built_in">get</span> &lt;<span class="built_in">key</span>&gt;                           <span class="comment">//显示某配置项</span></div><div class="line">yarn config <span class="keyword">delete</span> &lt;<span class="built_in">key</span>&gt;                        <span class="comment">//删除某配置项</span></div><div class="line">yarn config <span class="built_in">set</span> &lt;<span class="built_in">key</span>&gt; &lt;<span class="built_in">value</span>&gt; [-g|--global]     <span class="comment">//设置配置项</span></div></pre></td></tr></table></figure>
+<h2 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">yarn <span class="keyword">install</span>                     //安装package.json里所有包，并将包及它的所有依赖项保存进yarn.lock</div><div class="line">yarn <span class="keyword">install</span> <span class="comment">--flat              //安装一个包的单一版本</span></div><div class="line">yarn <span class="keyword">install</span> <span class="comment">--force             //强制重新下载所有包</span></div><div class="line">yarn <span class="keyword">install</span> <span class="comment">--production        //只安装dependencies里的包</span></div><div class="line">yarn <span class="keyword">install</span> <span class="comment">--no-lockfile       //不读取或生成yarn.lock</span></div><div class="line">yarn <span class="keyword">install</span> <span class="comment">--pure-lockfile     //不生成yarn.lock</span></div></pre></td></tr></table></figure>
+<h2 id="添加包"><a href="#添加包" class="headerlink" title="添加包"></a>添加包</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">yarn <span class="keyword">add</span><span class="bash"> [package]</div><div class="line"></span>yarn <span class="keyword">add</span><span class="bash"> [package]@[version]</div><div class="line"></span>yarn <span class="keyword">add</span><span class="bash"> [package]@[tag]</div><div class="line"></span></div><div class="line">//不指定依赖类型默认安装到dependencies里，你也可以指定依赖类型：</div><div class="line">yarn <span class="keyword">add</span><span class="bash"> --dev/-D        //加到 devDependencies</div><div class="line"></span>yarn <span class="keyword">add</span><span class="bash"> --peer/-P       //加到 peerDependencies</div><div class="line"></span>yarn <span class="keyword">add</span><span class="bash"> --optional/-O   //加到 optionalDependencies</div><div class="line"></span></div><div class="line">//默认安装包的主要版本里的最新版本，下面两个命令可以指定版本：</div><div class="line">yarn <span class="keyword">add</span><span class="bash"> --exact/-E    //安装包的精确版本。例如yarn add foo@1.2.3会接受1.9.1版，但是yarn add foo@1.2.3 --exact只会接受1.2.3版</div><div class="line"></span>yarn <span class="keyword">add</span><span class="bash"> --tilde/-T      //安装包的次要版本里的最新版。例如yarn add foo@1.2.3 --tilde会接受1.2.9，但不接受1.3.0</span></div></pre></td></tr></table></figure>
+<h2 id="global参数的安装"><a href="#global参数的安装" class="headerlink" title="global参数的安装"></a>global参数的安装</h2><p>yarn推荐你将包安装在项目中，但同<code>npm</code>一样，你也可以全局安装包，用<code>yarn global add</code>就行了。<code>yarn global</code>可用在<code>add</code>，<code>upgrade</code>，<code>remove</code>命令前。但注意<code>global</code>必须紧接在<code>yarn</code>后面，例如<code>yarn add global</code>是非法的，<code>yarn</code>会尝试去安装一个名为“global”的包</p>
+<h2 id="升级-移除单个包"><a href="#升级-移除单个包" class="headerlink" title="升级 / 移除单个包"></a>升级 / 移除单个包</h2><p>值得注意的是升级 / 移除单个包（均会更新package.json和yarn.lock）：</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">yarn upgrade <span class="string">[package]</span></div><div class="line">yarn upgrade <span class="string">[package]</span>@<span class="string">[version]</span></div><div class="line">yarn upgrade <span class="string">[package]</span>@<span class="string">[tag]</span></div><div class="line">yarn remove <span class="string">[package]</span></div></pre></td></tr></table></figure>
+<h2 id="安装包的缓存"><a href="#安装包的缓存" class="headerlink" title="安装包的缓存"></a>安装包的缓存</h2><p>Yarn会将安装的包缓存起来</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yarn <span class="keyword">cache</span> ls          <span class="comment">//列出所有本地缓存了的包</span></div><div class="line">yarn <span class="keyword">cache</span> dir         <span class="comment">//列出本地缓存的位置</span></div><div class="line">yarn <span class="keyword">cache</span> clean       <span class="comment">//清除本地缓存</span></div></pre></td></tr></table></figure>
+<h2 id="检查包"><a href="#检查包" class="headerlink" title="检查包"></a>检查包</h2><figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yarn<span class="built_in"> check </span>              // 验证当前项目 package.json 里的依赖版本和 yarn 的 lock 文件是否匹配。</div><div class="line">yarn<span class="built_in"> check </span>--integrity  //检查package.json里的依赖版本的hash值和yarn.lock里是否一致，有助于验证包依赖没有更改</div></pre></td></tr></table></figure>
+<h2 id="其他的一些命令"><a href="#其他的一些命令" class="headerlink" title="其他的一些命令"></a>其他的一些命令</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">yarn   运行package.json中预定义的脚本</div><div class="line">yarn login/logout  保存你的用户名、邮箱 / 删除你的用户名、邮箱</div><div class="line">yarn owner <span class="keyword">add</span><span class="bash"></div><div class="line">yarn owner rm</div><div class="line"></span>yarn publish  将包发布到npm  参数有： –tag：版本标签；–access：公开（public）还是限制的（restricted）</div><div class="line">yarn version package-name 卸载包，更新package.json和yarn.lock</div><div class="line">yarn tag 显示包的标签  参数：  <span class="keyword">add</span><span class="bash">/rm/ls</div><div class="line"></span>yarn <span class="keyword">run</span><span class="bash"> <span class="built_in">test</span> 测试</div><div class="line"></span>yarn link package-name 开发时链接依赖包，以便在其他项目中使用</div><div class="line">yarn unlink package-name 取消链接的依赖包</div><div class="line">yarn team 管理团队  参数： create/destroy/<span class="keyword">add</span><span class="bash">/rm/ls</div><div class="line"></span></div><div class="line">yarn global 全局安装依赖包 yarn global &lt;<span class="keyword">add</span><span class="bash">/bin/ls/remove/upgrade&gt; [–prefix] –prefix 包路径前缀</span></div></pre></td></tr></table></figure>
+<h2 id="npm和yarn的无缝迁移"><a href="#npm和yarn的无缝迁移" class="headerlink" title="npm和yarn的无缝迁移"></a>npm和yarn的无缝迁移</h2><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">因为yarn和<span class="built_in">npm</span>一样使用package.json，因此如果你的项目中正在使用<span class="built_in">npm</span>可以无缝对接yarn。如果用下来实在不喜欢yarn，只要删除项目中的yarn.lock文件，继续使用<span class="built_in">npm</span>命令就行了。但我相信你用过yarn，就再也回不去了~</div></pre></td></tr></table></figure>
+<p>具体的使用方式:<br>大多情况，从npm客户端迁移至Yarn客户端都是很方便的。<br>package.json文件依然可用，你只要在已有目录执行以下命令即可：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>yarn</div></pre></td></tr></table></figure>
+<p>要添加依赖，你可以使用：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yarn <span class="keyword">add</span><span class="bash"> &lt;package&gt;</span></div></pre></td></tr></table></figure>
+<p>执行以上两个命令后，yarn都会在项目根目录创建或更新yarn.lock文件。如果你要将项目发布或者共享给同事，请确保包含yarn.lock文件。</p>
+<p>执行以上两个命令中的任一个，项目都会转换成yarn客户端。So easy，对吧？！</p>
+<h2 id="Yarn-和-npm-中命令的对比"><a href="#Yarn-和-npm-中命令的对比" class="headerlink" title="Yarn 和 npm 中命令的对比"></a>Yarn 和 npm 中命令的对比</h2><table>
+<thead>
+<tr>
+<th>npm 命令</th>
+<th>Yarn 命令</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>npm install</td>
+<td>yarn install</td>
+<td>安装所有依赖包（依据package.json中的依赖配置参数）</td>
+</tr>
+<tr>
+<td>(N/A)</td>
+<td>yarn install –flat</td>
+<td>单版本模式</td>
+</tr>
+<tr>
+<td>(N/A)</td>
+<td>yarn install –har</td>
+<td>生成har文件，记录安装时网络请求性能</td>
+</tr>
+<tr>
+<td>(N/A)</td>
+<td>yarn install –no-lockfile</td>
+<td>不读写lockfile方式</td>
+</tr>
+<tr>
+<td>(N/A)</td>
+<td>yarn install –pure-lockfile</td>
+<td>不生成yarn.lock文件</td>
+</tr>
+<tr>
+<td>npm install [package]</td>
+<td>(N/A)</td>
+<td>安装依赖</td>
+</tr>
+<tr>
+<td>npm install –save [package]</td>
+<td>yarn add [package]</td>
+<td>添加生产模式依赖到项目</td>
+</tr>
+<tr>
+<td>npm install –save-dev [package]</td>
+<td>yarn add [package] [–dev/-D]</td>
+<td>添加开发模式的依赖</td>
+</tr>
+<tr>
+<td>(N/A)</td>
+<td>yarn add [package] [–peer/-P]</td>
+<td>对等模式添加依赖，发布/分享项目时的依赖</td>
+</tr>
+<tr>
+<td>npm install –save-optional [package]</td>
+<td>yarn add [package] [–optional/-O]</td>
+<td>添加可选依赖包</td>
+</tr>
+<tr>
+<td>npm install –save-exact [package]</td>
+<td>yarn add [package] [–exact/-E]</td>
+<td>精准添加某版本的包</td>
+</tr>
+<tr>
+<td>(N/A)</td>
+<td>yarn add [package] [–tilde/-T]</td>
+<td>添加同一次版本的包，如指定版本为1.2.3，可接受1.2.x的其他版本，但不接受1.3.x的版本</td>
+</tr>
+<tr>
+<td>npm install –global [package]</td>
+<td>yarn global add [package]</td>
+<td>添加全局包</td>
+</tr>
+<tr>
+<td>npm rebuild</td>
+<td>yarn install –force</td>
+<td>重建</td>
+</tr>
+<tr>
+<td>npm uninstall [package]</td>
+<td>(N/A)</td>
+<td>删除本地依赖包</td>
+</tr>
+<tr>
+<td>npm uninstall –save [package]</td>
+<td>yarn remove [package]</td>
+<td>删除正式依赖包</td>
+</tr>
+<tr>
+<td>npm uninstall –save-dev [package]</td>
+<td>yarn remove [package]</td>
+<td>删除开发依赖包</td>
+</tr>
+<tr>
+<td>npm uninstall –save-optional [package]</td>
+<td>yarn remove [package]</td>
+<td>删除可选依赖包</td>
+</tr>
+<tr>
+<td>npm cache clean</td>
+<td>yarn cache clean</td>
+<td>清除缓存</td>
+</tr>
+<tr>
+<td>rm -rf node_modules &amp;&amp; npm install</td>
+<td>yarn upgrade</td>
+<td>更新包管理器自身</td>
+</tr>
+</tbody>
+</table>
+<p>转载请注明出处！ 来源: (<a href="http://docs.shellway.cn/learning-yarn/">http://docs.shellway.cn/learning-yarn/</a>)</p>
+<h2 id="更重依赖的类型"><a href="#更重依赖的类型" class="headerlink" title="更重依赖的类型"></a>更重依赖的类型</h2><p>项目中的package.json 文件通常会包含多种依赖， 如下所示：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"name"</span>: <span class="string">"my-project"</span>,</div><div class="line">  <span class="attr">"dependencies"</span>: &#123;</div><div class="line">    <span class="attr">"package-a"</span>: <span class="string">"^1.0.0"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"devDependencies"</span>: &#123;</div><div class="line">    <span class="attr">"package-b"</span>: <span class="string">"^1.2.1"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"peerDependencies"</span>: &#123;</div><div class="line">    <span class="attr">"package-c"</span>: <span class="string">"^2.5.4"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"optionalDependencies"</span>: &#123;</div><div class="line">    <span class="attr">"package-d"</span>: <span class="string">"^3.1.0"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一、dependencies —— 普通依赖<br>运行项目时需要用到的依赖。如React、ImmutableJS。</p>
+<p>二、devDependencies —— 开发依赖<br>开发时使用到的依赖。如Babel（ES6转ES5）、Flow（JS静态类型检查）</p>
+<p>三、peerDependencies —— 对等依赖，发布依赖包时用<br>对等依赖——依赖的特殊类型，你在发布依赖包时使用。</p>
+<p>使用对等依赖意味着，别人使用你的程序时，安装的依赖需要跟你安装的一毛一样。这对像React这样的包特别有用，它经常需要复制一份react-dom供安装者使用。</p>
+<p>四、optionalDependencies —— 可选依赖<br>可选的依赖包，如果此包安装失败，Yarn依然会提示安装进程成功。<br>对非必须的依赖包很实用，如果安装失败，你可以选择其他的包替代。如Watchman。</p>
+<p>五、bundledDependencies —— 要打包的依赖/捆绑依赖<br>在发布包时，会一起打包的依赖包。它是由包名组成的数组。<br>捆绑依赖包应该下载到项目本地。功能跟普通依赖是一样的。运行 $ yarn pack 时，它们也会被打包。<br>捆绑依赖是为了解决有些包可能在npm找不到，或者在你需要把你自己的项目作为模块使用时。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/yarn/" rel="tag"><i class="fa fa-tag"></i> yarn</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/27/Npm/如何升级自己的项目/" rel="next" title="如何升级自己的项目相关包的依赖">
+                <i class="fa fa-chevron-left"></i> 如何升级自己的项目相关包的依赖
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/04/Node/什么是commonjs/" rel="prev" title="什么是commonjs">
+                什么是commonjs <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="吴鹏丽" />
+          <p class="site-author-name" itemprop="name">吴鹏丽</p>
+          <p class="site-description motion-element" itemprop="description">分享技术文章</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wplnancy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#yarn的简单的介绍"><span class="nav-number">1.</span> <span class="nav-text">yarn的简单的介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Yarn的优势"><span class="nav-number">2.</span> <span class="nav-text">Yarn的优势</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#速度快"><span class="nav-number">2.1.</span> <span class="nav-text">速度快</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#离线模式"><span class="nav-number">2.2.</span> <span class="nav-text">离线模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高确定性"><span class="nav-number">2.3.</span> <span class="nav-text">高确定性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本控制"><span class="nav-number">2.4.</span> <span class="nav-text">版本控制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Yarn-常用的命令"><span class="nav-number">3.</span> <span class="nav-text">Yarn 常用的命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装yarn"><span class="nav-number">3.1.</span> <span class="nav-text">安装yarn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看版本号"><span class="nav-number">3.2.</span> <span class="nav-text">查看版本号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目初始化"><span class="nav-number">3.3.</span> <span class="nav-text">项目初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Yarn-的配置项"><span class="nav-number">3.4.</span> <span class="nav-text">Yarn 的配置项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装包"><span class="nav-number">3.5.</span> <span class="nav-text">安装包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加包"><span class="nav-number">3.6.</span> <span class="nav-text">添加包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#global参数的安装"><span class="nav-number">3.7.</span> <span class="nav-text">global参数的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#升级-移除单个包"><span class="nav-number">3.8.</span> <span class="nav-text">升级 / 移除单个包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装包的缓存"><span class="nav-number">3.9.</span> <span class="nav-text">安装包的缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检查包"><span class="nav-number">3.10.</span> <span class="nav-text">检查包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他的一些命令"><span class="nav-number">3.11.</span> <span class="nav-text">其他的一些命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm和yarn的无缝迁移"><span class="nav-number">3.12.</span> <span class="nav-text">npm和yarn的无缝迁移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Yarn-和-npm-中命令的对比"><span class="nav-number">3.13.</span> <span class="nav-text">Yarn 和 npm 中命令的对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更重依赖的类型"><span class="nav-number">3.14.</span> <span class="nav-text">更重依赖的类型</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴鹏丽</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("kVQS72YAARanOhfIvaizJsHt-gzGzoHsz", "lHVjxBcTRxAxHuLCu4RBJdNr");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

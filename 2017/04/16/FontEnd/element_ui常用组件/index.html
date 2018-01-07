@@ -1,0 +1,969 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=微软雅黑:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic|微软雅黑:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="组件," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="wupengli Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="在v-for中动态的绑定多次1234567891011el-form-item(     v-for=&amp;quot;(domain, index) in form.domains&amp;quot;,     :label=&amp;quot;&amp;apos;域名&amp;apos; + index&amp;quot;,     :key=&amp;quot;domain.key&amp;quot;,     :prop=&amp;quot;&amp;apos;do">
+<meta name="keywords" content="组件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="element.ui 常用组件">
+<meta property="og:url" content="http://yoursite.com/2017/04/16/FontEnd/element_ui常用组件/index.html">
+<meta property="og:site_name" content="wupengli Blog">
+<meta property="og:description" content="在v-for中动态的绑定多次1234567891011el-form-item(     v-for=&amp;quot;(domain, index) in form.domains&amp;quot;,     :label=&amp;quot;&amp;apos;域名&amp;apos; + index&amp;quot;,     :key=&amp;quot;domain.key&amp;quot;,     :prop=&amp;quot;&amp;apos;do">
+<meta property="og:updated_time" content="2017-09-10T16:42:35.702Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="element.ui 常用组件">
+<meta name="twitter:description" content="在v-for中动态的绑定多次1234567891011el-form-item(     v-for=&amp;quot;(domain, index) in form.domains&amp;quot;,     :label=&amp;quot;&amp;apos;域名&amp;apos; + index&amp;quot;,     :key=&amp;quot;domain.key&amp;quot;,     :prop=&amp;quot;&amp;apos;do">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    algolia: {
+              applicationID: '0C1U6R7LV2',
+              apiKey: 'a96c1e0b0a38ddfac493e982f14a7c42',
+              indexName: 'index',
+              hits: {"per_page":10},
+              labels: {"input_placeholder":"搜索...","hits_empty":"未发现与 「${query}」相关的内容","hits_stats":"${hits} 条相关条目，使用了 ${time} 毫秒"}
+            },
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/16/FontEnd/element_ui常用组件/"/>
+
+
+
+
+
+  <title> element.ui 常用组件 | wupengli Blog </title>
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+ 
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+    
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script type="text/javascript" src="/js/src/algolia.js?v=5.1.0"></script>
+
+
+  
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-112036999-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?28cdf6187b4e5c231d9ec7da41817719";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <a href="https://github.com/wplnancy" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wupengli Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">我分享，我快乐</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+
+
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/16/FontEnd/element_ui常用组件/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="吴鹏丽">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="wupengli Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="wupengli Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                element.ui 常用组件
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-16T20:42:15+08:00">
+                2017-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/16/FontEnd/element_ui常用组件/" class="leancloud_visitors" data-flag-title="element.ui 常用组件">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="在v-for中动态的绑定多次"><a href="#在v-for中动态的绑定多次" class="headerlink" title="在v-for中动态的绑定多次"></a>在v-for中动态的绑定多次</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">el-form-item(</div><div class="line">     v-for=&quot;(domain, index) in form.domains&quot;,</div><div class="line">     :label=&quot;&apos;域名&apos; + index&quot;,</div><div class="line">     :key=&quot;domain.key&quot;,</div><div class="line">     :prop=&quot;&apos;domains.&apos; + index + &apos;.value&apos;&quot;,</div><div class="line">     :rules=&quot;domainRule&quot;)</div><div class="line">     el-input(v-model=&quot;domain.value&quot;)</div><div class="line">     el-button(@click=&quot;deleteDomain(domain)&quot;) 删除</div><div class="line">   el-form-item</div><div class="line">     el-button(@click=&quot;addDomain&quot;) 新增域名</div></pre></td></tr></table></figure>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">deleteDomain: <span class="function"><span class="params">(domain)</span> -&gt;</span></div><div class="line">     index = @form.domains.indexOf domain</div><div class="line">     @form.domains.splice index, <span class="number">1</span></div><div class="line">   </div><div class="line">   addDomain: <span class="function">-&gt;</span></div><div class="line">     @form.domains.push</div><div class="line">       value: <span class="string">''</span></div><div class="line">       key: <span class="keyword">new</span> Date()</div></pre></td></tr></table></figure>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">domainRule:</div><div class="line">        required: <span class="literal">true</span>,</div><div class="line">        message: <span class="string">'域名不能为空'</span>,</div><div class="line">        trigger: <span class="string">'blur'</span></div></pre></td></tr></table></figure>
+<h1 id="表单的验证"><a href="#表单的验证" class="headerlink" title="表单的验证"></a>表单的验证</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div></pre></td><td class="code"><pre><div class="line"> el-form(</div><div class="line">    ref=&quot;form&quot;,</div><div class="line">    :model=&quot;form&quot;,</div><div class="line">    :inline=&quot;false&quot;,</div><div class="line">    :rules=&quot;rules&quot;,</div><div class="line">    label-position=&quot;left&quot;,</div><div class="line">    label-width=&quot;150px&quot;,</div><div class="line">    style=&quot;width: 50%&quot;)   </div><div class="line">    el-form-item(label=&quot;密码：&quot;, prop=&quot;pass&quot;)</div><div class="line">      el-input(v-model=&quot;form.pass&quot;)</div><div class="line">    </div><div class="line">    el-form-item(label=&quot;再次输入密码：&quot;, prop=&quot;rePass&quot;)</div><div class="line">      el-input(v-model=&quot;form.rePass&quot;)</div><div class="line">    </div><div class="line">    el-form-item(label=&quot;数字&quot;, prop=&quot;num&quot;)</div><div class="line">      el-input(v-model=&quot;form.num&quot;)</div><div class="line">  </div><div class="line">    el-form-item(</div><div class="line">      v-for=&quot;(domain, index) in form.domains&quot;,</div><div class="line">      :label=&quot;&apos;域名&apos; + index&quot;,</div><div class="line">      :key=&quot;domain.key&quot;,</div><div class="line">      :prop=&quot;&apos;domains.&apos; + index + &apos;.value&apos;&quot;,</div><div class="line">      :rules=&quot;domainRule&quot;)</div><div class="line">      el-input(v-model=&quot;domain.value&quot;)</div><div class="line">      el-button(@click=&quot;deleteDomain(domain)&quot;) 删除</div><div class="line">    el-form-item</div><div class="line">      el-button(@click=&quot;addDomain&quot;) 新增域名</div><div class="line">     </div><div class="line">    el-form-item</div><div class="line">      el-button(type=&quot;primary&quot;, @click=&quot;onSubmit&quot;) onSubmit</div><div class="line">      el-button(@click=&quot;reset&quot;) 重置</div><div class="line"></div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script lang=&quot;coffee&quot;&gt;</div><div class="line">module.exports =</div><div class="line">  data: -&gt;</div><div class="line">    validateRePass = (rule, value, callback) =&gt;</div><div class="line">      unless value </div><div class="line">        return callback new Error &apos;请输入重复密码&apos;</div><div class="line">      </div><div class="line">      if value isnt @form.pass</div><div class="line">        return callback new Error &apos;密码和重复密码不一致&apos;</div><div class="line">      </div><div class="line">      do callback</div><div class="line">    domainRule:</div><div class="line">        required: true,</div><div class="line">        message: &apos;域名不能为空&apos;,</div><div class="line">        trigger: &apos;blur&apos;</div><div class="line">      </div><div class="line">    form:</div><div class="line">      rePass: &apos;&apos;</div><div class="line">      pass: &apos;&apos;</div><div class="line">      num: &apos;&apos;</div><div class="line">      domains: [</div><div class="line">          value: &apos;&apos;</div><div class="line">          key: 1</div><div class="line">        ,</div><div class="line">          value: &apos;&apos;</div><div class="line">          key: 2</div><div class="line">        ,</div><div class="line">          value: &apos;&apos;</div><div class="line">          key: 1</div><div class="line">      ]</div><div class="line">        </div><div class="line">    rules:</div><div class="line">      pass: [</div><div class="line">        &#123; required: true, message: &apos;请输入密码&apos;,</div><div class="line">          trigger: &apos;blur&apos; &#125;</div><div class="line">      ]</div><div class="line">      rePass: [</div><div class="line">        &#123; validator: validateRePass, trigger: &apos;blur&apos; &#125;</div><div class="line">      ]</div><div class="line">      num: [</div><div class="line">        &#123; required: true, message: &apos;请输入数字，必填&apos;,</div><div class="line">          trigger: &apos;blur&apos; &#125;</div><div class="line">        &#123; type: &apos;number&apos;, message: &apos;请输入数字&apos;,</div><div class="line">          trigger: &apos;change&apos; &#125;</div><div class="line">      ]</div><div class="line">  </div><div class="line">  methods:</div><div class="line">    deleteDomain: (domain) -&gt;</div><div class="line">      index = @form.domains.indexOf domain</div><div class="line">      @form.domains.splice index, 1</div><div class="line">    </div><div class="line">    addDomain: -&gt;</div><div class="line">      @form.domains.push</div><div class="line">        value: &apos;&apos;</div><div class="line">        key: new Date()</div><div class="line">      </div><div class="line"></div><div class="line">    onSubmit: -&gt;</div><div class="line">      @$refs.form.validate (valid) -&gt;</div><div class="line">        return unless valid</div><div class="line">        alert &apos;submit&apos;    </div><div class="line"></div><div class="line">    reset: -&gt;</div><div class="line">      do @$refs.form.resetFields</div><div class="line">      </div><div class="line">  components:</div><div class="line">    ImageUpload: require &apos;./ImageUpload&apos;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;style lang=&quot;stylus&quot;&gt;</div><div class="line">  .el-form</div><div class="line">    margin: 20px auto</div><div class="line"></div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h1 id="表格的单选和多选"><a href="#表格的单选和多选" class="headerlink" title="表格的单选和多选"></a>表格的单选和多选</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div></pre></td><td class="code"><pre><div class="line">&lt;template lang=&quot;pug&quot;&gt;</div><div class="line">  .show-songs-list</div><div class="line">    el-table(</div><div class="line">      :data=&quot;tableData&quot;,</div><div class="line">      stripe,</div><div class="line">      ref=&quot;myForm&quot;,</div><div class="line">      style=&quot;width: 100%&quot;,</div><div class="line">      tooltip-effect=&quot;dark&quot;,</div><div class="line">      :reserve-selection=&quot;true&quot;,</div><div class="line">      @selection-change=&quot;handleSelectionChange&quot;)</div><div class="line">      el-table-column(</div><div class="line">        type=&quot;selection&quot;,</div><div class="line">        width=&quot;55&quot;)</div><div class="line">      el-table-column(</div><div class="line">        prop=&quot;date&quot;,</div><div class="line">        label=&quot;日期&quot;,</div><div class="line">        width=&quot;180&quot;)</div><div class="line">      el-table-column(</div><div class="line">        prop=&quot;name&quot;,</div><div class="line">        width=&quot;180&quot;,</div><div class="line">        label=&quot;姓名&quot;)</div><div class="line">      el-table-column(</div><div class="line">        prop=&quot;address&quot;,</div><div class="line">        :show-overflow-tooltip=&quot;true&quot;,</div><div class="line">        label=&quot;地址&quot;)</div><div class="line">    </div><div class="line">    </div><div class="line">    el-badge(:value=&quot;selectedList.length&quot;)</div><div class="line">      el-button(@click=&quot;add&quot;) 添加</div><div class="line">    el-dialog(title=&quot;选中列表&quot;, v-model=&quot;showList&quot;)</div><div class="line">      div(v-if=&quot;!selectedList.length&quot;) 暂时还没有数据</div><div class="line">      div(v-else)</div><div class="line">        h3 一共 &#123;&#123; selectedList.length &#125;&#125;</div><div class="line">        ul</div><div class="line">          li(v-for=&quot;item in selectedList&quot;)</div><div class="line">            | &#123;&#123; item.date &#125;&#125;</div><div class="line">            el-button(icon=&quot;delete&quot;, size=&quot;mini&quot;,</div><div class="line">            @click=&quot;deleteItem(item)&quot;)</div><div class="line">        el-button(@click=&quot;isOk&quot;) oK</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script lang=&quot;coffee&quot;&gt;</div><div class="line">module.exports =</div><div class="line">  data: -&gt;</div><div class="line">    selectedList: []</div><div class="line">    showList: false</div><div class="line">    tableData: [</div><div class="line">        date: &apos;2015-09-21&apos;</div><div class="line">        name: &apos;王小虎&apos;,</div><div class="line">        address: &apos;昌平区小辛庄村&apos;</div><div class="line">      ,</div><div class="line">        date: &apos;2015-09-21&apos;</div><div class="line">        name: &apos;王小虎&apos;,</div><div class="line">        address: &apos;昌平区小辛庄村&apos;</div><div class="line">      ,</div><div class="line">        date: &apos;2015-09-21&apos;</div><div class="line">        name: &apos;王小虎&apos;,</div><div class="line">        address: &apos;昌平区小辛庄村&apos;</div><div class="line">      ,</div><div class="line">        date: &apos;2015-09-21&apos;</div><div class="line">        name: &apos;王小虎&apos;,</div><div class="line">        address: &apos;昌平区小辛庄村&apos;</div><div class="line">      , </div><div class="line">        date: &apos;2015-09-21&apos;</div><div class="line">        name: &apos;王小虎&apos;,</div><div class="line">        address: &apos;昌平区小辛庄村&apos;</div><div class="line">    ]</div><div class="line">  methods:</div><div class="line">    handleSelectionChange: (selectList) -&gt;</div><div class="line">      @selectedList = selectList</div><div class="line">      console.log @selectedList</div><div class="line">    </div><div class="line">    add: -&gt;</div><div class="line">      @showList = true</div><div class="line">    </div><div class="line">    isOk: -&gt;</div><div class="line">      do @$refs.myForm.clearSelection</div><div class="line">      @selectedList = []</div><div class="line">      @showList = false</div><div class="line">    </div><div class="line">    deleteItem: (item) -&gt;</div><div class="line">      @selectedList.splice (@selectedList.indexOf item), 1</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;style lang=&quot;stylus&quot;&gt;</div><div class="line">  .el-table</div><div class="line">    margin: 20px auto</div><div class="line"></div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/组件/" rel="tag"><i class="fa fa-tag"></i> 组件</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/14/Git/git工作中常见操作详解/" rel="next" title="git工作中常见操作详解">
+                <i class="fa fa-chevron-left"></i> git工作中常见操作详解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/30/Vue/vue2.0知识点总结/" rel="prev" title="vue2.0知识点总结">
+                vue2.0知识点总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="吴鹏丽" />
+          <p class="site-author-name" itemprop="name">吴鹏丽</p>
+          <p class="site-description motion-element" itemprop="description">分享技术文章</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wplnancy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在v-for中动态的绑定多次"><span class="nav-number">1.</span> <span class="nav-text">在v-for中动态的绑定多次</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表单的验证"><span class="nav-number">2.</span> <span class="nav-text">表单的验证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表格的单选和多选"><span class="nav-number">3.</span> <span class="nav-text">表格的单选和多选</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴鹏丽</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("kVQS72YAARanOhfIvaizJsHt-gzGzoHsz", "lHVjxBcTRxAxHuLCu4RBJdNr");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

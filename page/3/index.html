@@ -145,11 +145,11 @@
       author: '博主'
     },
     algolia: {
-      applicationID: '0C1U6R7LV2',
-      apiKey: 'a96c1e0b0a38ddfac493e982f14a7c42',
-      indexName: 'index',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
     }
   };
 </script>
@@ -163,6 +163,10 @@
 
 
   <title> wupengli Blog </title>
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+ 
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -188,6 +192,15 @@
 
 
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-112036999-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
   <script type="text/javascript">
@@ -218,7 +231,7 @@
    page-home 
  ">
     <div class="headband"></div>
-
+    <a href="https://github.com/wplnancy" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
@@ -262,6 +275,30 @@
 
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+
+
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -280,6 +317,18 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
+          </a>
+        </li>
+
+
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
           </a>
         </li>
 
@@ -304,7 +353,6 @@
   
     <div class="site-search">
       
-  
   <div class="algolia-popup popup">
     <div class="algolia-search">
       <div class="algolia-search-input-icon">
@@ -312,18 +360,15 @@
       </div>
       <div class="algolia-search-input" id="algolia-search-input"></div>
     </div>
-
     <div class="algolia-results">
       <div id="algolia-stats"></div>
       <div id="algolia-hits"></div>
       <div id="algolia-pagination" class="algolia-pagination"></div>
     </div>
-
     <span class="popup-btn-close">
       <i class="fa fa-times-circle"></i>
     </span>
   </div>
-
 
 
 
@@ -352,7 +397,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/16/ES6常用语法总结/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/27/Work/如何升级自己的项目/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="吴鹏丽">
@@ -377,8 +422,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/02/16/ES6常用语法总结/" itemprop="url">
-                  ES6常用语法总结
+                <a class="post-title-link" href="/2017/07/27/Work/如何升级自己的项目/" itemprop="url">
+                  如何升级自己的项目相关包的依赖
                 </a>
               
             
@@ -394,8 +439,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-16T08:22:42+08:00">
-                2017-02-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-27T14:40:25+08:00">
+                2017-07-27
               </time>
             
 
@@ -408,21 +453,11 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/02/16/ES6常用语法总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/16/ES6常用语法总结/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
           
-             <span id="/2017/02/16/ES6常用语法总结/" class="leancloud_visitors" data-flag-title="ES6常用语法总结">
+             <span id="/2017/07/27/Work/如何升级自己的项目/" class="leancloud_visitors" data-flag-title="如何升级自己的项目相关包的依赖">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -453,12 +488,14 @@
       
         
           
-          ECMAScript6ECMAScript简称就是ES,你可以把它看成是一套标准,JavaScript就是实施了这套标准的一门语言 现在主流浏览器使用的是ECMAScript5
-babel在我们正式讲解ES6语法之前，我们得先了解下Babel。Babel是一个广泛使用的ES6转码器，可以将ES6代码
+          如何查看项目中安装包的版本比如查看webpack的版本
+1npm ls webpack
+npm-check-updates 是一个工具，它使用所有依赖项的最新版本自动调整 package.json
+(参见)[https://www.npmjs.org/package/npm-check-update
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/02/16/ES6常用语法总结/#more" rel="contents">
+            <a class="btn" href="/2017/07/27/Work/如何升级自己的项目/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -501,7 +538,7 @@ babel在我们正式讲解ES6语法之前，我们得先了解下Babel。Babel�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/15/模块/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/02/Node/node基础/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="吴鹏丽">
@@ -526,8 +563,8 @@ babel在我们正式讲解ES6语法之前，我们得先了解下Babel。Babel�
             
               
                 
-                <a class="post-title-link" href="/2017/02/15/模块/" itemprop="url">
-                  模块
+                <a class="post-title-link" href="/2017/07/02/Node/node基础/" itemprop="url">
+                  node基础
                 </a>
               
             
@@ -543,8 +580,8 @@ babel在我们正式讲解ES6语法之前，我们得先了解下Babel。Babel�
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-15T16:04:41+08:00">
-                2017-02-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-02T20:22:57+08:00">
+                2017-07-02
               </time>
             
 
@@ -557,21 +594,11 @@ babel在我们正式讲解ES6语法之前，我们得先了解下Babel。Babel�
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/02/15/模块/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/15/模块/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
           
-             <span id="/2017/02/15/模块/" class="leancloud_visitors" data-flag-title="模块">
+             <span id="/2017/07/02/Node/node基础/" class="leancloud_visitors" data-flag-title="node基础">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -602,16 +629,16 @@ babel在我们正式讲解ES6语法之前，我们得先了解下Babel。Babel�
       
         
           
-          js不足
-js没有模块系统，不支持封闭作用域或依赖管理
-没有标准库，没有文件系统API
-没有包管理系统，不能自动加载和安装依赖
+          node的优势
+性能高
+和前端的js配合很方便
 
-什么是Common.jsCommonJS 是javascript模块化编程的一种规范，主要是在服务器端模块化的规范，一个单独的文件就是一个模块。每一个模块都是一个单独的作
-          ...
+
+
+          
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/02/15/模块/#more" rel="contents">
+            <a class="btn" href="/2017/07/02/Node/node基础/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -654,7 +681,7 @@ js没有模块系统，不支持封闭作用域或依赖管理
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/15/服务/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/29/React/react学习/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="吴鹏丽">
@@ -679,8 +706,8 @@ js没有模块系统，不支持封闭作用域或依赖管理
             
               
                 
-                <a class="post-title-link" href="/2017/02/15/服务/" itemprop="url">
-                  服务
+                <a class="post-title-link" href="/2017/06/29/React/react学习/" itemprop="url">
+                  react学习
                 </a>
               
             
@@ -696,8 +723,8 @@ js没有模块系统，不支持封闭作用域或依赖管理
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-15T08:04:34+08:00">
-                2017-02-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-29T16:13:56+08:00">
+                2017-06-29
               </time>
             
 
@@ -710,21 +737,11 @@ js没有模块系统，不支持封闭作用域或依赖管理
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/02/15/服务/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/15/服务/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
           
-             <span id="/2017/02/15/服务/" class="leancloud_visitors" data-flag-title="服务">
+             <span id="/2017/06/29/React/react学习/" class="leancloud_visitors" data-flag-title="react学习">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -755,12 +772,15 @@ js没有模块系统，不支持封闭作用域或依赖管理
       
         
           
-          服务angular会自动创建实例并注入，不需要手工创建 service在整个应用的生命周期存在，可以共享数据，服务只会实例化一次，在angular中创建服务的方式有五种，但是多数的情况下会使用app.factory来创建服务。下面就具体的介绍一下这五种创建方式的异同点
-constant服务app.c
+          react网站关于开发规范
+全栈工程师技术栈：两种类型mongodb express react node redux webpackMongoDB+Express+Angular+Node
+但是如果要成为一个全战工程师，还需要多看有关后台的东西，比如 Python
+react的学习资源
+学习rea
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/02/15/服务/#more" rel="contents">
+            <a class="btn" href="/2017/06/29/React/react学习/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -803,7 +823,7 @@ constant服务app.c
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/14/angular知识点扫盲/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/26/FontEnd/成为优秀前端攻城狮必看/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="吴鹏丽">
@@ -828,8 +848,8 @@ constant服务app.c
             
               
                 
-                <a class="post-title-link" href="/2017/02/14/angular知识点扫盲/" itemprop="url">
-                  angular知识点扫盲
+                <a class="post-title-link" href="/2017/06/26/FontEnd/成为优秀前端攻城狮必看/" itemprop="url">
+                  成为优秀前端攻城狮必看
                 </a>
               
             
@@ -845,8 +865,8 @@ constant服务app.c
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-14T18:16:37+08:00">
-                2017-02-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-26T16:49:06+08:00">
+                2017-06-26
               </time>
             
 
@@ -859,21 +879,11 @@ constant服务app.c
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/02/14/angular知识点扫盲/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/14/angular知识点扫盲/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
           
-             <span id="/2017/02/14/angular知识点扫盲/" class="leancloud_visitors" data-flag-title="angular知识点扫盲">
+             <span id="/2017/06/26/FontEnd/成为优秀前端攻城狮必看/" class="leancloud_visitors" data-flag-title="成为优秀前端攻城狮必看">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -904,19 +914,11 @@ constant服务app.c
       
         
           
-          模块的概念angular是典型的MVVM的框架
-
-Model:数据模型层
-viewModel:视图模型层
-Controller:控制器，控制逻辑
-
-ng-app=&quot;myApp&quot;
-
-启动angular项目的，myApp表示通过模块来启动项目，会产生一个根作用域（全局作用域）一切从模
+          CSS Animation性能优化CSS Animation是实现Web Animation方法之一，其主要通过@keyframes和animation-*或者transition来实现一些Web动效。不过今天我们聊的不是怎么制作Web动画，下面将会介绍：CSS Animation性能相关的话题。下
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/02/14/angular知识点扫盲/#more" rel="contents">
+            <a class="btn" href="/2017/06/26/FontEnd/成为优秀前端攻城狮必看/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -959,7 +961,7 @@ ng-app=&quot;myApp&quot;
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/14/node中的events事件/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/26/CSS/淘宝flexible布局介绍/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="吴鹏丽">
@@ -984,8 +986,8 @@ ng-app=&quot;myApp&quot;
             
               
                 
-                <a class="post-title-link" href="/2017/02/14/node中的events事件/" itemprop="url">
-                  node中的events事件
+                <a class="post-title-link" href="/2017/06/26/CSS/淘宝flexible布局介绍/" itemprop="url">
+                  淘宝flexible布局介绍
                 </a>
               
             
@@ -1001,8 +1003,8 @@ ng-app=&quot;myApp&quot;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-14T17:37:57+08:00">
-                2017-02-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-26T16:20:00+08:00">
+                2017-06-26
               </time>
             
 
@@ -1015,21 +1017,11 @@ ng-app=&quot;myApp&quot;
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/02/14/node中的events事件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/14/node中的events事件/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
           
-             <span id="/2017/02/14/node中的events事件/" class="leancloud_visitors" data-flag-title="node中的events事件">
+             <span id="/2017/06/26/CSS/淘宝flexible布局介绍/" class="leancloud_visitors" data-flag-title="淘宝flexible布局介绍">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1060,11 +1052,12 @@ ng-app=&quot;myApp&quot;
       
         
           
-          观察者模式有时被称作发布/订阅模式，观察者模式定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态发生变化时，会通知所有观察者对象，使它们能够自动更新自己。举个再简单不过的例子：张三后天结婚，他通知他的朋友后天来喝喜酒，等到了那一天，大家都过来庆祝张三结婚，在这里面
-          ...
+          淘宝flexible布局实现终端适配暂时不多说什么，先贴上github上的官网的链接： [https://github.com/wplnancy/lib-flexible]
+
+          
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/02/14/node中的events事件/#more" rel="contents">
+            <a class="btn" href="/2017/06/26/CSS/淘宝flexible布局介绍/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1107,7 +1100,7 @@ ng-app=&quot;myApp&quot;
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/12/流/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/26/HTML/meta标签的作用/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="吴鹏丽">
@@ -1132,8 +1125,8 @@ ng-app=&quot;myApp&quot;
             
               
                 
-                <a class="post-title-link" href="/2017/02/12/流/" itemprop="url">
-                  流
+                <a class="post-title-link" href="/2017/06/26/HTML/meta标签的作用/" itemprop="url">
+                  常见的 meta 标签
                 </a>
               
             
@@ -1149,8 +1142,8 @@ ng-app=&quot;myApp&quot;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-12T23:57:37+08:00">
-                2017-02-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-26T15:56:29+08:00">
+                2017-06-26
               </time>
             
 
@@ -1163,21 +1156,11 @@ ng-app=&quot;myApp&quot;
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/02/12/流/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/12/流/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
           
-             <span id="/2017/02/12/流/" class="leancloud_visitors" data-flag-title="流">
+             <span id="/2017/06/26/HTML/meta标签的作用/" class="leancloud_visitors" data-flag-title="常见的 meta 标签">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1208,12 +1191,15 @@ ng-app=&quot;myApp&quot;
       
         
           
-          流的概念流是一组有序的，有起点和终点的字节数据传输手段 它不关心文件的整体内容，只关注是否从文件中读到了数据，以及读到数据之后的处理 流是一个抽象接口，被 Node中的很多对象所实现。比如HTTP 服务器request和response对象都是流。
-可读流createReadStream实现了str
+          关于移动端 meta 标签的用法meta 标签 [http://dwz.cn/6P3rb3]
+
+收集到比较全的 meta 标签的用法如下：
+
+123456789101112131415161718192021222324252627282930313233&lt;!DOCTYPE html&gt;&
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/02/12/流/#more" rel="contents">
+            <a class="btn" href="/2017/06/26/HTML/meta标签的作用/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1251,7 +1237,7 @@ ng-app=&quot;myApp&quot;
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1294,7 +1280,7 @@ ng-app=&quot;myApp&quot;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1305,7 +1291,7 @@ ng-app=&quot;myApp&quot;
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1363,7 +1349,7 @@ ng-app=&quot;myApp&quot;
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1480,43 +1466,32 @@ ng-app=&quot;myApp&quot;
 
   
 
-  
-    
-  
 
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"wupengli"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
 
   
-    
-      
-      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+
+
+
+
+	
+
+
+
+
+
   
 
 
 
 
 
+  
 
 
 
 
 
+  
 
 
 
@@ -1637,19 +1612,6 @@ ng-app=&quot;myApp&quot;
   
 
   
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
-
 
 
 </body>
