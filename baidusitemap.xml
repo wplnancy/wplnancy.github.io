@@ -225,23 +225,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/11/09/ES6/Promise%20%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
-    <lastmod>2017-11-27T13:52:31.948Z</lastmod>
-    <data>
-        <display>
-        <title>Promise 必知必会的面试题</title>
-        <pubTime>2017-11-09T05:50:00.000Z</pubTime>
-        
-        <tag>ES6</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2017/06/26/HTML/meta%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BD%9C%E7%94%A8/</loc>
     <lastmod>2017-11-27T13:52:31.948Z</lastmod>
     <data>
@@ -259,12 +242,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/05/29/ES6/ES6%E4%B8%AD%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</loc>
-    <lastmod>2017-11-27T13:52:31.947Z</lastmod>
+    <loc>http://yoursite.com/2017/11/09/ES6/Promise%20%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
+    <lastmod>2017-11-27T13:52:31.948Z</lastmod>
     <data>
         <display>
-        <title>ES6基础语法</title>
-        <pubTime>2017-05-29T06:51:35.000Z</pubTime>
+        <title>Promise 必知必会的面试题</title>
+        <pubTime>2017-11-09T05:50:00.000Z</pubTime>
         
         <tag>ES6</tag>
          
@@ -282,6 +265,23 @@
         <display>
         <title>ES6常用语法总结</title>
         <pubTime>2017-02-16T00:22:42.000Z</pubTime>
+        
+        <tag>ES6</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/05/29/ES6/ES6%E4%B8%AD%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</loc>
+    <lastmod>2017-11-27T13:52:31.947Z</lastmod>
+    <data>
+        <display>
+        <title>ES6基础语法</title>
+        <pubTime>2017-05-29T06:51:35.000Z</pubTime>
         
         <tag>ES6</tag>
          
@@ -495,21 +495,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/07/27/Npm/%E5%A6%82%E4%BD%95%E5%8D%87%E7%BA%A7%E8%87%AA%E5%B7%B1%E7%9A%84%E9%A1%B9%E7%9B%AE/</loc>
-    <lastmod>2017-09-10T16:42:35.710Z</lastmod>
-    <data>
-        <display>
-        <title>如何升级自己的项目相关包的依赖</title>
-        <pubTime>2017-07-27T06:40:25.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2017/07/31/Npm/%E6%AF%94npm%E6%9B%B4%E5%8A%A0%E5%BC%BA%E5%A4%A7%E7%9A%84yarn/</loc>
     <lastmod>2017-09-10T16:42:35.710Z</lastmod>
     <data>
@@ -527,6 +512,21 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/07/27/Npm/%E5%A6%82%E4%BD%95%E5%8D%87%E7%BA%A7%E8%87%AA%E5%B7%B1%E7%9A%84%E9%A1%B9%E7%9B%AE/</loc>
+    <lastmod>2017-09-10T16:42:35.710Z</lastmod>
+    <data>
+        <display>
+        <title>如何升级自己的项目相关包的依赖</title>
+        <pubTime>2017-07-27T06:40:25.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/02/11/Node/%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90node%E4%B8%AD%E7%9A%84Buffer/</loc>
     <lastmod>2017-09-10T16:42:35.709Z</lastmod>
     <data>
@@ -535,6 +535,23 @@
         <pubTime>2017-02-11T08:23:14.000Z</pubTime>
         
         <tag>Buffer</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/08/04/Node/%E4%BB%80%E4%B9%88%E6%98%AFcommonjs/</loc>
+    <lastmod>2017-09-10T16:42:35.708Z</lastmod>
+    <data>
+        <display>
+        <title>什么是commonjs</title>
+        <pubTime>2017-08-04T06:36:17.000Z</pubTime>
+        
+        <tag>CommonJS</tag>
          
          
            
@@ -561,14 +578,14 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/08/04/Node/%E4%BB%80%E4%B9%88%E6%98%AFcommonjs/</loc>
-    <lastmod>2017-09-10T16:42:35.708Z</lastmod>
+    <loc>http://yoursite.com/2017/09/08/Nginx/%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%BD%95%E5%8F%91%E5%B8%83%E4%B8%8A%E7%BA%BF/</loc>
+    <lastmod>2017-09-10T16:42:35.707Z</lastmod>
     <data>
         <display>
-        <title>什么是commonjs</title>
-        <pubTime>2017-08-04T06:36:17.000Z</pubTime>
+        <title>项目如何发布上线</title>
+        <pubTime>2017-09-08T04:27:15.000Z</pubTime>
         
-        <tag>CommonJS</tag>
+        <tag>nginx</tag>
          
          
            
@@ -601,23 +618,6 @@
         <pubTime>2017-07-02T12:22:57.000Z</pubTime>
         
         <tag>node</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/09/08/Nginx/%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%BD%95%E5%8F%91%E5%B8%83%E4%B8%8A%E7%BA%BF/</loc>
-    <lastmod>2017-09-10T16:42:35.707Z</lastmod>
-    <data>
-        <display>
-        <title>项目如何发布上线</title>
-        <pubTime>2017-09-08T04:27:15.000Z</pubTime>
-        
-        <tag>nginx</tag>
          
          
            
@@ -746,12 +746,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/02/11/Angular/$parse%20%E5%92%8C%20$eval%20%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
+    <loc>http://yoursite.com/2017/02/27/Angular/angular%E4%B8%AD%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96%E5%92%8C%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</loc>
     <lastmod>2017-09-10T16:42:35.697Z</lastmod>
     <data>
         <display>
-        <title>$parse 和  $eval  区别</title>
-        <pubTime>2017-02-10T16:49:29.000Z</pubTime>
+        <title>angular中的模块化和依赖注入</title>
+        <pubTime>2017-02-27T07:37:34.000Z</pubTime>
         
         <tag>angular</tag>
          
@@ -763,12 +763,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/02/27/Angular/angular%E4%B8%AD%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96%E5%92%8C%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</loc>
+    <loc>http://yoursite.com/2017/02/11/Angular/$parse%20%E5%92%8C%20$eval%20%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
     <lastmod>2017-09-10T16:42:35.697Z</lastmod>
     <data>
         <display>
-        <title>angular中的模块化和依赖注入</title>
-        <pubTime>2017-02-27T07:37:34.000Z</pubTime>
+        <title>$parse 和  $eval  区别</title>
+        <pubTime>2017-02-10T16:49:29.000Z</pubTime>
         
         <tag>angular</tag>
          
